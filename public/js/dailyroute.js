@@ -17,7 +17,7 @@ dailyRoute.controller('dailyController', ['$scope', '$http', '$compile', functio
     
     console.log(myRoutes);
     //if the user has no routes
-    if(myRoutes == "[]" || myRoutes == null){
+    if(myRoutes == "[]" || myRoutes == null || myRoutes == "null"){
         console.log("there are no routes");
         dailyContent.html(noRoutesContent);
     }
