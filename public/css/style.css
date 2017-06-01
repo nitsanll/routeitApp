@@ -132,7 +132,7 @@
 
 	#dailyTripDetails {
 		position: fixed;
-		height: 15%;
+		height: 17%;
 		bottom: 0px;
 		width:100%;
 		background: #40404A;
@@ -221,7 +221,7 @@
 		background: #EFA19D;
 		opacity: 0.7;
 		width: 100%;
-		height: 7%;
+		height: 10%;
 		position: fixed;
 		z-index: 100;
 	}
@@ -239,7 +239,7 @@
 		margin: 0px;
 		font-size: 1.2em;
 		font-family: 'openSansExBold';
-		padding-top: 1%;
+		padding-top: 2%;
 		padding-right: 2%;
 		top: 10%;	
 		color: #443B4D;
@@ -251,7 +251,8 @@
 		margin: 0px;
 		font-size: 1em;
 		font-family: 'openSansExBold';
-		padding: 2%;
+		padding-top: 3%;
+		padding-right: 2%;
 		top: 12.5%;	
 		color: #443B4D;
 		position: fixed;
@@ -300,7 +301,7 @@
 		background: #F35843;
 		color: #ffffff;
 		font-family: 'openSansBold';
-		font-size: 1.4em;
+		font-size: 1.3em;
 		padding: 2% 4% 2% 4%;
 	}
 
@@ -1038,7 +1039,7 @@
 	}
 
 	/* The actual popup */
-	.popuptext, .popuptext1 {
+	.popuptext, .popuptext1, .popuptext2 {
 	    visibility: hidden;
 	    width: 85%;
 	    height: 150px;
@@ -1058,6 +1059,10 @@
 
 	.popuptext1 {
 		padding: 0px;
+	}
+
+	.popuptext2 {
+		height: 160px;
 	}
 
 	.noPadding {
