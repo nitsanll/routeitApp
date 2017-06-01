@@ -221,7 +221,7 @@
 		background: #EFA19D;
 		opacity: 0.7;
 		width: 100%;
-		height: 10%;
+		height: 8%;
 		position: fixed;
 		z-index: 100;
 	}
@@ -251,7 +251,7 @@
 		margin: 0px;
 		font-size: 1em;
 		font-family: 'openSansExBold';
-		padding-top: 3%;
+		padding-top: 5%;
 		padding-right: 2%;
 		top: 12.5%;	
 		color: #443B4D;
