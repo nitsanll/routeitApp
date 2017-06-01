@@ -138,6 +138,7 @@ function initMap() {
                     alertMarkers[i] = new google.maps.Marker({
                         position: coord,
                         map: map,
+                        icon: "../images/ALERT.png",
                         title: dayAlerts[i].content
                     });
                     var infowindow = new google.maps.InfoWindow();
