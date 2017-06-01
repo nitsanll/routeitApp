@@ -208,12 +208,14 @@ userRoutes.controller('RoutesController', ['$scope', '$http', '$compile', functi
                         break;
                     }
                 }
-                for(var i = 0; i<dailyRoutesArr.length; i++){
-                    if(dailyRoutesArr[i].trip_id == tripId){
-                        console.log("found the updated route!");
-                        dailyRoutesArr.splice(i,1);
-                        localStorage.setItem("dailyRoutes", JSON.stringify(dailyRoutesArr));
-                        break;
+                if(dailyRoutesArr.length!=0){
+                    for(var i = 0; i<dailyRoutesArr.length; i++){
+                        if(dailyRoutesArr[i].trip_id == tripId){
+                            console.log("found the updated route!");
+                            dailyRoutesArr.splice(i,1);
+                            localStorage.setItem("dailyRoutes", JSON.stringify(dailyRoutesArr));
+                            break;
+                        }
                     }
                 }
                 $scope.showMyRoutes();          
@@ -236,12 +238,14 @@ userRoutes.controller('RoutesController', ['$scope', '$http', '$compile', functi
                     break;
                 }
             }
-            for(var i = 0; i<dailyRoutesArr.length; i++){
-                if(dailyRoutesArr[i].trip_id == tripId){
-                    console.log("found the updated route!");
-                    dailyRoutesArr.splice(i,1);
-                    localStorage.setItem("dailyRoutes", JSON.stringify(dailyRoutesArr));
-                    break;
+            if(dailyRoutesArr.length!=0){
+                for(var i = 0; i<dailyRoutesArr.length; i++){
+                    if(dailyRoutesArr[i].trip_id == tripId){
+                        console.log("found the updated route!");
+                        dailyRoutesArr.splice(i,1);
+                        localStorage.setItem("dailyRoutes", JSON.stringify(dailyRoutesArr));
+                        break;
+                    }
                 }
             }
             $scope.showMyRoutes();          
