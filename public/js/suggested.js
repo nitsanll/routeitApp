@@ -103,8 +103,8 @@ suggestedRoute.controller('SuggestedController', ['$rootScope', '$scope', '$http
         var url = "https://routeit-ws.herokuapp.com/addRoute/" + tripId + "/" + email;
         $http.get(url).success(function(route){
             if(route != "routeNotAdded"){ 
-                /*var routeStr = JSON.stringify(route); 
-                localStorage.setItem("currentRoute", routeStr);*/
+                var routeStr = JSON.stringify(route); 
+                localStorage.setItem("currentRoute", routeStr);
                 var myRoutes = localStorage.getItem("myRoutes");
                 //if 'my routes' is empty
                 if(myRoutes == "null") {
