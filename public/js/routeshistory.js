@@ -30,7 +30,7 @@ routesHistory.controller('RoutesHistoryController', ['$rootScope', '$scope', '$h
     //function that shows traveler's 'previous routes'
     $scope.showRoutesHistory = function(){
         var allPrevRoutes = [];
-        if(prevRoutesArr == [] || prevRoutesArr == "[]") {
+        if(prevRoutesArr.length == 0) {
              angular.element(document.querySelector('#content')).html('<h2 class="noRoutesHead"> לא קיימים מסלולים</h2>');
         } else {
             for(var i = 0; i<prevRoutesArr.length; i++){

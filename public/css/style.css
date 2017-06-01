@@ -513,6 +513,11 @@
 		border:none;
 	}
 
+	.noRoutesHead {
+		text-align: center;
+		font-size: 1.2em;
+	}
+
 	.historyDeleteBtn {
 		position: absolute;
 		width: 10%;

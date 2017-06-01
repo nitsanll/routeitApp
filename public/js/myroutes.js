@@ -55,10 +55,9 @@ userRoutes.controller('RoutesController', ['$scope', '$http', '$compile', functi
         myRoutesArr = JSON.parse(localStorage.getItem("myRoutes"));
         console.log(myRoutesArr);
         //set current route to null if there are no routes in 'my routes'
-        if(myRoutesArr == null || myRoutesArr == "[]") {
+        if(myRoutesArr == null || myRoutesArr == "[]" || myRoutesArr.length == 0) {
             console.log("my routes is empty!");
-            var contentElem = angular.element(document.querySelector('#content'));
-            contentElem.html('<h2 class="noRoutesHead"> לא קיימים מסלולים</h2>');
+            angular.element(document.querySelector('#content')).html('<h2 class="noRoutesHead"> לא קיימים מסלולים</h2>');
             localStorage.setItem("currentRoute", null);
         }
 
