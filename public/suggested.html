@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html ng-app="suggestedRoute">
+    <head>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta charset="utf-8">
+        <meta name="google-signin-client_id" content="296256466166-pdh58rh53nihcc5tfh184vmautajqsup.apps.googleusercontent.com">
+        <title>Suggested Route</title>
+        <link href='https://fonts.googleapis.com/css?family=Alef' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="https://apis.google.com/js/platform.js" async defer></script>   
+    </head>
+    <body ng-controller = "SuggestedController">
+        <header> 
+            <button class="hamburger">&#9776;</button>
+            <a class = "appLogo" href="https://routeit-app.herokuapp.com/dailyroute.html"></a>
+            <button id="back" class="back" ng-click="goBack()"> &#10095;  </button> 
+        </header>
+        <nav class="menu">
+            <ul>
+                <a href="https://routeit-app.herokuapp.com/userprofile.html"><li><img class = "userPic" src={{img}}><br>
+                    <h4 id = "userName"><b> {{name}} </b></h4>     
+                </li></a>
+                <a href="https://routeit-app.herokuapp.com/myroutes.html"><li id="myRoutesLi" > המסלולים שלי </li></a>
+                <a href="https://routeit-app.herokuapp.com/routeshistory.html"><li id="historyLi"> הסטוריית מסלולים </li></a>
+                <a href="https://routeit-app.herokuapp.com/routeform.html"><li id="planLi"> תכנון מסלול חדש </li></a>
+                <a href="https://routeit-app.herokuapp.com/dailyroute.html"><li id="dailyLi"> יום הטיול </li></a>
+            </ul>
+        </nav> 
+        <main id="sugMain" class="pageMain">
+            <div id="pageMask"></div>
+            <div id = #popup>
+                <span class="noPadding popuptext" id="myPopup"><span id="attention"> <b>שים לב!</b> <br> מסלולך לא יישמר <br></span><span id="stay" ng-click="stay()"> הישאר בעמוד </span> <span id="close" ng-click="back()"> חזור בכל זאת </span></span>
+            </div>
+            <section id="suggestedMap">
+                <div id="map"></div>
+            </section>
+            <h4 id="sugHead"> המסלול המוצע </h4>
+            <section id="routeOverview">
+            	<div id="sugOverview">
+                    <div id="sugDesc">
+                        <img id="ptsIcon" src="images/LOCATION_PIN.png">
+                        <p id="sugPts"> נק' התחלה: {{tripStartPt}} <br>
+                        נק' סיום: {{tripEndPt}} </p>
+                        <p id="sugDiff">
+                            <b> רמת קושי: </b><br> {{tripDiff}}
+                        </p>
+                        <p id="sugDisabled"><!-- אופי הטיול: <span ng-repeat = "type in tripType"> {{type}} </span> <br> --></p> 
+                        <button id="addRoute"ng-click="addRoute()"> הוסף <br> למסלולים <br> שלי </button>
+                    </div>
+                    <div id="sugDetails">
+                        <p id="sugArea" class="sugDetail"> אזור: <br><span class ="smallFont"> {{area}} </span></p>
+                        <p id="sugDir"  class="sugDetail"> כיוון: <br><span class ="smallFont"> {{direction}} </span></p>
+                        <p id="sugDaysNum"  class="sugDetail"> מס' ימים: <br><span class="biggerFont"> {{tripDaysNum}} </span></p>
+                        <p id="sugKmDay"  class="sugDetail"> מס' ק"מ ליום: <br><span class="biggerFont"> {{tripDayKm}} </span></p>
+                        <p id="sugKm" class="sugDetail"> מס' ק"מ כולל: <br><span class="biggerFont"> {{tripKm}} </span></p>
+                        <div class="clear"></div>
+                        <button id="showDays" ng-click="showHide()">  </button>
+                    </div>
+                    <section id="dailySecs" class = "hidden"> 
+                    </section>
+                <div>
+            </section>
+        </main>
+        <footer> 
+            <div class="g-signin2 hidden" id = "signInRoute" data-onsuccess="onSignIn"></div>
+            <div class = "clear"> </div>
+        </footer>
+        <script src="js/suggestedMap.js"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClX7NRDum6_i6RO1SXeH9_REWSulwtA5c&language=iw&callback=initMap">
+        </script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+        <script src="js/lib/angular/angular.min.js"></script>
+        <script src="js/menu.js"></script>
+        <script src="js/suggested.js"></script>
+    </body>
+ </html>
