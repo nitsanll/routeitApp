@@ -17,7 +17,13 @@ login.controller('UserController', ['$scope','$http', function($scope, $http){
 
         var url = "https://routeit-ws.herokuapp.com/createTraveler/" + email +"/" + name + "/" + image;
         $http.get(url).success(function(data){
-            if(data == "userExists") {}
+            if(data == "userExists") {
+                $http.get("https://routeit-ws.herokuapp.com/getIdCounter/" + email).success(function(data){
+                    localStorage.setItem("idCounter", data);
+                    console.log(data);
+                    //window.location.assign("https://routeit-app.herokuapp.com/dailyroute.html");
+                });
+            }
             else {
                 localStorage.setItem("idCounter", 0);
                 localStorage.setItem("currentRoute", null);
@@ -25,8 +31,8 @@ login.controller('UserController', ['$scope','$http', function($scope, $http){
                 localStorage.setItem("myRoutes", null);
                 localStorage.setItem("dailyRoutes", null);
                 localStorage.setItem("currentDailyRoute", null);
-            }
-            window.location.assign("https://routeit-app.herokuapp.com/dailyroute.html");
+                window.location.assign("https://routeit-app.herokuapp.com/dailyroute.html");
+            } 
         });
     }
 
