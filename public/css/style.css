@@ -825,8 +825,8 @@
 		width: 90%;
 		background: #3B4151;
 		margin: 0px auto;
-		height: 45px;
 		position: relative;
+		padding: 1%;
 	}
 
 	#ptsIcon, #sugPts, #sugDiff, #sugDisabled {
@@ -840,8 +840,8 @@
 
 	#sugPts {
 		color: #DE604A;
-		font-family: 'openSansBold';
-		font-size: 0.8em;
+		font-family: 'openSansExBold';
+		font-size: 0.9em;
 		width: 40%;
 		margin-right: 1%;
 		margin-top: 1%;
@@ -851,8 +851,8 @@
 	#sugDiff {
 		color: #D9F1FB;
 		border-left: 1px solid #DE604A;
-		font-size: 0.6em;
-		width: 20%;
+		font-size: 0.7em;
+		width: 22%;
 		margin-top: 1%;
 		margin-bottom: 1%;
 	}
@@ -863,17 +863,18 @@
 
 	#addRoute {
 		position: absolute;
-		bottom: 40%;
-		left: 2%;
+		bottom: 35%;
+		left: 1%;
 		background: #F35843;
-		width: 14%;
+		width: 15%;
 		padding-top: 2%;
 		padding-bottom: 2%;
 		border-radius: 50%;
 		text-align: center;
-		font-size: 0.6em;
+		font-size: 0.7em;
 		color: #ffffff; 
 		border: none;
+		font-family: 'openSansBold';
 	}
 
 	#sugDetails {
@@ -991,12 +992,10 @@
 	.sugDayDetail1 {
 		width: 25%;
 		font-size: 0.8em;
-		//padding: 1%;
 		text-align: center;
 		float:right;
-		//height: 45px;
-		//margin-top: 2%;
 		color: #3A4151;
+		font-family: 'openSansBold';
 	}
 
 	#stay, #close, #sendAlert, #stopAlert {
