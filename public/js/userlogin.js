@@ -18,11 +18,12 @@ login.controller('UserController', ['$scope','$http', function($scope, $http){
         var url = "https://routeit-ws.herokuapp.com/createTraveler/" + email +"/" + name + "/" + image;
         $http.get(url).success(function(data){
             if(data == "userExists") {
-                $http.get("https://routeit-ws.herokuapp.com/getIdCounter/" + email).success(function(data){
+                /*$http.get("https://routeit-ws.herokuapp.com/getIdCounter/" + email).success(function(data){
                     //localStorage.setItem("idCounter", data.id_counter);
                     console.log(data.id_counter);
                     //window.location.assign("https://routeit-app.herokuapp.com/dailyroute.html");
-                });
+                });*/
+                window.location.assign("https://routeit-app.herokuapp.com/dailyroute.html");
             }
             else {
                 localStorage.setItem("idCounter", 0);
