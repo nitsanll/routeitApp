@@ -98,7 +98,7 @@ dailyRoute.controller('dailyController', ['$scope', '$http', '$compile', functio
             }
             //if the user has routes for the curret day that weren't chosen yet
             else {
-                //localStorage.setItem("currentDailyRoute", JSON.stringify(dailyRoutesArr[0]));
+                localStorage.setItem("currentDailyRoute", JSON.stringify(dailyRoutesArr[0]));
                 console.log("there are routes planned for today");
                 htmlContent = '<div id = "map"></div><div id="dayHeadlineDiv"></div><h1 id="dayHeadline">' + currentDayStr + ', ' + currentDateStr + '</h1>' +
                 '<a id="routesExist" href="https://routeit-app.herokuapp.com/chosenroutes.html"> קיים/ים מסלול/ים עבור יום זה &nbsp;&nbsp;&nbsp; >> </a>';
