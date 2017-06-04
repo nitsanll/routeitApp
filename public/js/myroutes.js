@@ -197,7 +197,7 @@ userRoutes.controller('RoutesController', ['$scope', '$http', '$compile', functi
         //update the dates in database and in local variable myRoutesArr
         if(date == null) {}
         else {
-            consolel.log("date: " + date);
+            console.log("date: " + date);
             //$http.get("https://routeit-ws.herokuapp.com/updateDates/" + userMail + "/" + tripId + "/" + date + "/" + daysNum + "/no/no").success(function(route){
                 //console.log(route);
                 /*var updatedTripId;
