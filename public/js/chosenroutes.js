@@ -257,7 +257,7 @@ chosenRoutes.controller('chosenRoutesController', ['$scope', '$http', '$compile'
     }
 
     $scope.showDetailedPlan = function(){
-        localStorage.setItem("planFlag", "currentDaily");
+        localStorage.setItem("flagPlan", "currentDaily");
         window.location.assign("https://routeit-app.herokuapp.com/detailedplan.html");
     }
 /*
