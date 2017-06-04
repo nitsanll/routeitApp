@@ -63,6 +63,7 @@ userRoutes.controller('RoutesController', ['$scope', '$http', '$compile', functi
 
         else{
             //building my routes html
+            var currentDate = new Date();
             for(var i = 0; i<myRoutesArr.length; i++){
                 var route = '<section class = "route" ng-click="chosenRoute(' + myRoutesArr[i].trip_id + ')" id="route' + myRoutesArr[i].trip_id +'"><img class="routePic" src="images/PIC_TRIP_'+i%6+'.jpg">';
                 var cDate = new Date(myRoutesArr[i].creation_date);
@@ -89,6 +90,12 @@ userRoutes.controller('RoutesController', ['$scope', '$http', '$compile', functi
                 } else {
                     route+='<p id="dates'+i+'" class="tripDates underline" ng-click="addDateInput(2,'+i+')"> עדכן תאריך לטיול </p>'
                     +'<section class="updateDate" id="updateDate'+i+'"><input type="date" ng-model = "date'+i+'" class = "date"> <button class = "dateBtn" ng-click="updateDate(' + myRoutesArr[i].trip_id + ',date' + i + ',' + myRoutesArr[i].days_num + ')"> &#10004; </button></section></section>';
+                }
+                //check if the route date is the current date
+                var tmpDate = new Date(myRoutesArr[i].start_date);
+                if((currentDate.getDate() == tmpDate.getDate()) && (currentDate.getMonth() == tmpDate.getMonth()) 
+                    && (currentDate.getFullYear() == tmpDate.getFullYear())){
+                    route+='<button id="myRoutesTripIt" ng-click="tripIt(' + myRoutesArr[i].trip_id + ')"> צא <br> לטיול </button>';
                 }
                 route += '<div class = "tripDetails"><p id="biggerWidth" class = "tripDetail"> אזור: <br> <b class="detail">' + myRoutesArr[i].area +'</b></p>';
                 if(myRoutesArr[i].direction == "north") 
@@ -268,5 +275,16 @@ userRoutes.controller('RoutesController', ['$scope', '$http', '$compile', functi
         var updateaDatesElement = angular.element(document.querySelector('#updateDate'+i));
         datesElement.css('display', 'none');
         updateaDatesElement.css('display', 'block');
+    }
+
+    $scope.tripIt = function(tripId){
+        myRoutesArr = JSON.parse(localStorage.getItem("myRoutes"));
+        for(var i = 0; i<myRoutesArr.length; i++){
+            if(myRoutesArr[i].trip_id == tripId){
+                localStorage.setItem("chosenRoute", JSON.stringify(myRoutesArr[i]));
+                break;
+            }
+        }
+        window.location.assign("https://routeit-app.herokuapp.com/dailyroute.html");
     }
 }]);
