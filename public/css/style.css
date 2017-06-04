@@ -787,6 +787,7 @@
 		height: 45px;
 		//margin-top: 2%;
 		color: #3A4151;
+		font-family: 'openSansBold';
 	}
 
 	.detailedContent{
@@ -795,6 +796,7 @@
 
 	.detailContent{
 		margin-bottom: 1%;
+		font-family: 'openSansBold';
 		//display: block;
 	}
 
@@ -802,6 +804,7 @@
 		border:none;
 		background: none;
 		text-decoration: underline;
+		font-family: 'openSansBold';
 	}
 
 	#sugHead {
@@ -852,11 +855,11 @@
 		color: #D9F1FB;
 		border-left: 1px solid #DE604A;
 		font-size: 0.7em;
-		width: 22%;
+		width: 23%;
 		margin-top: 1%;
 		margin-bottom: 1%;
 		padding-right: 1%;
-		padding-left: 1%;
+		padding-left: 2%;
 	}
 
 	#sugDisabled {
