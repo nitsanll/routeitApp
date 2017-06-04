@@ -198,9 +198,9 @@ userRoutes.controller('RoutesController', ['$scope', '$http', '$compile', functi
         if(date == null) {}
         else {
             console.log("date: " + date);
-            //$http.get("https://routeit-ws.herokuapp.com/updateDates/" + userMail + "/" + tripId + "/" + date + "/" + daysNum + "/no/no").success(function(route){
-                //console.log(route);
-                /*var updatedTripId;
+            $http.get("https://routeit-ws.herokuapp.com/updateDates/" + userMail + "/" + tripId + "/" + date + "/" + daysNum + "/no/no").success(function(route){
+                console.log(route);
+                var updatedTripId;
                 for(var i = 0; i<myRoutesArr.length; i++){
                     if(myRoutesArr[i].trip_id == tripId){
                         console.log("found the updated route!");
@@ -219,9 +219,9 @@ userRoutes.controller('RoutesController', ['$scope', '$http', '$compile', functi
                             break;
                         }
                     }
-                }*/
-                //$scope.showMyRoutes();          
-            //});
+                }
+                $scope.showMyRoutes();          
+            });
         }
     }
 
