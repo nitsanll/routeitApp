@@ -55,7 +55,7 @@ chosenRoutes.controller('chosenRoutesController', ['$scope', '$http', '$compile'
         dailyRoutesArr = JSON.parse(localStorage.getItem("dailyRoutes"));
         //building my routes html
         for(var i = 0; i<dailyRoutesArr.length; i++){
-            var route = '<section class = "route" ng-click="chosenRoute(' + dailyRoutesArr[i].trip_id + ')" id="route' + dailyRoutesArr[i].trip_id +'"><img class="routePic" src="images/PIC_TRIP_01.png">';
+            var route = '<section class = "route" ng-click="chosenRoute(' + dailyRoutesArr[i].trip_id + ')" id="route' + dailyRoutesArr[i].trip_id +'"><img class="routePic" src="images/PIC_TRIP_'+i%6+'.jpg">';
             var cDate = new Date(dailyRoutesArr[i].creation_date);
             var cDateString = cDate.getDate() + '/' + (cDate.getMonth()+1) + '/' + cDate.getFullYear(); 
             route+='<p class="creationDate"> נוצר ב- '+ cDateString +'</p>'

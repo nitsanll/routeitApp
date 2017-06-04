@@ -163,6 +163,7 @@ function initMap() {
                     if (status === google.maps.places.PlacesServiceStatus.OK) {
                         var marker = new google.maps.Marker({
                             map: map,
+                            icon: '../images/BED.png',
                             position: place.geometry.location
                         });
                         google.maps.event.addListener(marker, 'click', function() {

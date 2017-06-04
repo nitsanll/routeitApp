@@ -34,7 +34,7 @@ routesHistory.controller('RoutesHistoryController', ['$rootScope', '$scope', '$h
              angular.element(document.querySelector('#content')).html('<h2 class="noRoutesHead"> לא קיימים מסלולים</h2>');
         } else {
             for(var i = 0; i<prevRoutesArr.length; i++){
-                var route = '<section class = "route"><img class="routePic" src="images/PIC_TRIP_01.png">';
+                var route = '<section class = "route"><img class="routePic" src="images/PIC_TRIP_'+i%6+'.jpg">';
                 var cDate = new Date(prevRoutesArr[i].creation_date);
                 var cDateString = cDate.getDate() + '/' + (cDate.getMonth()+1) + '/' + cDate.getFullYear(); 
                 route+='<p class="creationDate"> נוצר ב- '+ cDateString +'</p>'
