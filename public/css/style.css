@@ -1035,7 +1035,7 @@
 		position: relative;
 	}
 
-	#closeError, #sendAlert, #closeAlert {
+	#closeError, #closeAlert {
 		position: absolute;
 		z-index: 1;
 		display: block;
