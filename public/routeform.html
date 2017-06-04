@@ -36,19 +36,19 @@
             <h4 class="pageHead"> תכנון מסלול חדש </h4>
             <form id = "routeForm">
                 <label> איזור בארץ: </label><br>
-                <select name="area" id="area" ng-model="area" ng-change="checkArea(area)" ng-options="area.area for area in startPts">
+                <select name="area" id="area" ng-model="area" ng-change="checkArea(area)" ng-options="area.area for area in startPts" required>
                 </select><br>
                 <label> כיוון: </label><br>
-                <select name="dir" id="dir" ng-options="dir.name for dir in dirArr" ng-model="dir" ng-change="dirValue(dir.value, area)">
+                <select name="dir" id="dir" ng-options="dir.name for dir in dirArr" ng-model="dir" ng-change="dirValue(dir.value, area)" required>
                 </select><br>
                 <label> נקודת פתיחה: </label><br>
-                <select class="disable" name="sPoint"  id="sPoint" ng-model="sPoint" ng-options="point.point_name for point in area.points">
+                <select class="disable" name="sPoint"  id="sPoint" ng-model="sPoint" ng-options="point.point_name for point in area.points" required>
                 </select><br>
                 <label> מספר ק"מ ליום: </label><br>
-                <select name="km" ng-model="km" ng-options="km.name for km in kmArr">
+                <select name="km" ng-model="km" ng-options="km.name for km in kmArr" required>
                 </select><br>
                 <label> מספר ימים: </label><br>
-                <input type="number" pattern="[0-9]*" inputmode="numeric" class="disable" name="daysNum" ng-model="daysNum" min="1"><br>
+                <input type="number" pattern="[0-9]*" inputmode="numeric" class="disable" name="daysNum" ng-model="daysNum" min="1" required><br>
                 <label>  רמת קושי: </label><br>
                 <select name="diff" ng-model="diff" ng-options="diff.name for diff in diffArr" class="disable">
                 </select><br>
