@@ -197,8 +197,10 @@ userRoutes.controller('RoutesController', ['$scope', '$http', '$compile', functi
         //update the dates in database and in local variable myRoutesArr
         if(date == null) {}
         else {
-            $http.get("https://routeit-ws.herokuapp.com/updateDates/" + userMail + "/" + tripId + "/" + date + "/" + daysNum + "/no/no").success(function(route){
-                var updatedTripId;
+            consolel.log("date: " + date);
+            //$http.get("https://routeit-ws.herokuapp.com/updateDates/" + userMail + "/" + tripId + "/" + date + "/" + daysNum + "/no/no").success(function(route){
+                //console.log(route);
+                /*var updatedTripId;
                 for(var i = 0; i<myRoutesArr.length; i++){
                     if(myRoutesArr[i].trip_id == tripId){
                         console.log("found the updated route!");
@@ -217,9 +219,9 @@ userRoutes.controller('RoutesController', ['$scope', '$http', '$compile', functi
                             break;
                         }
                     }
-                }
-                $scope.showMyRoutes();          
-            });
+                }*/
+                //$scope.showMyRoutes();          
+            //});
         }
     }
 
