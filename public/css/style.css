@@ -407,6 +407,7 @@
 		color: #ffffff; 
 		border: none;
 		z-index: 101;
+		font-family: 'openSansBold';
 	}
 
 	.underline {
@@ -937,35 +938,37 @@
 	    animation: fadeIn 1s;
 	}
 
-	.dayType, .sugDailyDetails {
-		float: right;
-	} 
-
-	.sugDailyDetails {
-		margin-top: 1%;
-	}
-
-	.dayType {
-		width: 25%;
-		padding-right: 2%;
-		color: #E65E52;
-	}
-
 	#sugDayNum {
-		font-size: 1em;
+		font-size: 1.1em;
 		font-family: 'openSansExBold';
-		margin-bottom: 3%;
+		padding-top: 2%;
+		padding-right: 2%;
+		margin: 0px;
+		color: #DE604A;
 	}
 
-	.sugDayDesc {
-		font-size: 0.6em;
+	#descTypeDiv {
+		width: 95%;
+		border-bottom: 1px dashed #DE604A;
+		padding-bottom: 1%;
+		margin: 0px auto;
+	}
+
+	.dayDescType {
+		font-size: 0.9em;
 		line-height: 120%;
 		display: block;
+		margin: 0px;
+		color: #DE604A;
+		padding: 2% 2% 2% 0%;
+		float:right;
+		width: 50%;
 	}
 
 	.sugDailyDetails {
-		width: 75%;
+		width: 100%;
 		height: 100px;
+		padding-top: 1%;
 	}
 
 	.sugDayDetail, .sugDayDetail1 {
@@ -991,7 +994,7 @@
 		//padding: 1%;
 		text-align: center;
 		float:right;
-		height: 45px;
+		//height: 45px;
 		//margin-top: 2%;
 		color: #3A4151;
 	}

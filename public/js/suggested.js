@@ -46,24 +46,33 @@ suggestedRoute.controller('SuggestedController', ['$rootScope', '$scope', '$http
     //building all daily sections overview
     var routeDailySecs = ""; //holds all daily sections html
     for(var i=0; i<sugJson.daily_sections.length; i++){
-        var dailySec = '<section class="suggesteDailySec"><div class="dayType"> <h4 id="sugDayNum"> יום ' +  sugJson.daily_sections[i].day_num +
-        ':</h4><span class="sugDayDesc"> <b> מאפייני המסלול: </b> <br>';
+        var dailySec = '<section class="suggesteDailySec"><h4 id="sugDayNum"> יום ' +  sugJson.daily_sections[i].day_num +
+        ':</h4><div id="descTypeDiv"> <span class="dayDescType" id="dayDesc"> <b> מאפייני המסלול: </b> <br>';
         for(var j = 0; j<sugJson.daily_sections[i].description.length; j++){
             console.log(sugJson.daily_sections[i].description[j]);
             if(j == (sugJson.daily_sections[i].description.length)-1) {
-                 dailySec += sugJson.daily_sections[i].description[j];
+                 dailySec += sugJson.daily_sections[i].description[j] +'</span>';
             }
             else {
-                dailySec += sugJson.daily_sections[i].description[j] + ', <br>';
+                dailySec += sugJson.daily_sections[i].description[j] + ', ';
             }
         }
-        dailySec += '</span></div><div class="sugDailyDetails">'
-        +'<div class="sugDayIcons"> <p class="sugDayDetail"> <img src="images/FROM_WHERE_TO.png"></p>'
+        dailySec+='<span class="dayDescType"> <b> אופי המסלול: </b><br>';
+        for(var j = 0; j<sugJson.daily_sections[i].type.length; j++){
+            console.log(sugJson.daily_sections[i].type[j]);
+            if(j == (sugJson.daily_sections[i].type.length)-1) {
+                 dailySec += sugJson.daily_sections[i].type[j] +'</span><div class="clear"></div></div>';
+            }
+            else {
+                dailySec += sugJson.daily_sections[i].type[j] + ', ';
+            }
+        }
+        dailySec+='<div class="sugDailyDetails"><div class="sugDayIcons"> <p class="sugDayDetail"> <img src="images/FROM_WHERE_TO.png"></p>'
         +'<p class="sugDayDetail"><img src="images/KM.png"></p> <p class="sugDayDetail"><img src="images/TIME.png"></p>'
         +'<p class="sugDayDetail"><img src="images/DIFFICULTY.png"></p></div>'
-        +'<div class = "sugDayDetails"> <p class="sugDayDetail1"><span class="detailContent"> מ'+  sugJson.daily_sections[i].start_pt +' ל'+  sugJson.daily_sections[i].end_pt +'</span></p>'
+        +'<div class = "sugDayDetails"> <p class="sugDayDetail1"><span class="detailContent"> מ'+  sugJson.daily_sections[i].start_pt +' <br> ל'+  sugJson.daily_sections[i].end_pt +'</span></p>'
         +'<p class="sugDayDetail1"><span class="detailContent">'+  sugJson.daily_sections[i].total_km +'<br> ק"מ </span></p>'
-        +'<p class="sugDayDetail1">'+ sugJson.daily_sections[i].duration +'<br> שעות </p> <p class="sugDayDetail1">'+  sugJson.daily_sections[i].difficulty +'</p></div></div><div class="clear"></div></section>';
+        +'<p class="sugDayDetail1">'+ sugJson.daily_sections[i].duration +'<br> שעות </p> <p class="sugDayDetail1">'+  sugJson.daily_sections[i].difficulty +'</p></div></div></section>';
         routeDailySecs+=dailySec;
     }
     $scope.dailySecs = routeDailySecs;
