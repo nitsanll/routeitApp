@@ -138,7 +138,7 @@ routeForm.controller('FormController', ['$scope', '$rootScope', '$http',function
     //sendind the chosen criteria in order to calculate the route
     $scope.calcRoute = function(area, dir, sPoint, km, daysNum, diff, type){
         console.log(area + "," + dir + "," + sPoint + "," + km + "," + daysNum  + "," + diff  + "," + type);
-        if($scope.daysNum != ''){
+        if(daysNum != ''){
             var email = localStorage.getItem("email");
             $http.get("https://routeit-ws.herokuapp.com/calculate/" + area+ "/" + km + "/" + dir + "/" + daysNum + "/" + sPoint + "/" + diff + "/" + type + "/" + email).success(function(route){
                 var routeStr = JSON.stringify(route);
