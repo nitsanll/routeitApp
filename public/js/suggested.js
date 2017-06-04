@@ -5,6 +5,7 @@ suggestedRoute.controller('SuggestedController', ['$rootScope', '$scope', '$http
     $scope.name =  localStorage.getItem("name");
     $scope.img = localStorage.getItem("pic");
     var sugJson = JSON.parse(sugRoute);
+    console.log(sugJson.disabled_flag);
     //merge daily sections coord arrays
     var tripCoordsArr = []; // all daily sections coords
     var tmpCoordsArr = []; // holds coords temporarily 
