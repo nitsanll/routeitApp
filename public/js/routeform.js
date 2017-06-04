@@ -138,33 +138,35 @@ routeForm.controller('FormController', ['$scope', '$rootScope', '$http',function
     //sendind the chosen criteria in order to calculate the route
     $scope.calcRoute = function(area, dir, sPoint, km, daysNum, diff, type){
         console.log(area + "," + dir + "," + sPoint + "," + km + "," + daysNum  + "," + diff  + "," + type);
-        var email = localStorage.getItem("email");
-        $http.get("https://routeit-ws.herokuapp.com/calculate/" + area+ "/" + km + "/" + dir + "/" + daysNum + "/" + sPoint + "/" + diff + "/" + type + "/" + email).success(function(route){
-            var routeStr = JSON.stringify(route);
-            localStorage.setItem("suggestedRoute", routeStr);
-            var sugRoute = JSON.parse(localStorage.getItem("suggestedRoute"));
-            var popupContentElement = angular.element(document.querySelector('#popupContent'));
-            var popupElement = angular.element(document.querySelector('#myPopup'));
-            console.log(sugRoute);
-            var maskElement = angular.element(document.querySelector('#pageMask'));
-            if(sugRoute == "segmentsErr"){
-                popupContentElement.html('אין מספיק ימי טיול עבור נקודת ההתחלה שנבחרה. <br> נסה להוריד את ימי הטיול/את מספר הק"מ ליום'); 
-                popupElement.addClass("show");
-                maskElement.addClass("pageMask");
-            } else if(sugRoute == "typeErr"){
-                popupContentElement.html('המסלול אינו תואם את אופי הטיול שבחרת'); 
-                popupElement.addClass("show");
-                maskElement.addClass("pageMask"); 
-            } else if(sugRoute == "diffErr"){
-                popupContentElement.html('המסלול אינו תואם את רמת הקושי שבחרת'); 
-                popupElement.addClass("show");
-                maskElement.addClass("pageMask");  
-            } else if(sugRoute == "typeDiffErr"){
-                popupContentElement.html('המסלול אינו תואם את אופי הטיול ואת רמת הקושי שבחרת'); 
-                popupElement.addClass("show");
-                maskElement.addClass("pageMask"); 
-            } else window.location.assign("https://routeit-app.herokuapp.com/suggested.html");
-        });
+        if($scope.daysNum != ''){
+            var email = localStorage.getItem("email");
+            $http.get("https://routeit-ws.herokuapp.com/calculate/" + area+ "/" + km + "/" + dir + "/" + daysNum + "/" + sPoint + "/" + diff + "/" + type + "/" + email).success(function(route){
+                var routeStr = JSON.stringify(route);
+                localStorage.setItem("suggestedRoute", routeStr);
+                var sugRoute = JSON.parse(localStorage.getItem("suggestedRoute"));
+                var popupContentElement = angular.element(document.querySelector('#popupContent'));
+                var popupElement = angular.element(document.querySelector('#myPopup'));
+                console.log(sugRoute);
+                var maskElement = angular.element(document.querySelector('#pageMask'));
+                if(sugRoute == "segmentsErr"){
+                    popupContentElement.html('אין מספיק ימי טיול עבור נקודת ההתחלה שנבחרה. <br> נסה להוריד את ימי הטיול/את מספר הק"מ ליום'); 
+                    popupElement.addClass("show");
+                    maskElement.addClass("pageMask");
+                } else if(sugRoute == "typeErr"){
+                    popupContentElement.html('המסלול אינו תואם את אופי הטיול שבחרת'); 
+                    popupElement.addClass("show");
+                    maskElement.addClass("pageMask"); 
+                } else if(sugRoute == "diffErr"){
+                    popupContentElement.html('המסלול אינו תואם את רמת הקושי שבחרת'); 
+                    popupElement.addClass("show");
+                    maskElement.addClass("pageMask");  
+                } else if(sugRoute == "typeDiffErr"){
+                    popupContentElement.html('המסלול אינו תואם את אופי הטיול ואת רמת הקושי שבחרת'); 
+                    popupElement.addClass("show");
+                    maskElement.addClass("pageMask"); 
+                } else window.location.assign("https://routeit-app.herokuapp.com/suggested.html");
+            });
+        }
     };
 
     $scope.closePopup =function(){
