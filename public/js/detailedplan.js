@@ -197,7 +197,7 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile' ,functi
         //showing sleeping places markers on the map
         function showPlaces(){
             var places = new google.maps.places.PlacesService(window.map);
-            var MARKER_PATH = 'https://developers.google.com/maps/documentation/javascript/images/marker_green';
+            //var MARKER_PATH = 'https://developers.google.com/maps/documentation/javascript/images/marker_green';
 
             // Search for hotels in the selected city, within the viewport of the map.
             function search() {
@@ -214,12 +214,12 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile' ,functi
                   // assign a letter of the alphabetic to each marker icon.
                   for (var i = 0; i < results.length; i++) {
                     var markerLetter = String.fromCharCode('A'.charCodeAt(0) + (i % 26));
-                    var markerIcon = MARKER_PATH + markerLetter + '.png';
+                    //var markerIcon = MARKER_PATH + markerLetter + '.png';
                     // Use marker animation to drop the icons incrementally on the map.
                     markers[i] = new google.maps.Marker({
                       position: results[i].geometry.location,
                       animation: google.maps.Animation.DROP,
-                      icon: markerIcon
+                      icon: '../images/BED.png',
                     });
                     // If the user clicks a hotel marker, show the details of that hotel
                     // in an info window.
