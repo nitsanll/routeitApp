@@ -822,7 +822,7 @@
 	}
 
 	#sugDesc {
-		width: 90%;
+		width: 95%;
 		background: #3B4151;
 		margin: 0px auto;
 		position: relative;
@@ -881,7 +881,7 @@
 
 	#sugDetails {
 		background: #D9F1FB;
-		width: 90%;
+		width: 95%;
 		margin: 0px auto;
 		height: 83px;
 		position: relative;
@@ -926,7 +926,7 @@
 	}
 
 	#dailySecs {
-		width: 90%;
+		width: 95%;
 		margin: 0px auto;
 		background: #F3FBFD;
 		padding-top: 4%;
