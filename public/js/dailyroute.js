@@ -136,6 +136,8 @@ dailyRoute.controller('dailyController', ['$scope', '$http', '$compile', functio
         popupElement.addClass("show");
         var maskElement = angular.element(document.querySelector('#pageMask'));
         maskElement.addClass("pageMask");
+        var alertTextElement = angular.element(document.querySelector('#alertText'));
+        $scope.alertText ='';
     }
 
     $scope.stopAlert = function(){
@@ -152,8 +154,6 @@ dailyRoute.controller('dailyController', ['$scope', '$http', '$compile', functio
         popupElement.addClass("show");
         var maskElement = angular.element(document.querySelector('#pageMask'));
         maskElement.addClass("pageMask");
-        //var alertTextElement = angular.element(document.querySelector('#alertText'));
-        //$scope.alertText ='';
     }
 
     $scope.closePopup =function(){
