@@ -201,7 +201,7 @@ userRoutes.controller('RoutesController', ['$scope', '$http', '$compile', functi
             $http.get("https://routeit-ws.herokuapp.com/updateDates/" + userMail + "/" + tripId + "/" + date + "/" + daysNum + "/no/no").success(function(route){
                 console.log(route);
                 var updatedTripId;
-                for(var i = 0; i<myRoutesArr.length; i++){
+                /*for(var i = 0; i<myRoutesArr.length; i++){
                     if(myRoutesArr[i].trip_id == tripId){
                         console.log("found the updated route!");
                         updatedTripId = i;
@@ -219,7 +219,7 @@ userRoutes.controller('RoutesController', ['$scope', '$http', '$compile', functi
                             break;
                         }
                     }
-                }
+                }*/
                 $scope.showMyRoutes();          
             });
         }
