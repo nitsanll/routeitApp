@@ -25,6 +25,7 @@ dailyRoute.controller('dailyController', ['$scope', '$http', '$compile', functio
     else {
         chosenRoute = localStorage.getItem("chosenRoute");
         //if there is a chosen route for the day 
+        console.log(chosenRoute);
         if(chosenRoute != "null"){
             console.log("there is a chosen route planned for today");
             chosenRoute = JSON.parse(localStorage.getItem("chosenRoute")); //getting the current route
