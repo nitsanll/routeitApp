@@ -23,7 +23,7 @@ dailyRoute.controller('dailyController', ['$scope', '$http', '$compile', functio
     }
     //if the user has routes
     else {
-        chosenRoute = localStorage.getItem("chosenRoute");
+        chosenRoute = JSON.parse(localStorage.getItem("chosenRoute"));
         //if there is a chosen route for the day 
         console.log(chosenRoute.length);
         if(chosenRoute != "null" || chosenRoute != null || chosenRoute != "" || chosenRoute.length>0){
