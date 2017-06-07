@@ -60,8 +60,11 @@ chosenRoutes.controller('chosenRoutesController', ['$scope', '$http', '$compile'
             var cDateString = cDate.getDate() + '/' + (cDate.getMonth()+1) + '/' + cDate.getFullYear(); 
             route+='<p class="creationDate"> נוצר ב- '+ cDateString +'</p>'
             //+'<button class="detailedBtn" ng-click="showDetailedPlan()"></button>'
-            + '<button class = "dailyShareBtn"></button>'
-            +'<section class="dailyPtsDate"><h3 class = "tripPts">' + dailyRoutesArr[i].trip_start_pt + ' - ' + dailyRoutesArr[i].trip_end_pt + '</h3>';
+            + '<button class = "dailyShareBtn"></button>';
+            if(dailyRoutesArr[i].disabled_flag == true){
+                route+='<img id="chosenDisabledIcon" src="../images/DISABLED.png">';
+            }
+            route+='<section class="dailyPtsDate"><h3 class = "tripPts">' + dailyRoutesArr[i].trip_start_pt + ' - ' + dailyRoutesArr[i].trip_end_pt + '</h3>';
             console.log(dailyRoutesArr[i]);
             if(dailyRoutesArr[i].start_date){
                 var sDate = new Date(dailyRoutesArr[i].start_date);
@@ -257,7 +260,7 @@ chosenRoutes.controller('chosenRoutesController', ['$scope', '$http', '$compile'
     }
 
     $scope.showDetailedPlan = function(){
-        localStorage.setItem("flagPlan", "currentDaily");
+        localStorage.setItem("planFlag", "currentDaily");
         window.location.assign("https://routeit-app.herokuapp.com/detailedplan.html");
     }
 /*

@@ -70,8 +70,11 @@ userRoutes.controller('RoutesController', ['$scope', '$http', '$compile', functi
                 var cDateString = cDate.getDate() + '/' + (cDate.getMonth()+1) + '/' + cDate.getFullYear(); 
                 route+='<p class="creationDate"> נוצר ב- '+ cDateString +'</p>'
                 +'<button class="detailedBtn" ng-click="showDetailedPlan()"></button>'
-                + '<button class = "shareBtn"></button>'
-                +'<section class="ptsDate"><h3 class = "tripPts">' + myRoutesArr[i].trip_start_pt + ' - ' + myRoutesArr[i].trip_end_pt + '</h3>';
+                + '<button class = "shareBtn"></button>';
+                if(myRoutesArr[i].disabled_flag == true){
+                    route+='<img id="myRoutesDisabledIcon" src="../images/DISABLED.png">';
+                }
+                route+='<section class="ptsDate"><h3 class = "tripPts">' + myRoutesArr[i].trip_start_pt + ' - ' + myRoutesArr[i].trip_end_pt + '</h3>';
                 console.log(myRoutesArr[i]);
                 if(myRoutesArr[i].start_date){
                     var sDate = new Date(myRoutesArr[i].start_date);

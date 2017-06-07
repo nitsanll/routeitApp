@@ -44,6 +44,11 @@ suggestedRoute.controller('SuggestedController', ['$rootScope', '$scope', '$http
     $scope.tripDiff = sugJson.trip_difficulty;
     $scope.tripType = newTripType;
 
+    if(sugJson.disabled_flag == true){
+        var disabledElement = angular.element(document.querySelector('#sugDisabled'));
+        disabledElement.html('<img id="disabledIcon" src="../images/DISABLED.png">');
+    }
+    
     //building all daily sections overview
     var routeDailySecs = ""; //holds all daily sections html
     for(var i=0; i<sugJson.daily_sections.length; i++){

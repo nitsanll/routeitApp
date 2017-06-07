@@ -410,6 +410,18 @@
 		font-family: 'openSansBold';
 	}
 
+	#myRoutesDisabledIcon {
+		position: absolute;
+		top: 30%;
+		left: 4%;
+	}
+
+	#chosenDisabledIcon {
+		position: absolute;
+		top: 15%;
+		left: 4%;
+	}
+	
 	.underline {
 		text-decoration: underline;
 	}
@@ -860,6 +872,12 @@
 		margin-bottom: 1%;
 		padding-right: 1%;
 		padding-left: 2%;
+	}
+
+	#disabledIcon {
+		position: absolute;
+		top: 10%;
+		left: 20%;
 	}
 
 	#sugDisabled {
