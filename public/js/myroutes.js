@@ -98,7 +98,15 @@ userRoutes.controller('RoutesController', ['$scope', '$http', '$compile', functi
                 var tmpDate = new Date(myRoutesArr[i].start_date);
                 if((currentDate.getDate() == tmpDate.getDate()) && (currentDate.getMonth() == tmpDate.getMonth()) 
                     && (currentDate.getFullYear() == tmpDate.getFullYear())){
-                    route+='<button id="myRoutesTripIt" ng-click="tripIt(' + myRoutesArr[i].trip_id + ')"> צא <br> לטיול </button>';
+                    if(localStorage.getItem("chosenRoute") != "null"){
+                        if(myRoutesArr[i].trip_id == JSON.parse(localStorage.getItem("chosenRoute")).trip_id) {
+                            route+='<button id="myRoutesTripIt"> בזמן <br> טיול </button>';
+                        } else {
+                            route+='<button id="myRoutesTripIt" ng-click="tripIt(' + myRoutesArr[i].trip_id + ')"> צא <br> לטיול </button>';
+                        }
+                    } else {
+                        route+='<button id="myRoutesTripIt" ng-click="tripIt(' + myRoutesArr[i].trip_id + ')"> צא <br> לטיול </button>';
+                    }
                 }
                 route += '<div class = "tripDetails"><p id="biggerWidth" class = "tripDetail"> אזור: <br> <b class="detail">' + myRoutesArr[i].area +'</b></p>';
                 if(myRoutesArr[i].direction == "north") 
