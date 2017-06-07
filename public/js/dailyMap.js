@@ -33,7 +33,6 @@ function initMap() {
     }
     //if there is a chosen trip for the current day
     else {
-        document.getElementById('map').className = 'backgroundMap'; //change map display settings
         var dailyCoordsArray = []; // holds one daily section's coords
         // get the current day coords
         var currentDate = new Date(); //today's date
@@ -150,6 +149,7 @@ function initMap() {
                     });
                 }
             }
+            document.getElementById('map').className = 'backgroundMap'; //change map display settings
 
             //adding a pin with the chosen accomm for the day
             if(chosenRoute.daily_sections[currentDayPos].chosen_accomm != null){
