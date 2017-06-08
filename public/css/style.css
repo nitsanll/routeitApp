@@ -294,6 +294,10 @@
 		color: #ffffff; 
 	}
 
+	#newRouteBtn:active, #newRouteBtn:focus {
+		background:  #f9aa9f;
+	}
+
 	#routesExist {
 		bottom: 2%;
 		margin-right: auto;
@@ -307,6 +311,11 @@
 		font-family: 'openSansBold';
 		font-size: 1.3em;
 		padding: 2% 4% 2% 4%;
+		text-decoration: none;
+	}
+
+	#routesExist:active, #routesExist:focus {
+		background:  #f9aa9f;
 	}
 
 	.backgroundMap {
@@ -602,6 +611,10 @@
 		font-size: 1.3em;
 		font-family: 'openSansExBold';
 		color: #ffffff;
+	}
+
+	#chosenDetailed:active, #chosenDetailed:focus, #chosenTripIt:active, #chosenTripIt:focus{
+		background:  #f9aa9f;
 	}
 
 	.borderLeft {

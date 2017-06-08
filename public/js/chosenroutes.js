@@ -91,7 +91,7 @@ chosenRoutes.controller('chosenRoutesController', ['$scope', '$http', '$compile'
             }
             route += '<p class = "tripDetail biggerWidth"> מס'+"'"+' ק"מ ליום: <br><b class="biggerFont">' + dailyRoutesArr[i].day_km + '</b></p><p id="withoutBorder" class = "tripDetail biggerWidth"> מס'+"'"+' ק"מ כולל: <br><b class="biggerFont">' + dailyRoutesArr[i].trip_km + '</b></p></div>'
             +'<button class = "dailyEditBtn"></button> <button class = "dailyDeleteBtn" ng-click="deleteRoute(' + dailyRoutesArr[i].trip_id + ')"></button>'
-            +'<div class="detailedTripIt"><button class="tripIt borderLeft" ng-click="tripIt(' + dailyRoutesArr[i].trip_id + ')"><span class="planImg"></span>&nbsp; צא לטיול </button><button class="tripIt" ng-click="showDetailedPlan()"> לתכנית הטיול </button></div>'
+            +'<div class="detailedTripIt"><button id="chosenTripIt" class="tripIt borderLeft" ng-click="tripIt(' + dailyRoutesArr[i].trip_id + ')"><span class="planImg"></span>&nbsp; צא לטיול </button><button  id="chosenDetailed" class="tripIt" ng-click="showDetailedPlan()"> לתכנית הטיול </button></div>'
             +'<br></section>';
             allMyRoutes+=route;
 
