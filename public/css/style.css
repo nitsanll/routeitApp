@@ -170,6 +170,10 @@
 		font-family: 'openSansBold';
 		font-size: 1em;
 	}
+
+	.dailyDetailedBtn:active, .dailyDetailedBtn:focus {
+		background:  #f9aa9f;
+	}
 	
 	.endTrip {
 		padding: 6%;
@@ -691,6 +695,11 @@
 		color: #ffffff;
 		font-size: 1em;
 		margin: 0px auto;
+		text-decoration: none;
+	}
+
+	#signOut:active {
+		background:  #f9aa9f;
 	}
 
 	#signOutSec{
@@ -746,6 +755,10 @@
 		color: #DCF3F9;
 		width: 50%;
 		font-family: 'openSansBold';
+	}
+
+	#planBtn:active, #planBtn:focus {
+		background:  #777788;
 	}
 
 	.planImg {
@@ -817,6 +830,10 @@
 		background: none;
 		text-decoration: underline;
 		font-family: 'openSansBold';
+	}
+
+	#accommBtn:active,  #accommBtn:focus{
+		font-family: 'openSansExBold';
 	}
 
 	#sugHead {
@@ -898,6 +915,10 @@
 		color: #ffffff; 
 		border: none;
 		font-family: 'openSansBold';
+	}
+
+	#addRoute:active, #addRoute:focus {
+		background:  #f9aa9f;
 	}
 
 	#sugDetails {
