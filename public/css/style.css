@@ -85,6 +85,15 @@
 		color:#ffffff;
 	}
 
+	a .back {
+		text-decoration: none;
+		color:#ffffff;
+	}
+
+	.back:active, .back:focus {
+		color:  #d9d9d9;
+	}
+
 	#back {
 		border: none;
 		background: none;
