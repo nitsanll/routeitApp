@@ -472,6 +472,10 @@
 		border:none;
 	}
 
+	.shareBtn:active {
+		background: url('../images/SHARE1.png') no-repeat center;
+	}
+
 	.dailyShareBtn {
 		position: absolute;
 		width: 8%;
@@ -538,6 +542,10 @@
 		border:none;
 	}
 
+	.editBtn:active {
+		background: url('../images/EDIT1.png') no-repeat center;
+	}
+
 	.dailyEditBtn {
 		position: absolute;
 		width: 12%;
@@ -556,6 +564,10 @@
 		left: 1%;
 		background: url('../images/TRASH.png') no-repeat center;
 		border:none;
+	}
+
+	.deleteBtn:active, .deleteBtn:focus {
+		background: url('../images/TRASH1.png') no-repeat center;
 	}
 
 	.dailyDeleteBtn {
@@ -610,6 +622,10 @@
 		width: 10%;
 		height: 10px;
 		padding-left: 5%;
+	}
+
+	#closeDates:active, #closeDates:focus {
+		background: url('../images/X2.png') no-repeat center;
 	}
 
 	.detailedTripIt {
