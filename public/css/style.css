@@ -459,7 +459,11 @@
 		top: 4%;
 		left: 2%;
 		border:none;
-		background: url('../images/TRIP_PROGRAM.png') no-repeat center;
+		background: #394050;
+		color: #D9F1FA;
+		font-size: 0.9em;
+		font-family: 'openSansBold';
+		padding-right: 1%;
 	}
 
 	.shareBtn{
@@ -610,6 +614,10 @@
 		border-radius: 5px;
 		font-size: 0.9em;
 		background: #413F4C;
+	}
+
+	.dateBtn:active, .dateBtn:focus {
+		color: #F9AA9F;
 	}
 
 	.updateDate {
