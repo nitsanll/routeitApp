@@ -306,6 +306,7 @@
 
 	#newRouteBtn:active, #newRouteBtn:focus {
 		background:  #f9aa9f;
+		text-decoration: none;
 	}
 
 	#routesExist {
