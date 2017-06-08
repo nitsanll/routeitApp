@@ -965,10 +965,10 @@
 	#sugDayNum {
 		font-size: 1.1em;
 		font-family: 'openSansExBold';
-		padding-top: 2%;
-		padding-right: 2%;
+		padding: 2% 2% 2% 0%;
 		margin: 0px;
 		color: #DE604A;
+		background: #3B4151;
 	}
 
 	#descTypeDiv {
