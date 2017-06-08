@@ -75,7 +75,7 @@ function initMap() {
             //controlUI.style.marginRight = '320px';
             controlUI.style.position = 'fixed';
             controlUI.style.left = '2%';
-            controlUI.style.top = '75vh';
+            controlUI.style.top = '20vh';
             controlUI.title = 'Click to recenter the map';
             controlDiv.appendChild(controlUI);
 
