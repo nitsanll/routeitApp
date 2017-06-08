@@ -466,6 +466,10 @@
 		padding-right: 1%;
 	}
 
+	.detailedBtn:active, .detailedBtn:focus {
+		background: #8892aa;
+	}
+
 	.shareBtn{
 		position: absolute;
 		width: 8%;
@@ -476,7 +480,7 @@
 		border:none;
 	}
 
-	.shareBtn:active {
+	.shareBtn:active, .dailyShareBtn:active {
 		background: url('../images/SHARE1.png') no-repeat center;
 	}
 
@@ -546,7 +550,7 @@
 		border:none;
 	}
 
-	.editBtn:active {
+	.editBtn:active, .dailyEditBtn:active {
 		background: url('../images/EDIT1.png') no-repeat center;
 	}
 
@@ -570,7 +574,7 @@
 		border:none;
 	}
 
-	.deleteBtn:active, .deleteBtn:focus {
+	.deleteBtn:active, .deleteBtn:focus, .dailyDeleteBtn:active, .dailyDeleteBtn:focus, .historyDeleteBtn:active, .historyDeleteBtn:focus {
 		background: url('../images/TRASH1.png') no-repeat center;
 	}
 
