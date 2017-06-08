@@ -972,10 +972,11 @@
 	}
 
 	#descTypeDiv {
-		width: 95%;
+		width: 100%;
 		border-bottom: 1px dashed #DE604A;
 		padding-bottom: 1%;
 		margin: 0px auto;
+		background: #D9F1FB;
 	}
 
 	.dayDescType {

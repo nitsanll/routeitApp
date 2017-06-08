@@ -132,7 +132,9 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile' ,functi
                     duration: routeOrigin.daily_sections[i].duration,
                     km: routeOrigin.daily_sections[i].total_km,
                     diff: routeOrigin.daily_sections[i].difficulty,
-                    chosenAccomm: chosenAccomm
+                    chosenAccomm: chosenAccomm,
+                    description: routeOrigin.daily_sections[i].description,
+                    type: routeOrigin.daily_sections[i].type
                 };
             //if there are dates
             }else {
@@ -151,7 +153,9 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile' ,functi
                     duration: routeOrigin.daily_sections[i].duration,
                     km: routeOrigin.daily_sections[i].total_km,
                     diff: routeOrigin.daily_sections[i].difficulty,
-                    chosenAccomm: chosenAccomm
+                    chosenAccomm: chosenAccomm,
+                    description: routeOrigin.daily_sections[i].description,
+                    type: routeOrigin.daily_sections[i].type
                 };
             }
             dailySections.push(dailySection);

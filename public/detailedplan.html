@@ -40,6 +40,17 @@
                     <div class = "dayDate">
                         יום {{d.dayNum}} {{d.dayDate}} {{d.weekDay}}
                     </div>
+                    <div id="descTypeDiv"> 
+                        <span class="dayDescType" id="dayDesc"> 
+                            <b> מאפייני המסלול: </b><br>
+                            <span ng-repeat="c in d.description"> {{c}}, </span>
+                        </span>
+                        <span class="dayDescType"> 
+                            <b> אופי המסלול: </b><br>
+                            <span ng-repeat="c in d.type"> {{c}}, </span>
+                        </span>
+                        <div class="clear"></div>
+                    </div>
                     <div class = "dayDetails">
                         <div class = "detailedIcons">
                             <p class="dayDetail"> <img src="images/FROM_WHERE_TO.png"></p>
