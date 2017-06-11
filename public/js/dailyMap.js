@@ -19,6 +19,7 @@ function initMap() {
     }
     var chosenRoute = JSON.parse(localStorage.getItem("chosenRoute"));
     if(chosenRoute == null){
+         console.log("inside");
          navigator.geolocation.getCurrentPosition(function(position){
             window.lat = position.coords.latitude;
             window.lng = position.coords.longitude;
