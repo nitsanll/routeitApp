@@ -299,7 +299,7 @@ userRoutes.controller('RoutesController', ['$scope', '$http', '$compile', functi
                     break;
                 }
             }
-            //window.location.assign("https://routeit-app.herokuapp.com/dailyroute.html");
+            window.location.assign("https://routeit-app.herokuapp.com/dailyroute.html");
         });
     }
 }]);
