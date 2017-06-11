@@ -100,7 +100,7 @@ userRoutes.controller('RoutesController', ['$scope', '$http', '$compile', functi
                     && (currentDate.getFullYear() == tmpDate.getFullYear())){
                     if(localStorage.getItem("chosenRoute") != "null"){
                         if(myRoutesArr[i].trip_id == JSON.parse(localStorage.getItem("chosenRoute")).trip_id) {
-                            route+='<span id="myRoutesTripIt"> בזמן <br> טיול </span>';
+                            route+='<a href="https://routeit-app.herokuapp.com/dailyroute.html" id="myRoutesTripIt"> בזמן <br> טיול </a>';
                         } else {
                             route+='<button id="myRoutesTripIt" ng-click="tripIt(' + myRoutesArr[i].trip_id + ')"> צא <br> לטיול </button>';
                         }
