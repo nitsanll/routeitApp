@@ -145,8 +145,8 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile' ,functi
                     
                 //details for a certain daily section
                 var dailySection = {
-                    dayNum: routeOrigin.daily_sections[i].day_num +":",
-                    dayDate: dateStr + ",",
+                    dayNum: routeOrigin.daily_sections[i].day_num,
+                    dayDate: ": " + dateStr + ",",
                     weekDay: daysArr[dateDay],
                     startPt: routeOrigin.daily_sections[i].start_pt,
                     endPt: routeOrigin.daily_sections[i].end_pt,
