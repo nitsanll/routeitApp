@@ -23,11 +23,12 @@ function initMap() {
          navigator.geolocation.getCurrentPosition(function(position){
             window.lat = position.coords.latitude;
             window.lng = position.coords.longitude;
-            map  = new google.maps.Map(document.getElementById('map'), {
+            map = new google.maps.Map(document.getElementById('map'), {
                 center:{lat:window.lat, lng:window.lng},
                 zoom:13,
                 mapTypeId: google.maps.MapTypeId.ROAD
             });
+            console.log("bla");
             var mark = new google.maps.Marker({position:{lat:lat, lng:lng}, map:map});
             document.getElementById('map').className = 'backgroundMap';
             console.log(document.getElementById('map'));
