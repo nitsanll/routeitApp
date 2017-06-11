@@ -113,6 +113,7 @@ routeForm.controller('FormController', ['$scope', '$rootScope', '$http',function
             var elements = angular.element(document.querySelectorAll('.disable'));
             elements.removeAttr('disabled');
             elements.css('background', '#D9F1FB');
+            console.log(area.area_id);
             $scope.sPoint = $scope.startPts[area.area_id].points[0];    
         }
         /*if(area.area != "כל בשביל"){
