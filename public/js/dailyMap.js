@@ -35,6 +35,11 @@ function initMap() {
             var mark = new google.maps.Marker({position:{lat:lat, lng:lng}, map:map});
             document.getElementById('map').className = 'backgroundMap';
             console.log(document.getElementById('map'));
+        }, function(error){ console.log(err);}, 
+        {
+          enableHighAccuracy: true,
+          timeout: 5000,
+          maximumAge: 0
         });
     }
     //if there is a chosen trip for the current day
