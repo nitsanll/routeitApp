@@ -27,6 +27,7 @@ login.controller('UserController', ['$scope','$http', function($scope, $http){
                         var isThereChosen = false;
                         for(var j=0; j<routes.my_routes.length; j++){
                             if(routes.my_routes[j].isChosen == true){
+                                console.log(routes.my_routes[j].isChosen);
                                 localStorage.setItem("chosenRoute", JSON.stringify(routes.my_routes[j]));
                                 isThereChosen = true;
                                 break;
