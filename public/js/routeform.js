@@ -21,7 +21,7 @@ routeForm.run(function($rootScope, $http) {
     });
 });
 
-routeForm.controller('FormController', ['$scope', '$rootScope', '$http',function($rootScope, $scope, $http){
+routeForm.controller('FormController', ['$scope', '$rootScope', '$http', '$parse', function($rootScope, $scope, $http, $parse){
     function init() {
         $scope.name =  localStorage.getItem("name");
         $scope.img = localStorage.getItem("pic");
@@ -30,6 +30,15 @@ routeForm.controller('FormController', ['$scope', '$rootScope', '$http',function
         $scope.kmArr = [{'name': 'עד 5 ק"מ', 'value': '5', 'label': 'עד 5'}, {'name': '5-10 ק"מ ביום', 'value': '10', 'label': '5-10'}, {'name': '10-15 ק"מ ביום', 'value': '15', 'label': '10-15'}];
         $scope.diffArr = [{'name': 'ללא העדפה', 'value': 'ללא'}, {'name': 'קל', 'value': 'קל'}, {'name': 'בינוני', 'value': 'בינוני'}, {'name': 'קשה', 'value': 'קשה'}];
         $scope.typeArr = [{'name': 'ללא העדפה', 'value': 'ללא'}, {'name': 'מתאים למשפחות', 'value': 'מתאים למשפחות'}, {'name': 'מתאים לבעלי מוגבלויות', 'value': 'מתאים לבעלי מוגבלויות'}, {'name': 'מאתגר', 'value': 'מאתגר'}, {'name': 'מיטיבי לכת', 'value': 'מיטיבי לכת'}];
+
+        for(var i=0; i<$scope.startPts.length; i++){
+            var areaStringName = 'northPoints'+startPts[i].area_id;
+            var openModel = $parse(areaStringName);
+            openModel.assign($scope, startPts[i].points);
+            areaStringName = 'southPoints'+startPts[i].area_id;
+            openModel = $parse(areaStringName);
+            openModel.assign($scope, startPts[i].points.reverse());
+        }
 
         //if the user had planned a route and go back to it
         if(localStorage.getItem("suggestedBack") == "true"){
@@ -103,7 +112,7 @@ routeForm.controller('FormController', ['$scope', '$rootScope', '$http',function
             //$scope.sPoint = $scope.startPts[area.area_id].points[0];
         }
     };
-
+    
     //function that checks if the chosen route is all of the route, and disable relevant fields
     $scope.checkArea = function(area){
         if(area.area == "כל השביל"){
@@ -114,10 +123,11 @@ routeForm.controller('FormController', ['$scope', '$rootScope', '$http',function
             $scope.sPoint = $scope.startPts[area.area_id].points[0];     
         }
         else {
-            console.log($scope.dir.value);
-            $scope.northPointsArr = $scope.startPts[area.area_id].points;
-            $scope.southPointsArr = $scope.startPts[area.area_id].points.reverse();
-            console.log($scope.startPts[area.area_id].points);
+            console.log($scope.northPoint1);
+            console.log($scope.southPoints1);
+            //$scope.northPointsArr = $scope.startPts[area.area_id].points;
+            //$scope.southPointsArr = $scope.startPts[area.area_id].points.reverse();
+            //console.log($scope.startPts[area.area_id].points);
             //if(area.area == "הגליל העליון") $scope.southPointsArr.splice((($scope.southPointsArr.length)-1),1);
             if($scope.dir.value == "north"){ 
                 console.log("dir is north");
