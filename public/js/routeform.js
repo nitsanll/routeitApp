@@ -32,12 +32,12 @@ routeForm.controller('FormController', ['$scope', '$rootScope', '$http', '$parse
         $scope.typeArr = [{'name': 'ללא העדפה', 'value': 'ללא'}, {'name': 'מתאים למשפחות', 'value': 'מתאים למשפחות'}, {'name': 'מתאים לבעלי מוגבלויות', 'value': 'מתאים לבעלי מוגבלויות'}, {'name': 'מאתגר', 'value': 'מאתגר'}, {'name': 'מיטיבי לכת', 'value': 'מיטיבי לכת'}];
 
         for(var i=0; i<$scope.startPts.length; i++){
-            var areaStringName = 'northPoints'+startPts[i].area_id;
-            var openModel = $parse(areaStringName);
+            var northStringName = 'northPoints'+startPts[i].area_id;
+            var openModel = $parse(northStringName);
             openModel.assign($scope, startPts[i].points);
-            areaStringName = 'southPoints'+startPts[i].area_id;
-            openModel = $parse(areaStringName);
-            openModel.assign($scope, startPts[i].points.reverse());
+            var southStringName = 'southPoints'+startPts[i].area_id;
+            var openModel1 = $parse(southStringName);
+            openModel1.assign($scope, startPts[i].points.reverse());
         }
 
         //if the user had planned a route and go back to it
