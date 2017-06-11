@@ -123,7 +123,7 @@ routeForm.controller('FormController', ['$scope', '$rootScope', '$http', '$parse
             $scope.sPoint = $scope.startPts[area.area_id].points[0];     
         }
         else {
-            console.log($scope.northPoint1);
+            console.log($scope.northPoints1);
             console.log($scope.southPoints1);
             //$scope.northPointsArr = $scope.startPts[area.area_id].points;
             //$scope.southPointsArr = $scope.startPts[area.area_id].points.reverse();
@@ -131,10 +131,10 @@ routeForm.controller('FormController', ['$scope', '$rootScope', '$http', '$parse
             //if(area.area == "הגליל העליון") $scope.southPointsArr.splice((($scope.southPointsArr.length)-1),1);
             if($scope.dir.value == "north"){ 
                 console.log("dir is north");
-                $scope.sPoint = $scope.northPointsArr[0];
+                //$scope.sPoint = $scope.northPointsArr[0];
             } else { 
                 console.log("dir is south");
-                $scope.sPoint = $scope.southPointsArr[0];
+                //$scope.sPoint = $scope.southPointsArr[0];
             }
             var elements = angular.element(document.querySelectorAll('.disable'));
             elements.removeAttr('disabled');
