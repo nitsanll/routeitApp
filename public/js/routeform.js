@@ -118,7 +118,7 @@ routeForm.controller('FormController', ['$scope', '$rootScope', '$http',function
             $scope.northPointsArr = $scope.startPts[area.area_id].points;
             $scope.southPointsArr = $scope.startPts[area.area_id].points.reverse();
             //if(area.area == "הגליל העליון") $scope.southPointsArr.splice((($scope.southPointsArr.length)-1),1);
-            if($scope.dir == "north") $scope.sPoint = $scope.northPointsArr[0];
+            if($scope.dir.value == "north") $scope.sPoint = $scope.northPointsArr[0];
             else $scope.sPoint = $scope.southPointsArr[0];
             var elements = angular.element(document.querySelectorAll('.disable'));
             elements.removeAttr('disabled');
