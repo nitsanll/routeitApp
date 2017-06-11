@@ -24,7 +24,7 @@ function initMap() {
             window.lat = position.coords.latitude;
             window.lng = position.coords.longitude;
             console.log(document.getElementById('map'));
-            console.log(window.lat + " " window.lng);
+            console.log(window.lat + " " + window.lng);
             map = new google.maps.Map(document.getElementById('map'), {
                 center:{lat:window.lat, lng:window.lng},
                 zoom:13,
