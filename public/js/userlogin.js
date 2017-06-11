@@ -22,10 +22,11 @@ login.controller('UserController', ['$scope','$http', function($scope, $http){
                     localStorage.setItem("idCounter", idc.id_counter);
                     console.log(idc.id_counter);
                     $http.get("https://routeit-ws.herokuapp.com/getMyRoutes/" + email).success(function(routes){
-                        console.log(routes.my_routes);
+                        console.log(routes.my_routes.length);
                         localStorage.setItem("myRoutes", JSON.stringify(routes.my_routes));
                         var isThereChosen = false;
                         for(var j=0; j<routes.my_routes.length; j++){
+                            console.log("inside");
                             if(routes.my_routes[j].isChosen == true){
                                 console.log(routes.my_routes[j].isChosen);
                                 localStorage.setItem("chosenRoute", JSON.stringify(routes.my_routes[j]));
