@@ -690,7 +690,7 @@
 	.menu ul li a { text-decoration:none;  margin: 0px; color:#41414B;}
 	.menu a{text-decoration:none; color:#41414B;}
 
-	#myRoutesLi:active, #myRoutesLi:focus {
+	#myRoutesLi:active, #myRoutesLi:focus, #historyLi:active, #historyLi:focus, #planLi:active, #planLi:focus, #dailyLi:active, #dailyLi:focus {
 		background: #E0604B;
 		color: #DEF0FA;
 	}	
