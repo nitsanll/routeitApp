@@ -250,23 +250,25 @@ chosenRoutes.controller('chosenRoutesController', ['$scope', '$http', '$compile'
 
     //function that saves the chosen trip and redirect to daily route page
     $scope.tripIt = function(tripId){
-        for(var i = 0; i<dailyRoutesArr.length; i++){
-            if(dailyRoutesArr[i].trip_id == tripId){
-                localStorage.setItem("chosenRoute", JSON.stringify(dailyRoutesArr[i]));
-                dailyRoutesArr[i].isChosen = true;
-                localStorage.setItem("dailyRoutes", JSON.stringify(dailyRoutesArr));
-                break;
+        $http.get("https://routeit-ws.herokuapp.com/setChosen/" + userMail + "/" + tripId + "/true").success(function(isUpdated){
+            for(var i = 0; i<dailyRoutesArr.length; i++){
+                if(dailyRoutesArr[i].trip_id == tripId){
+                    localStorage.setItem("chosenRoute", JSON.stringify(dailyRoutesArr[i]));
+                    dailyRoutesArr[i].isChosen = true;
+                    localStorage.setItem("dailyRoutes", JSON.stringify(dailyRoutesArr));
+                    break;
+                }
             }
-        }
-        myRoutesArr = JSON.parse(localStorage.getItem("myRoutes"));
-        for(var i = 0; i<myRoutesArr.length; i++){
-            if(myRoutesArr[i].trip_id == tripId){
-                myRoutesArr[i].isChosen = true;
-                localStorage.setItem("myRoutes", JSON.stringify(myRoutesArr));
-                break;
+            myRoutesArr = JSON.parse(localStorage.getItem("myRoutes"));
+            for(var i = 0; i<myRoutesArr.length; i++){
+                if(myRoutesArr[i].trip_id == tripId){
+                    myRoutesArr[i].isChosen = true;
+                    localStorage.setItem("myRoutes", JSON.stringify(myRoutesArr));
+                    break;
+                }
             }
-        }
-        window.location.assign("https://routeit-app.herokuapp.com/dailyroute.html");
+            window.location.assign("https://routeit-app.herokuapp.com/dailyroute.html");
+        });
     }
 
     $scope.showDetailedPlan = function(){
