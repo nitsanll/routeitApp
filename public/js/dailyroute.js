@@ -140,10 +140,10 @@ dailyRoute.controller('dailyController', ['$scope', '$http', '$compile', functio
                 }
             }
             myRoutes = JSON.parse(localStorage.getItem("myRoutes"));
-            for(var i = 0; i<myRoutesArr.length; i++){
-                if(myRoutesArr[i].trip_id == tripId){
-                    myRoutesArr[i].isChosen = false;
-                    localStorage.setItem("myRoutes", JSON.stringify(myRoutesArr));
+            for(var i = 0; i<myRoutes.length; i++){
+                if(myRoutes[i].trip_id == tripId){
+                    myRoutes[i].isChosen = false;
+                    localStorage.setItem("myRoutes", JSON.stringify(myRoutes));
                     break;
                 }
             }
