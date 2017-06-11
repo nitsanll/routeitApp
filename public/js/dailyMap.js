@@ -21,6 +21,7 @@ function initMap() {
     if(chosenRoute == null){
          console.log("inside");
          navigator.geolocation.getCurrentPosition(function(position){
+            console.log("hi");
             window.lat = position.coords.latitude;
             window.lng = position.coords.longitude;
             console.log(document.getElementById('map'));
