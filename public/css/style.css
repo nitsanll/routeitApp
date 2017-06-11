@@ -1122,8 +1122,8 @@
 		text-align: center;
 	}
 
-	#close:active, #close:focus, #stay:active, #stay:focus {
-		background: #5ec2ed;
+	#close:active, #close:focus, #stay:active, #stay:focus, #sendAlert:focus, , #stopAlert:focus, #closeAlert:focus, , #closeError:focus{
+		background: #a3dcf5;
 	}
 
 	#attention{
