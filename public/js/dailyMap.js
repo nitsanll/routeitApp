@@ -30,6 +30,7 @@ function initMap() {
             });
             var mark = new google.maps.Marker({position:{lat:lat, lng:lng}, map:map});
             document.getElementById('map').className = 'backgroundMap';
+            console.log(document.getElementById('map'));
         });
     }
     //if there is a chosen trip for the current day
