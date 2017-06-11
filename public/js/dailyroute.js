@@ -128,6 +128,7 @@ dailyRoute.controller('dailyController', ['$scope', '$http', '$compile', functio
     }
 
     $scope.stop = function(){
+        var tripId = JSON.parse(localStorage.getItem("chosenRoute")).trip_id;
         $http.get("https://routeit-ws.herokuapp.com/setChosen/" + userMail + "/" + tripId + "/false").success(function(isUpdated){
             localStorage.setItem("chosenRoute", null);
             var dailyRoutesArr = JSON.parse(localStorage.getItem("dailyRoutes"));
