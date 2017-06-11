@@ -1122,7 +1122,7 @@
 		text-align: center;
 	}
 
-	#close:active, #close:focus, #stay:active, #stay:focus, #sendAlert:focus, , #stopAlert:focus, #closeAlert:focus, , #closeError:focus{
+	#close:active, #close:focus, #stay:active, #stay:focus, #sendAlert:focus, #sendAlert:active, #stopAlert:focus, #stopAlert:active, #closeAlert:focus, #closeAlert:active, #closeError:focus, #closeError:active{
 		background: #a3dcf5;
 	}
 
