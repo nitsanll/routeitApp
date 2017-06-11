@@ -690,6 +690,11 @@
 	.menu ul li a { text-decoration:none;  margin: 0px; color:#41414B;}
 	.menu a{text-decoration:none; color:#41414B;}
 
+	#myRoutesLi:active {
+		background: #E0604B;
+		color: #DEF0FA;
+	}
+
 	.glyphicon-home{
 	  color:white; 
 	  font-size:1.5em; 
