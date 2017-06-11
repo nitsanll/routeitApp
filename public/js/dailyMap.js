@@ -25,7 +25,7 @@ function initMap() {
             window.lat = position.coords.latitude;
             window.lng = position.coords.longitude;
             map = new google.maps.Map(document.getElementById('map'), {
-                center:{lat: 32.090565, lng: 34.803046},//{lat:window.lat, lng:window.lng},
+                center: {lat:window.lat, lng:window.lng},
                 zoom:13,
                 mapTypeId: google.maps.MapTypeId.ROAD
             });
