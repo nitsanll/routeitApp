@@ -81,7 +81,7 @@ routeForm.controller('FormController', ['$scope', '$rootScope', '$http',function
 
     //function that orders the start points of the chosen area by the chosen direction
     $scope.dirValue = function(dir, area){
-        var tmpPointsArr = []; 
+        var northPointsArr = []; 
         console.log("area: " + area.area);
         if(dir == 'north'){
             console.log($scope.south);
@@ -112,7 +112,8 @@ routeForm.controller('FormController', ['$scope', '$rootScope', '$http',function
         }
         else {
             console.log(area.area_id);
-            $scope.sPoint = $scope.startPts[area.area_id].points[0];
+            $scope.northPointsArr = $scope.startPts[area.area_id].points;
+            $scope.sPoint = $scope.northPointsArr[0];
             var elements = angular.element(document.querySelectorAll('.disable'));
             elements.removeAttr('disabled');
             elements.css('background', '#D9F1FB');    
