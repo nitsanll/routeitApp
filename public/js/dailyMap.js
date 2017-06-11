@@ -19,7 +19,7 @@ function initMap() {
     }
     var chosenRoute = JSON.parse(localStorage.getItem("chosenRoute"));
     if(chosenRoute == null){
-         console.log("inside");
+         console.log(navigator.geolocation);
          navigator.geolocation.getCurrentPosition(function(position){
             console.log("hi");
             window.lat = position.coords.latitude;
@@ -35,7 +35,7 @@ function initMap() {
             var mark = new google.maps.Marker({position:{lat:lat, lng:lng}, map:map});
             document.getElementById('map').className = 'backgroundMap';
             console.log(document.getElementById('map'));
-        }, function(error){ console.warn((${err.code}) + ${err.message}; }, 
+        }, function(error){ console.warn((${err.code}) + ${err.message}); }, 
         {
           timeout: 5000,
           maximumAge: 0
