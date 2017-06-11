@@ -88,6 +88,9 @@ userRoutes.controller('RoutesController', ['$scope', '$http', '$compile', functi
                         if(localStorage.getItem("chosenRoute") != "null"){
                             if(myRoutesArr[i].trip_id == JSON.parse(localStorage.getItem("chosenRoute")).trip_id) {
                                route+='</p><section class="updateDate" id="updateDate'+i+'"><input type="date" ng-model = "date'+i+'" class = "date"> <button class = "dateBtn" ng-click="updateDate(' + myRoutesArr[i].trip_id + ',date' + i + ',' + myRoutesArr[i].days_num + ')"> &#10004; </button></section></section>';
+                            } else {
+                                route+='<span id ="closeDates" ng-click="deleteDates('+ myRoutesArr[i].trip_id +')"></span></p>'
+                                +'<section class="updateDate" id="updateDate'+i+'"><input type="date" ng-model = "date'+i+'" class = "date"> <button class = "dateBtn" ng-click="updateDate(' + myRoutesArr[i].trip_id + ',date' + i + ',' + myRoutesArr[i].days_num + ')"> &#10004; </button></section></section>';
                             }
                         } else {
                            route+='<span id ="closeDates" ng-click="deleteDates('+ myRoutesArr[i].trip_id +')"></span></p>'
@@ -97,6 +100,9 @@ userRoutes.controller('RoutesController', ['$scope', '$http', '$compile', functi
                         if(localStorage.getItem("chosenRoute") != "null"){
                             if(myRoutesArr[i].trip_id == JSON.parse(localStorage.getItem("chosenRoute")).trip_id) {
                                 route += '<p class="tripDates" id="tripDates'+i+'">' + eDateString + " - " + sDateString+'</p>'
+                                +'<section class="updateDate" id="updateDate'+i+'"><input type="date" ng-model = "date'+i+'" class = "date"> <button class = "dateBtn" ng-click="updateDate(' + myRoutesArr[i].trip_id + ',date' + i + ',' + myRoutesArr[i].days_num + ')"> &#10004; </button></section></section>';  
+                            } else {
+                                route += '<p class="tripDates" id="tripDates'+i+'">' + eDateString + " - " + sDateString+'<span id ="closeDates" ng-click="deleteDates('+ myRoutesArr[i].trip_id +')"></span></p>'
                                 +'<section class="updateDate" id="updateDate'+i+'"><input type="date" ng-model = "date'+i+'" class = "date"> <button class = "dateBtn" ng-click="updateDate(' + myRoutesArr[i].trip_id + ',date' + i + ',' + myRoutesArr[i].days_num + ')"> &#10004; </button></section></section>';  
                             }
                         } else {
@@ -115,9 +121,9 @@ userRoutes.controller('RoutesController', ['$scope', '$http', '$compile', functi
                 if(localStorage.getItem("chosenRoute") != "null"){
                     if(myRoutesArr[i].trip_id == JSON.parse(localStorage.getItem("chosenRoute")).trip_id) {
                         route+='<a href="https://routeit-app.herokuapp.com/dailyroute.html" id="myRoutesTripIt"> בזמן <br> טיול </a>';
-                    } /*else {
+                    } else {
                         route+='<button id="myRoutesTripIt" ng-click="tripIt(' + myRoutesArr[i].trip_id + ')"> צא <br> לטיול </button>';
-                    }*/
+                    }
                 } else {
                     route+='<button id="myRoutesTripIt" ng-click="tripIt(' + myRoutesArr[i].trip_id + ')"> צא <br> לטיול </button>';
                 }
