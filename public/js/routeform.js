@@ -37,7 +37,7 @@ routeForm.controller('FormController', ['$scope', '$rootScope', '$http', '$parse
             var openModel = $parse(northStringName);
             openModel.assign($scope, $scope.startPts[i].points);
             var tmpPoints = $scope.startPts[i].points;
-            console.log9(tmpPoints);
+            console.log(tmpPoints);
             console.log(tmpPoints.reverse());
             var southStringName = 'southPoints'+startPts[i].area_id;
             var openModel1 = $parse(southStringName);
