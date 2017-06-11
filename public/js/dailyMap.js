@@ -35,9 +35,8 @@ function initMap() {
             var mark = new google.maps.Marker({position:{lat:lat, lng:lng}, map:map});
             document.getElementById('map').className = 'backgroundMap';
             console.log(document.getElementById('map'));
-        }, function(error){ console.warn(`ERROR(${err.code}): ${err.message}`); }, 
+        }, function(error){ console.warn('ERROR(${err.code}): ${err.message}'); }, 
         {
-          enableHighAccuracy: true,
           timeout: 5000,
           maximumAge: 0
         });
