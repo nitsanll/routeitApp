@@ -36,7 +36,7 @@ login.controller('UserController', ['$scope','$http', function($scope, $http){
                         if(isThereChosen == false){
                             localStorage.setItem("chosenRoute", null);
                         }
-                        window.location.assign("https://routeit-app.herokuapp.com/dailyroute.html");
+                        //window.location.assign("https://routeit-app.herokuapp.com/dailyroute.html");
                     });
                 });
             }
