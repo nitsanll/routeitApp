@@ -37,8 +37,8 @@ function initMap() {
             console.log(document.getElementById('map'));
         }, function(error){ console.warn(error); }, 
         {
-        //enableHighAccuracy: true,
-          timeout: 5000
+            enableHighAccuracy: false,
+            timeout: 10000
         });
     }
     //if there is a chosen trip for the current day
