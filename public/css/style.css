@@ -1122,8 +1122,8 @@
 		text-align: center;
 	}
 
-	#close:active, #close:focus {
-		background: yellow;
+	#close:active, #close:focus, #stay:active, #stay:focus {
+		background: #5ec2ed;
 	}
 
 	#attention{
