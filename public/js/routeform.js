@@ -87,17 +87,20 @@ routeForm.controller('FormController', ['$scope', '$rootScope', '$http',function
             console.log($scope.south);
             if($scope.south == false){}
             else {
-                $scope.startPts[area.area_id].points.reverse();               
-                $scope.sPoint = $scope.startPts[area.area_id].points[0];
-                console.log($scope.startPts[area.area_id].points[0]);
-                console.log($scope.sPoint);
+                $scope.sPoint = $scope.northPointsArr[0];
+                //$scope.startPts[area.area_id].points.reverse();               
+                //$scope.sPoint = $scope.startPts[area.area_id].points[0];
+                //console.log($scope.startPts[area.area_id].points[0]);
+                //console.log($scope.sPoint);
+
                 $scope.south = false;
             }
         }
         else if(dir == 'south'){
             $scope.south = true;
-            $scope.startPts[area.area_id].points.reverse();
-            $scope.sPoint = $scope.startPts[area.area_id].points[0];
+            $scope.sPoint = $scope.southPointsArr[0];
+            //$scope.startPts[area.area_id].points.reverse();
+            //$scope.sPoint = $scope.startPts[area.area_id].points[0];
         }
     };
 
@@ -113,7 +116,9 @@ routeForm.controller('FormController', ['$scope', '$rootScope', '$http',function
         else {
             console.log(area.area_id);
             $scope.northPointsArr = $scope.startPts[area.area_id].points;
-            $scope.sPoint = $scope.northPointsArr[0];
+            $scope.southPointsArr = $scope.startPts[area.area_id].points.reverse();
+            if($scope.dir == "north") $scope.sPoint = $scope.northPointsArr[0];
+            else $scope.sPoint = $scope.southPointsArr[0];
             var elements = angular.element(document.querySelectorAll('.disable'));
             elements.removeAttr('disabled');
             elements.css('background', '#D9F1FB');    
