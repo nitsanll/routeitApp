@@ -1122,6 +1122,10 @@
 		text-align: center;
 	}
 
+	#close:active, #close:focus {
+		background: yellow;
+	}
+
 	#attention{
 		font-size: 1.4em;
 		display: block;
