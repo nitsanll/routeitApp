@@ -289,15 +289,17 @@ userRoutes.controller('RoutesController', ['$scope', '$http', '$compile', functi
     }
 
     $scope.tripIt = function(tripId){
-        myRoutesArr = JSON.parse(localStorage.getItem("myRoutes"));
-        for(var i = 0; i<myRoutesArr.length; i++){
-            if(myRoutesArr[i].trip_id == tripId){
-                localStorage.setItem("chosenRoute", JSON.stringify(myRoutesArr[i]));
-                myRoutesArr[i].isChosen = true;
-                localStorage.setItem("myRoutes", JSON.stringify(myRoutesArr));
-                break;
+        $http.get("https://routeit-ws.herokuapp.com/setChosen/" + userMail + "/" + tripId + "/true").success(function(isUpdated){
+            myRoutesArr = JSON.parse(localStorage.getItem("myRoutes"));
+            for(var i = 0; i<myRoutesArr.length; i++){
+                if(myRoutesArr[i].trip_id == tripId){
+                    localStorage.setItem("chosenRoute", JSON.stringify(myRoutesArr[i]));
+                    myRoutesArr[i].isChosen = true;
+                    localStorage.setItem("myRoutes", JSON.stringify(myRoutesArr));
+                    break;
+                }
             }
-        }
-        window.location.assign("https://routeit-app.herokuapp.com/dailyroute.html");
+            window.location.assign("https://routeit-app.herokuapp.com/dailyroute.html");
+        });
     }
 }]);
