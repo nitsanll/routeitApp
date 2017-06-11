@@ -68,6 +68,10 @@
 		height: 100vh;
 	}*/
 
+	button:focus {
+		outline: 0;
+	}
+
 	.appLogo {
 		display: block;
 		margin: 0px auto;
