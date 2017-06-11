@@ -438,7 +438,8 @@
 	}
 
 	#myRoutesTripIt:active, #myRoutesTripIt:focus {
-		background:  #f9aa9f;	
+		background:  #f9aa9f;
+		text-decoration: none;	
 	}
 
 	#myRoutesDisabledIcon {
