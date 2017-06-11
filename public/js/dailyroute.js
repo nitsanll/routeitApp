@@ -25,6 +25,7 @@ dailyRoute.controller('dailyController', ['$scope', '$http', '$compile', functio
     else {
         chosenRoute = localStorage.getItem("chosenRoute");
         //if there is a chosen route for the day 
+        var isFinished = true;
         console.log(chosenRoute);
         if(chosenRoute != "null"){
             console.log("there is a chosen route planned for today");
@@ -78,7 +79,31 @@ dailyRoute.controller('dailyController', ['$scope', '$http', '$compile', functio
                     var linkingFunction = $compile(htmlContent);
                     var elem = linkingFunction($scope);
                     dailyContent.html(elem);
+                    isFinished = false;
+                    break;
                 }
+            }
+            $http.get("https://routeit-ws.herokuapp.com/addPrevRoute/" + userMail + "/" + JSON.stringify(chosenRoute)).success(function(routes){            
+                console.log(routes);  
+            });
+            //the trip ended
+            if(isFinished == true){
+                localStorage.setItem("chosenRoute", null);
+                myRoutes = JSON.parse(localStorage.getItem("myRoutes"));
+                $http.get("https://routeit-ws.herokuapp.com/deleteRoute/" + userMail + "/" + chosenRoute.trip_id).success(function(routes){
+                    //delete the route from myRoutesArr
+                    for(var i = 0; i<myRoutes.length; i++){
+                        if(myRoutes[i].trip_id == chosenRoute.trip_id){
+                            console.log("found the route tripId to delete: " + chosenRoute.trip_id + ", in array position: " + i);
+                            myRoutes.splice(i,1);
+                            localStorage.setItem("myRoutes", JSON.stringify(myRoutes));
+                            break;
+                        }
+                    }
+                    $http.get("https://routeit-ws.herokuapp.com/addPrevRoute/" + userMail + "/" + JSON.stringify(chosenRoute)).success(function(routes){            
+                        console.log(routes);  
+                    });
+                });
             }
         } else {
             //check if there are trips for the current day  
