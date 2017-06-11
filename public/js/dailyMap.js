@@ -37,7 +37,7 @@ function initMap() {
             console.log(document.getElementById('map'));
         }, function(error){ console.warn(error); }, 
         {
-        enableHighAccuracy: true,
+        //enableHighAccuracy: true,
           timeout: 5000
         });
     }
