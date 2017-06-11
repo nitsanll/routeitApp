@@ -103,7 +103,6 @@ routeForm.controller('FormController', ['$scope', '$rootScope', '$http',function
 
     //function that checks if the chosen route is all of the route, and disable relevant fields
     $scope.checkArea = function(area){
-        //$scope.sPoint = $scope.startPts[area.area_id].points[0];
         if(area.area == "כל השביל"){
             var elements = angular.element(document.querySelectorAll('.disable'));
             elements.attr('disabled', 'disabled');
@@ -113,7 +112,8 @@ routeForm.controller('FormController', ['$scope', '$rootScope', '$http',function
         else {
             var elements = angular.element(document.querySelectorAll('.disable'));
             elements.removeAttr('disabled');
-             elements.css('background', '#D9F1FB');    
+            elements.css('background', '#D9F1FB');
+            $scope.sPoint = $scope.startPts[area.area_id].points[0];    
         }
         /*if(area.area != "כל בשביל"){
             console.log($scope.dir);
