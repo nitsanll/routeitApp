@@ -38,8 +38,7 @@ function initMap() {
         }, function(error){ console.warn(error); }, 
         {
         enableHighAccuracy: true,
-          timeout: 5000,
-          maximumAge: 0
+          timeout: 5000
         });
     }
     //if there is a chosen trip for the current day
