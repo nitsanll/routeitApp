@@ -40,6 +40,12 @@ routeForm.controller('FormController', ['$scope', '$rootScope', '$http', '$parse
             openModel1.assign($scope, startPts[i].points.reverse());*/
         }
 
+        for(var i=0; i<$scope.startPts.length; i++){
+            var southStringName = 'southPoints'+startPts[i].area_id;
+            var openModel1 = $parse(southStringName);
+            openModel1.assign($scope, startPts[i].points.reverse());
+        }
+
         //if the user had planned a route and go back to it
         if(localStorage.getItem("suggestedBack") == "true"){
             var suggestedRoute = JSON.parse(localStorage.getItem("suggestedRoute"));
@@ -124,7 +130,7 @@ routeForm.controller('FormController', ['$scope', '$rootScope', '$http', '$parse
         }
         else {
             console.log($scope.northPoints1);
-            //console.log($scope.southPoints1);
+            console.log($scope.southPoints1);
             //$scope.northPointsArr = $scope.startPts[area.area_id].points;
             //$scope.southPointsArr = $scope.startPts[area.area_id].points.reverse();
             //console.log($scope.startPts[area.area_id].points);
