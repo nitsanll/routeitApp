@@ -24,6 +24,17 @@ login.controller('UserController', ['$scope','$http', function($scope, $http){
                     $http.get("https://routeit-ws.herokuapp.com/getMyRoutes/" + email).success(function(routes){
                         console.log(routes.my_routes);
                         localStorage.setItem("myRoutes", JSON.stringify(routes.my_routes));
+                        var isThereChosen = false;
+                        for(var j=0; j<routes.my_routes.length; j++){
+                            if(routes.my_routes[i].isChosen == true){
+                                localStorage.setItem("chosenRoute", JSON.stringify(routes.my_routes[i]));
+                                isThereChosen = true;
+                                break;
+                            }
+                        }
+                        if(isThereChosen == false){
+                            localStorage.setItem("chosenRoute", null);
+                        }
                         window.location.assign("https://routeit-app.herokuapp.com/dailyroute.html");
                     });
                 });

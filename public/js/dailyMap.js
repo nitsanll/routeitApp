@@ -31,7 +31,7 @@ function initMap() {
             });
             var mark = new google.maps.Marker({position:{lat:lat, lng:lng}, map:map});
             document.getElementById('map').className = 'backgroundMap';
-            console.log(document.getElementById('mapsap'));
+            console.log(document.getElementById('map'));
         }, function(error){ 
             console.warn(error);
             map = new google.maps.Map(document.getElementById('map'), {
@@ -39,6 +39,7 @@ function initMap() {
                 zoom:13,
                 mapTypeId: google.maps.MapTypeId.ROAD
             });
+            var mark = new google.maps.Marker({position:{lat:32.090565, lng:34.803046}, map:map});
             document.getElementById('map').className = 'backgroundMap'; 
         }, 
         {

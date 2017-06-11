@@ -129,6 +129,22 @@ dailyRoute.controller('dailyController', ['$scope', '$http', '$compile', functio
 
     $scope.stop = function(){
         localStorage.setItem("chosenRoute", null);
+        var dailyRoutesArr = JSON.parse(localStorage.getItem("dailyRoutes"));
+        for(var i = 0; i<dailyRoutesArr.length; i++){
+            if(dailyRoutesArr[i].trip_id == tripId){
+                dailyRoutesArr[i].isChosen = false;
+                localStorage.setItem("dailyRoutes", JSON.stringify(dailyRoutesArr));
+                break;
+            }
+        }
+        myRoutes = JSON.parse(localStorage.getItem("myRoutes"));
+        for(var i = 0; i<myRoutesArr.length; i++){
+            if(myRoutesArr[i].trip_id == tripId){
+                myRoutesArr[i].isChosen = false;
+                localStorage.setItem("myRoutes", JSON.stringify(myRoutesArr));
+                break;
+            }
+        }
         location.reload();
     }
 
