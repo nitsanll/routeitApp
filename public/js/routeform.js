@@ -107,7 +107,8 @@ routeForm.controller('FormController', ['$scope', '$rootScope', '$http',function
             var elements = angular.element(document.querySelectorAll('.disable'));
             elements.attr('disabled', 'disabled');
             elements.css('background', '#EDF0F2');
-            $scope.daysNum = "";     
+            $scope.daysNum = "";
+            $scope.sPoint = $scope.startPts[area.area_id].points[0];     
         }
         else {
             console.log(area.area_id);
