@@ -37,8 +37,6 @@ routeForm.controller('FormController', ['$scope', '$rootScope', '$http', '$parse
             var openModel = $parse(northStringName);
             openModel.assign($scope, $scope.startPts[i].points);
             var tmpPoints = $scope.startPts[i].points;
-            console.log(tmpPoints);
-            console.log(tmpPoints.reverse());
             var southStringName = 'southPoints'+startPts[i].area_id;
             var openModel1 = $parse(southStringName);
             openModel1.assign($scope, tmpPoints.reverse());
@@ -106,9 +104,9 @@ routeForm.controller('FormController', ['$scope', '$rootScope', '$http', '$parse
             console.log($scope.south);
             if($scope.south == false){}
             else {
-                $scope.sPoint = $scope.northPointsArr[0];
-                //$scope.startPts[area.area_id].points.reverse();               
-                //$scope.sPoint = $scope.startPts[area.area_id].points[0];
+                //$scope.sPoint = $scope.northPointsArr[0];
+                $scope.startPts[area.area_id].points.reverse();               
+                $scope.sPoint = $scope.startPts[area.area_id].points[0];
                 //console.log($scope.startPts[area.area_id].points[0]);
                 //console.log($scope.sPoint);
 
@@ -117,9 +115,9 @@ routeForm.controller('FormController', ['$scope', '$rootScope', '$http', '$parse
         }
         else if(dir == 'south'){
             $scope.south = true;
-            $scope.sPoint = $scope.southPointsArr[0];
-            //$scope.startPts[area.area_id].points.reverse();
-            //$scope.sPoint = $scope.startPts[area.area_id].points[0];
+            //$scope.sPoint = $scope.southPointsArr[0];
+            $scope.startPts[area.area_id].points.reverse();
+            $scope.sPoint = $scope.startPts[area.area_id].points[0];
         }
     };
     
@@ -133,19 +131,18 @@ routeForm.controller('FormController', ['$scope', '$rootScope', '$http', '$parse
             $scope.sPoint = $scope.startPts[area.area_id].points[0];     
         }
         else {
-            console.log($scope.northPoints1);
-            console.log($scope.southPoints1);
             //$scope.northPointsArr = $scope.startPts[area.area_id].points;
             //$scope.southPointsArr = $scope.startPts[area.area_id].points.reverse();
             //console.log($scope.startPts[area.area_id].points);
             //if(area.area == "הגליל העליון") $scope.southPointsArr.splice((($scope.southPointsArr.length)-1),1);
-            if($scope.dir.value == "north"){ 
+            /*if($scope.dir.value == "north"){ 
                 console.log("dir is north");
                 //$scope.sPoint = $scope.northPointsArr[0];
             } else { 
                 console.log("dir is south");
                 //$scope.sPoint = $scope.southPointsArr[0];
-            }
+            }*/
+            $scope.sPoint = $scope.startPts[area.area_id].points[0]; 
             var elements = angular.element(document.querySelectorAll('.disable'));
             elements.removeAttr('disabled');
             elements.css('background', '#D9F1FB');    
