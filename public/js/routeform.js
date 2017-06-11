@@ -114,7 +114,7 @@ routeForm.controller('FormController', ['$scope', '$rootScope', '$http',function
             $scope.sPoint = $scope.startPts[area.area_id].points[0];     
         }
         else {
-            console.log(area.area_id);
+            console.log($scope.dir);
             $scope.northPointsArr = $scope.startPts[area.area_id].points;
             $scope.southPointsArr = $scope.startPts[area.area_id].points.reverse();
             //if(area.area == "הגליל העליון") $scope.southPointsArr.splice((($scope.southPointsArr.length)-1),1);
