@@ -110,11 +110,11 @@ routeForm.controller('FormController', ['$scope', '$rootScope', '$http',function
             $scope.daysNum = "";     
         }
         else {
+            console.log(area.area_id);
+            $scope.sPoint = $scope.startPts[area.area_id].points[0];
             var elements = angular.element(document.querySelectorAll('.disable'));
             elements.removeAttr('disabled');
-            elements.css('background', '#D9F1FB');
-            console.log(area.area_id);
-            $scope.sPoint = $scope.startPts[area.area_id].points[0];    
+            elements.css('background', '#D9F1FB');    
         }
         /*if(area.area != "כל בשביל"){
             console.log($scope.dir);
