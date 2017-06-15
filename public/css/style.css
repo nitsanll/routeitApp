@@ -490,6 +490,12 @@
 		background: url('../images/SHARE1.png') no-repeat center;
 	}
 
+	.dots {
+		position: absolute;
+		top: 50%;
+		left: 0%;
+	}
+
 	.dailyShareBtn {
 		position: absolute;
 		width: 8%;
