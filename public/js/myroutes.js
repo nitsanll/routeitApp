@@ -344,7 +344,7 @@ userRoutes.controller('RoutesController', ['$scope', '$http', '$compile', functi
         console.log("inside");
         var iconsWrap = angular.element(document.querySelector('.iconsWrap'));
         //if the overview is is closed
-        if($scope.isOpen == false){
+        if($scope.isIconsOpen == false){
             iconsWrap.removeClass('hidden');
             iconsWrap.addClass('visible');
             $scope.isIconsOpen = true;
