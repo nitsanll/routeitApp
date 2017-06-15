@@ -496,6 +496,13 @@
 		left: 0%;
 	}
 
+	.iconsWrap {
+		position: absolute;
+		top: 50%;
+		left: 2%;
+		background: #D9F1FA;
+	}
+
 	.dailyShareBtn {
 		position: absolute;
 		width: 8%;
