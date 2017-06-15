@@ -477,11 +477,8 @@
 	}
 
 	.shareBtn{
-		position: absolute;
-		width: 8%;
-		height: 7%;
-		top: 20%;
-		left: 5%;
+		width: 30px;
+		height: 30px;
 		background: url('../images/SHARE.png') no-repeat center;
 		border:none;
 	}
@@ -498,9 +495,13 @@
 
 	.iconsWrap {
 		position: absolute;
-		top: 50%;
-		left: 2%;
-		background: #D9F1FA;
+	    top: 49%;
+	    left: 8%;
+	    background: #D9F1FA;
+	    width: 100px;
+	    height: 30px;
+	    z-index: 101;
+	    border-radius: 20px;
 	}
 
 	.dailyShareBtn {
@@ -560,11 +561,8 @@
 	}
 
 	.editBtn {
-		position: absolute;
-		width: 12%;
-		height: 13%;
-		bottom: 25%;
-		left: 0.1%;
+		width: 30px;
+		height: 30px;
 		background: url('../images/EDIT.png') no-repeat center;
 		border:none;
 	}
@@ -584,11 +582,8 @@
 	}
 
 	.deleteBtn {
-		position: absolute;
-		width: 10%;
-		height: 10%;
-		bottom: 12%;
-		left: 1%;
+		width: 30px;
+		height: 30px;
 		background: url('../images/TRASH.png') no-repeat center;
 		border:none;
 	}
