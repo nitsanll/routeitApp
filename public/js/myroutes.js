@@ -73,7 +73,7 @@ userRoutes.controller('RoutesController', ['$scope', '$http', '$compile', functi
                 if(myRoutesArr[i].disabled_flag == true){
                     route+='<img id="myRoutesDisabledIcon" src="../images/DISABLED.png">';
                 }
-                route+='<img class="dots" src="../images/DOTS.png"><div class="iconsWrap"><button class = "editBtn"></button> <button class = "deleteBtn" ng-click="deleteRoute(' + myRoutesArr[i].trip_id + ')"></button><button class = "shareBtn"></button></div>'
+                route+='<img class="dots" src="../images/DOTS.png" ng-click="openIcons()"><div class="iconsWrap hidden"><button class = "editBtn"></button> <button class = "deleteBtn" ng-click="deleteRoute(' + myRoutesArr[i].trip_id + ')"></button><button class = "shareBtn"></button></div>'
                 + '<section class="ptsDate"><h3 class = "tripPts">' + myRoutesArr[i].trip_start_pt + ' - ' + myRoutesArr[i].trip_end_pt + '</h3>';
                 console.log(myRoutesArr[i]);
                 if(myRoutesArr[i].start_date){
@@ -337,5 +337,22 @@ userRoutes.controller('RoutesController', ['$scope', '$http', '$compile', functi
             }
             window.location.assign("https://routeit-app.herokuapp.com/dailyroute.html");
         });
+    }
+
+    $scope.isIconsOpen = false;
+    $scope.openIcons = function(){
+       var iconsWrap = angular.element(document.querySelector('#iconsWrap'));
+        //if the overview is is closed
+        if($scope.isOpen == false){
+            iconsWrap.removeClass('hidden');
+            iconsWrap.addClass('visible');
+            $scope.isIconsOpen = true;
+        } 
+        //if the overview is open
+        else {
+            iconsWrap.removeClass('visible');
+            iconsWrap.addClass('hidden');
+            $scope.isIconsOpen = false;
+        } 
     }
 }]);
