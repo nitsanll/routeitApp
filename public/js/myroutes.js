@@ -74,7 +74,7 @@ userRoutes.controller('RoutesController', ['$scope', '$http', '$compile', functi
                 if(myRoutesArr[i].disabled_flag == true){
                     route+='<img id="myRoutesDisabledIcon" src="../images/DISABLED.png">';
                 }
-                route+='<section class="ptsDate"><h3 class = "tripPts">' + myRoutesArr[i].trip_start_pt + ' - ' + myRoutesArr[i].trip_end_pt + '</h3>';
+                route+='<img id="dots" src="../images/DOTS.png"><section class="ptsDate"><h3 class = "tripPts">' + myRoutesArr[i].trip_start_pt + ' - ' + myRoutesArr[i].trip_end_pt + '</h3>';
                 console.log(myRoutesArr[i]);
                 if(myRoutesArr[i].start_date){
                     var sDate = new Date(myRoutesArr[i].start_date);
