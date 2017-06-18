@@ -121,16 +121,19 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile' ,functi
                 var elem = linkingFunction($scope);
                 accommElem.html(elem);
             }
-            var descArr = [];
-            console.log(routeOrigin.daily_sections[i].description.length);
+            var descArr = [], typeArr = [];
             for(var j=0; j<routeOrigin.daily_sections[i].description.length; j++){
                 if(j==(routeOrigin.daily_sections[i].description.length)-1) {
                     descArr.push(routeOrigin.daily_sections[i].description[j]);
-                    console.log("inside if");
                 } else { 
-                    console.log((routeOrigin.daily_sections[i].description[j] + ","));
                     descArr.push((routeOrigin.daily_sections[i].description[j] + ",")); 
-                    //descArr[j]+=",";
+                }
+            }
+            for(var j=0; j<routeOrigin.daily_sections[i].type.length; j++){
+                if(j==(routeOrigin.daily_sections[i].type.length)-1) {
+                    typeArr.push(routeOrigin.daily_sections[i].type[j]);
+                } else { 
+                    typeArr.push((routeOrigin.daily_sections[i].type[j] + ",")); 
                 }
             }
             //if there are no dates
@@ -146,7 +149,7 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile' ,functi
                     diff: routeOrigin.daily_sections[i].difficulty,
                     chosenAccomm: chosenAccomm,
                     description: descArr,
-                    type: routeOrigin.daily_sections[i].type
+                    type: typeArr
                 };
             //if there are dates
             }else {
@@ -167,7 +170,7 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile' ,functi
                     diff: routeOrigin.daily_sections[i].difficulty,
                     chosenAccomm: chosenAccomm,
                     description: descArr,
-                    type: routeOrigin.daily_sections[i].type
+                    type: typeArr
                 };
             }
             dailySections.push(dailySection);
