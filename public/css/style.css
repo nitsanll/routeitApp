@@ -194,7 +194,7 @@
 	}
 
 	#dailyDayNum {
-		width: 25%;
+		width: 24%;
 	}
 
 	#dailyDesc {
@@ -212,7 +212,7 @@
 
 	#dailyAlert{
 		border-left: none;
-		width: 14%;
+		width: 15%;
 		text-align: center;
 		padding-top: 1%;
 	}
