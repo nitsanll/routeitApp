@@ -44,7 +44,8 @@ dailyRoute.controller('dailyController', ['$scope', '$http', '$compile', functio
                     var dayNum = chosenRoute.daily_sections[i].day_num;
                     var daysNum = chosenRoute.days_num;
                     htmlContent = '<div id = "map"></div><div id="detailedHeadlineDiv"></div><h1 id="detailedHeadline">'+ start + ' - ' + end +'</h1>'
-                    +'<h1 id="detailedDate">' + currentDayStr + ', ' + currentDateStr + '</h1>';
+                    +'<h1 id="detailedDate">' + currentDayStr + ', ' + currentDateStr + '</h1><button class="dailyDetailedBtn" ng-click="showDetailedPlan()"> לתכנית הטיול </button>'
+                    +'<button class="endTrip" ng-click="endTrip()"> הפסק טיול </button>';
                     //if the traveler didn't choose accommodation
                     if(chosenRoute.daily_sections[i].chosen_accomm == null) {
                         var accommName = "לא נבחר מקום לינה ליום זה";
@@ -58,7 +59,7 @@ dailyRoute.controller('dailyController', ['$scope', '$http', '$compile', functio
                     var alertsArr = [];
                     htmlContent+='<div id="dailyTripDetails">';       
                     if(daysNum > 1) {
-                       htmlContent += '<p id="dailyDayNum" class="dailyTripDetail"><b> יום ' + dayNum + ' מתוך ' + daysNum + '<br> ימי טיול</b><button class="dailyDetailedBtn" ng-click="showDetailedPlan()"> לתכנית הטיול </button></p>'; 
+                       htmlContent += '<p id="dailyDayNum" class="dailyTripDetail"><b> יום ' + dayNum + ' מתוך ' + daysNum + '<br> ימי טיול</b></p>'; //<button class="dailyDetailedBtn" ng-click="showDetailedPlan()"> לתכנית הטיול </button></p>'; 
                     }
                     else {
                         htmlContent += '<p id="dailyDaysNum" class="dailyTripDetail"><b> טיול יומי </b></p>'; 
@@ -73,7 +74,7 @@ dailyRoute.controller('dailyController', ['$scope', '$http', '$compile', functio
                         }
                     }
                     htmlContent+='<p id="dailyDiff" class="dailyTripDetail"> <b> רמת קושי: </b><br>' + diff + '</p>'
-                    +'<p class="dailyTripDetail" id="dailyDuration"> <b> משך המסלול: </b><br>' + duration + ' שעות<br><button class="endTrip" ng-click="endTrip()"> הפסק טיול </button></p>'
+                    +'<p class="dailyTripDetail" id="dailyDuration"> <b> משך המסלול: </b><br>' + duration + ' שעות<br></p>';//<button class="endTrip" ng-click="endTrip()"> הפסק טיול </button></p>'
                     +'<p class="dailyTripDetail" id="dailyAlert" ng-click="showAlert()"><img src="images/ADD_ALERT.png"><br><span id="appendAlert"> הוסף התראה </span></p><div class="clear"></div></div>';
                     console.log(htmlContent);
                     var linkingFunction = $compile(htmlContent);
