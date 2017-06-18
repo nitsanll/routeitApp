@@ -166,7 +166,7 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile' ,functi
                     km: routeOrigin.daily_sections[i].total_km,
                     diff: routeOrigin.daily_sections[i].difficulty,
                     chosenAccomm: chosenAccomm,
-                    description: routeOrigin.daily_sections[i].description,
+                    description: descArr,
                     type: routeOrigin.daily_sections[i].type
                 };
             }
