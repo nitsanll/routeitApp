@@ -127,7 +127,10 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile' ,functi
                 if(j==(routeOrigin.daily_sections[i].description.length)-1) {
                     descArr.push(routeOrigin.daily_sections[i].description[j]);
                     console.log("inside if");
-                } else descArr.push(routeOrigin.daily_sections[i].description[j] + ','); 
+                } else { 
+                    descArr.push(routeOrigin.daily_sections[i].description[j]); 
+                    descArr[j]+=',';
+                }
             }
             //if there are no dates
             if(routeOrigin.start_date == null) {
