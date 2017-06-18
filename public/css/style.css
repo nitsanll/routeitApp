@@ -194,15 +194,15 @@
 	}
 
 	#dailyDayNum {
-		width: 22%;
+		width: 23%;
 	}
 
 	#dailyDesc {
-		width: 38%;
+		width: 37%;
 	}
 
 	#dailyDiff {
-		width: 17%;
+		margin-top: 1%;
 	}
 
 	#dailyDuration {
