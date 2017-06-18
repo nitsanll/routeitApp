@@ -121,6 +121,11 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile' ,functi
                 var elem = linkingFunction($scope);
                 accommElem.html(elem);
             }
+            var descArr = [];
+            for(var j=0; j<routeOrigin.daily_sections[i].description.length; j++){
+                if(j==(routeOrigin.daily_sections[i].description.length)-1) descArr[j].push(routeOrigin.daily_sections[i].description[j]);
+                else descArr[j].push(routeOrigin.daily_sections[i].description[j] + ','); 
+            }
             //if there are no dates
             if(routeOrigin.start_date == null) {
                 var dailySection = {
@@ -133,7 +138,7 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile' ,functi
                     km: routeOrigin.daily_sections[i].total_km,
                     diff: routeOrigin.daily_sections[i].difficulty,
                     chosenAccomm: chosenAccomm,
-                    description: routeOrigin.daily_sections[i].description,
+                    description: descArr,
                     type: routeOrigin.daily_sections[i].type
                 };
             //if there are dates
