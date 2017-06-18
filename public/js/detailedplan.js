@@ -128,8 +128,8 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile' ,functi
                     descArr.push(routeOrigin.daily_sections[i].description[j]);
                     console.log("inside if");
                 } else { 
-                    descArr.push(routeOrigin.daily_sections[i].description[j]); 
-                    descArr[j]+=',';
+                    descArr.push((routeOrigin.daily_sections[i].description[j] + ",")); 
+                    //descArr[j]+=",";
                 }
             }
             //if there are no dates
