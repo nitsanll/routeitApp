@@ -146,7 +146,7 @@
 
 	#dailyTripDetails {
 		position: fixed;
-		height: 17%;
+		height: 14%;
 		bottom: 0px;
 		width:100%;
 		background: #40404A;
@@ -155,10 +155,10 @@
 
 	.dailyTripDetail {
 		float: right;
-		font-size: 0.8em;
+		font-size: 0.9em;
 		border-left: 1px solid #F15942;
 		padding: 0% 1.5% 0% 1.5%;
-		height: 90%;
+		height: 85%;
 		margin-top: 2%;
 	}
 
@@ -194,11 +194,11 @@
 	}
 
 	#dailyDayNum {
-		width: 20%;
+		width: 22%;
 	}
 
 	#dailyDesc {
-		width: 27%;
+		width: 38%;
 	}
 
 	#dailyDiff {
@@ -206,12 +206,12 @@
 	}
 
 	#dailyDuration {
-		width: 21%;
+		width: 23%;
 	}
 
 	#dailyAlert{
 		border-left: none;
-		width: 15%;
+		width: 16%;
 		text-align: center;
 		padding-top: 1%;
 	}
