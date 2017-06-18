@@ -74,7 +74,7 @@ dailyRoute.controller('dailyController', ['$scope', '$http', '$compile', functio
                         }
                     }
                     //htmlContent+='<p id="dailyDiff" class="dailyTripDetail"> <b> רמת קושי: </b><br>' + diff + '</p>'
-                    htmlContent+='<p class="dailyTripDetail" id="dailyDuration"> <b> משך המסלול: </b><br>' + duration + ' שעות<br></p><p id="dailyDiff" class="dailyTripDetail"> <b> רמת קושי: </b><br>' + diff + '</p>'//<button class="endTrip" ng-click="endTrip()"> הפסק טיול </button></p>'
+                    htmlContent+='<p class="dailyTripDetail" id="dailyDuration"><p><b> משך המסלול: </b><br>' + duration + ' שעות</p><p id="dailyDiff"> <b> רמת קושי: </b><br>' + diff + '</p></p>'//<button class="endTrip" ng-click="endTrip()"> הפסק טיול </button></p>'
                     +'<p class="dailyTripDetail" id="dailyAlert" ng-click="showAlert()"><img src="images/ADD_ALERT.png"><br><span id="appendAlert"> הוסף התראה </span></p><div class="clear"></div></div>';
                     console.log(htmlContent);
                     var linkingFunction = $compile(htmlContent);
