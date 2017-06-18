@@ -122,6 +122,7 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile' ,functi
                 accommElem.html(elem);
             }
             var descArr = [];
+            console.log(routeOrigin.daily_sections[i].description.length);
             for(var j=0; j<routeOrigin.daily_sections[i].description.length; j++){
                 if(j==(routeOrigin.daily_sections[i].description.length)-1) {
                     descArr.push(routeOrigin.daily_sections[i].description[j]);
