@@ -202,7 +202,8 @@
 	}
 
 	#dailyDiff {
-		//margin-top: 1%;
+	    margin-top: 6%;
+    	display: block;
 	}
 
 	#dailyDuration {
