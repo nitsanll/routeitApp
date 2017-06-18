@@ -154,8 +154,8 @@ userRoutes.controller('RoutesController', ['$scope', '$http', '$compile', functi
                 else {
                     route += '<p class = "tripDetail">מס'+"'"+' ימים: <br><b class="biggerFont">' + myRoutesArr[i].days_num +'</b></p>';
                 }
-                route += '<p class = "tripDetail biggerWidth"> מס'+"'"+' ק"מ ליום: <br><b class="biggerFont">' + myRoutesArr[i].day_km + '</b></p><p class = "tripDetail biggerFont"> מס'+"'"+' ק"מ כולל: <br><b>' + myRoutesArr[i].trip_km + '</b></p></div>'
-                +'<p class = "tripDetail" id="withoutBorder"> רמת קושי: <br><b class="">' + myRoutesArr[i].trip_difficulty + '</b></p><br></section>';
+                route += '<p class = "tripDetail biggerWidth"> מס'+"'"+' ק"מ ליום: <br><b class="biggerFont">' + myRoutesArr[i].day_km + '</b></p><p class = "tripDetail biggerFont"> מס'+"'"+' ק"מ כולל: <br><b>' + myRoutesArr[i].trip_km + '</b></p>'
+                +'<p class = "tripDetail" id="withoutBorder"> רמת קושי: <br><b class="">' + myRoutesArr[i].trip_difficulty + '</b></p></div><br></section>';
 
                 /*var route = '<section class = "route" ng-click="chosenRoute(' + myRoutesArr[i].trip_id + ')" id="route' + myRoutesArr[i].trip_id +'"><img class="routePic" src="images/tmpPic.jpg">'
                 +'<h3>' + myRoutesArr[i].trip_start_pt + ' - ' + myRoutesArr[i].trip_end_pt + '</h3>';
