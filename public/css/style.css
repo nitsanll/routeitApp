@@ -541,10 +541,17 @@
 		z-index: 102;
 	}
 
-	.dailyDots {
+	#dotsWrap {
 		position: fixed;
 		top: 20vh;
 		z-index: 102;
+		background: #ffffff;
+		border-radius: 50px;
+		padding: 2%;
+	}
+
+	.dailyDots {
+		
 	}
 
 	.iconsWrap {
