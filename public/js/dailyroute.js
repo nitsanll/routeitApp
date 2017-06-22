@@ -62,7 +62,7 @@ dailyRoute.controller('dailyController', ['$scope', '$http', '$compile', functio
                        htmlContent += '<p id="dailyDayNum" class="dailyTripDetail"><b> יום ' + dayNum + ' מתוך ' + daysNum + '<br> ימי טיול</b></p>'; //<button class="dailyDetailedBtn" ng-click="showDetailedPlan()"> לתכנית הטיול </button></p>'; 
                     }
                     else {
-                        htmlContent += '<p id="dailyDaysNum" class="dailyTripDetail"><b> טיול יומי </b></p>'; 
+                        htmlContent += '<p id="dailyDayNum" class="dailyTripDetail"><b> טיול יומי </b></p>'; 
                     }
                     htmlContent+='<p id="dailyDesc" class="dailyTripDetail"><b> מאפייני המסלול: </b><br>';
                     for(var j=0; j<chosenRoute.daily_sections[i].description.length; j++){
