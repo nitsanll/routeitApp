@@ -57,7 +57,6 @@ dailyRoute.controller('dailyController', ['$scope', '$http', '$compile', functio
                     }
                     var descriptionArr = [];
                     var alertsArr = [];
-                    var open = true; 
                     htmlContent+='<button id="openDailyDetails" ng-click="toggleDailyDetails('+ true +')"> open </button><button id="closeDailyDetails" ng-click="toggleDailyDetails('+ false +')"> close </button><div id="dailyTripDetails">';       
                     if(daysNum > 1) {
                        htmlContent += '<p id="dailyDayNum" class="dailyTripDetail"><b> יום ' + dayNum + '<br> מתוך ' + daysNum + '<br> ימי טיול</b></p>'; //<button class="dailyDetailedBtn" ng-click="showDetailedPlan()"> לתכנית הטיול </button></p>'; 
@@ -213,8 +212,14 @@ dailyRoute.controller('dailyController', ['$scope', '$http', '$compile', functio
         iconsWrap.slideToggle("slow");
     }
 
-    $scope.toggleDailyDetails = function(openClose){
-        console.log(openClose);
+    $scope.toggleDailyDetails = function(isOpen){
+        if(isOpen == false){
+            var closeButton = angular.element(document.querySelector('#closeDailyDetails'));
+            closeButton.hide();  
+        } else {
+            var closeButton = angular.element(document.querySelector('#closeDailyDetails'));
+            closeButton.show();  
+        }
         var dailyDetailsWrap = angular.element(document.querySelector('#dailyTripDetails'));
         dailyDetailsWrap.slideToggle("slow");
     }
