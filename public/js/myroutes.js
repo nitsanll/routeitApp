@@ -317,7 +317,7 @@ userRoutes.controller('RoutesController', ['$scope', '$http', '$compile', functi
         console.log("iconsId");
         var iconsWrap = angular.element(document.querySelector('#icons'+tripId));
         //if the overview is is closed
-        if($scope.isIconsOpen == false){
+        /*if($scope.isIconsOpen == false){
             iconsWrap.removeClass('hidden');
             iconsWrap.addClass('visible');
             iconsWrap.addClass('fadeIn');
@@ -329,7 +329,10 @@ userRoutes.controller('RoutesController', ['$scope', '$http', '$compile', functi
             iconsWrap.removeClass('fadeIn');
             iconsWrap.addClass('hidden');
             $scope.isIconsOpen = false;
-        } 
+        } */
+        iconsWrap.toggle('slide', {
+            direction: 'left'
+        }, 1000);
     }
 
     $scope.goToDaily = function(){

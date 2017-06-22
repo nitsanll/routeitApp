@@ -208,23 +208,8 @@ dailyRoute.controller('dailyController', ['$scope', '$http', '$compile', functio
         maskElement.removeClass("pageMask");
     }
 
-    $scope.isIconsOpen = false;
     $scope.openIcons = function(){
         var iconsWrap = angular.element(document.querySelector('.dailyIconsWrap'));
-        //if the overview is is closed
-        /*if($scope.isIconsOpen == false){
-            iconsWrap.removeClass('hidden');
-            iconsWrap.addClass('visible');
-            iconsWrap.addClass('fadeIn');
-            $scope.isIconsOpen = true;
-        } 
-        //if the overview is open
-        else {
-            iconsWrap.removeClass('visible');
-            iconsWrap.removeClass('fadeIn');
-            iconsWrap.addClass('hidden');
-            $scope.isIconsOpen = false;
-        } */
         iconsWrap.slideToggle("slow");
     }
 }]);
