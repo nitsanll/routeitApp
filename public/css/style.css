@@ -493,16 +493,10 @@
 		text-decoration: none;	
 	}
 
-	#myRoutesDisabledIcon {
+	#myRoutesDisabledIcon, #chosenDisabledIcon {
 		position: absolute;
 		top: 3%;
 		left: 2%;
-	}
-
-	#chosenDisabledIcon {
-		position: absolute;
-		top: 15%;
-		left: 4%;
 	}
 	
 	.underline {
