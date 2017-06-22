@@ -59,7 +59,7 @@ dailyRoute.controller('dailyController', ['$scope', '$http', '$compile', functio
                     var alertsArr = [];
                     htmlContent+='<div id="dailyTripDetails">';       
                     if(daysNum > 1) {
-                       htmlContent += '<p id="dailyDayNum" class="dailyTripDetail"><b> יום ' + dayNum + ' מתוך ' + daysNum + '<br> ימי טיול</b></p>'; //<button class="dailyDetailedBtn" ng-click="showDetailedPlan()"> לתכנית הטיול </button></p>'; 
+                       htmlContent += '<p id="dailyDayNum" class="dailyTripDetail"><b> יום ' + dayNum + '<br> מתוך ' + daysNum + '<br> ימי טיול</b></p>'; //<button class="dailyDetailedBtn" ng-click="showDetailedPlan()"> לתכנית הטיול </button></p>'; 
                     }
                     else {
                         htmlContent += '<p id="dailyDayNum" class="dailyTripDetail"><b> טיול יומי </b></p>'; 

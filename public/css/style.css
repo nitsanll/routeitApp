@@ -233,6 +233,8 @@
 
 	#dailyDayNum {
 		width: 24%;
+		font-size: 1.2em;
+		font-family: 'openSansExBold';
 	}
 
 	#dailyDesc {
