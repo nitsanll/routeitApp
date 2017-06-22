@@ -541,6 +541,12 @@
 		z-index: 102;
 	}
 
+	.dailyDots {
+		position: fixed;
+		top: 20vh;
+		z-index: 102;
+	}
+
 	.iconsWrap {
 		position: absolute;
 	    top: 45%;

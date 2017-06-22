@@ -82,9 +82,9 @@ function initMap() {
         function CenterControl(controlDiv, map) {
             // Set CSS for the control border.
             var controlUI = document.createElement('div');
-            //controlUI.style.backgroundColor = '#fff';
+            controlUI.style.backgroundColor = '#fff';
             //controlUI.style.border = '2px solid #fff';
-            //controlUI.style.borderRadius = '3px';
+            controlUI.style.borderRadius = '50px';
             //controlUI.style.boxShadow = '0 2px 6px rgba(0,0,0,.3)';
             controlUI.style.cursor = 'pointer';
             //controlUI.style.marginTop = '500px';
@@ -108,7 +108,7 @@ function initMap() {
             controlText.display = 'block';
             controlText.width = '100px';
             controlText.height = '100px';
-            controlText.innerHTML = '<img src="../images/NAVIGATOR.png">'; 
+            controlText.innerHTML = '<img src="../images/LOCATION.png">'; 
             controlUI.appendChild(controlText);
 
             // Setup the click event listeners - set the map to the user's current location
