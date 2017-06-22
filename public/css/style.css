@@ -563,7 +563,7 @@
 
 	.tripDetails{
 		width: 100%;
-		height: 70px;
+		height: 58px;
 		background: #D9F1FB;
 		z-index: 100000000;
 	}
@@ -577,6 +577,7 @@
 		border-left: 1px solid #F15942;
 		height: 45px;
 		margin-top: 2%;
+		margin-bottom: 0%;
 		color: #3A4151;
 	}
 
