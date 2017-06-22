@@ -98,7 +98,7 @@ dailyRoute.controller('dailyController', ['$scope', '$http', '$compile', functio
                             break;
                         }
                     }
-                    var routeStr = chosenRoute.trip_id + "," + chosenRoute.area + "," + chosenRoute.direction +"," + chosenRoute.creation_date +"," + chosenRoute.trip_start_pt +"," + chosenRoute.trip_end_pt +"," + chosenRoute.start_date +"," + chosenRoute.end_date +"," + chosenRoute.days_num +"," + chosenRoute.trip_km +"," + chosenRoute.day_km;
+                    var routeStr = chosenRoute.trip_id + "," + chosenRoute.area + "," + chosenRoute.direction +"," + chosenRoute.creation_date +"," + chosenRoute.trip_start_pt +"," + chosenRoute.trip_end_pt +"," + chosenRoute.start_date +"," + chosenRoute.end_date +"," + chosenRoute.days_num +"," + chosenRoute.trip_km +"," + chosenRoute.day_km + "," + chosenRoute.trip_difficulty;
                     $http.get("https://routeit-ws.herokuapp.com/addPrevRoute/" + userMail + "/" + routeStr).success(function(routes){            
                         console.log(routes);  
                     });
