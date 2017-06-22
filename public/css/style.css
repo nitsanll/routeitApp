@@ -876,7 +876,7 @@
 
 	#routeForm {
 		width: 90%;
-		margin:0px auto;
+		margin:8vh auto;
 	}
 
 	#routeForm label {
@@ -1044,7 +1044,7 @@
 
 	#disabledIcon {
 		position: absolute;
-		top: 10%;
+		top: 18%;
 		left: 20%;
 	}
 
