@@ -142,11 +142,11 @@ userRoutes.controller('RoutesController', ['$scope', '$http', '$compile', functi
                 route += '<p class = "tripDetail biggerWidth"> מס'+"'"+' ק"מ ליום: <br><b class="biggerFont">' + myRoutesArr[i].day_km + '</b></p><p class = "tripDetail biggerWidth"> מס'+"'"+' ק"מ כולל: <br><b class="biggerFont">' + myRoutesArr[i].trip_km + '</b></p>'
                 //+'<p class = "tripDetail" id="withoutBorder"> רמת קושי: <br><b class="">' + myRoutesArr[i].trip_difficulty + '</b></p>'
                 route+='</div>';
-               /* 
+                
                 var tmpDate = new Date(myRoutesArr[i].start_date);
                 if(localStorage.getItem("chosenRoute") != "null"){
                     if(myRoutesArr[i].trip_id == JSON.parse(localStorage.getItem("chosenRoute")).trip_id) {
-                        route+='<a href="https://routeit-app.herokuapp.com/dailyroute.html" id="myRoutesTripIt"> בזמן <br> טיול </a>';  
+                        +'<div class="detailedTripIt"><a href="https://routeit-app.herokuapp.com/dailyroute.html" id="chosenTripIt" class="tripIt borderLeft"><span class="planImg"></span>&nbsp; בזמן לטיול </a><button  id="chosenDetailed" class="tripIt" ng-click="showDetailedPlan()"> לתכנית הטיול </button></div>';  
                     } else if((currentDate.getDate() == tmpDate.getDate()) && (currentDate.getMonth() == tmpDate.getMonth()) 
                     && (currentDate.getFullYear() == tmpDate.getFullYear())){
                         route+='<button id="myRoutesTripIt" ng-click="tripIt(' + myRoutesArr[i].trip_id + ')"> צא <br> לטיול </button>';
@@ -156,7 +156,7 @@ userRoutes.controller('RoutesController', ['$scope', '$http', '$compile', functi
                     && (currentDate.getFullYear() == tmpDate.getFullYear())){
                         route+='<button id="myRoutesTripIt" ng-click="tripIt(' + myRoutesArr[i].trip_id + ')"> צא <br> לטיול </button>';
                     }
-                }*/
+                }
 
                 route+='<br></section>';
                 allMyRoutes+=route;
