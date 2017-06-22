@@ -213,7 +213,7 @@
 		font-family: 'openSansBold';
 	}
 
-	.dailyDetailedBtn, .endTrip{
+	.dailyDetailedBtn, .endTrip, #addAlert{
 		display: block;
 	    border: none;
 	    background: #F15942;
@@ -571,6 +571,7 @@
 		position: fixed;
 	    top: 35vh;
 	    left: 2%;
+	    width: 11%;
 	}
 
 	.dailyShareBtn {
