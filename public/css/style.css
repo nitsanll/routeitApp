@@ -414,6 +414,10 @@
 		//margin-bottom: 5%;
 	}
 
+	#content {
+		margin-top: 8vh;
+	}
+
 	.routePic {
 		width: 100%;
 		height: auto;
@@ -865,6 +869,9 @@
 		margin-bottom: 5%;
 		padding: 2%;
 		font-family: 'openSansBold';
+		position: fixed;
+    	top: 10vh;
+    	z-index: 110;
 	}
 
 	#routeForm {
