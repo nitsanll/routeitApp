@@ -129,21 +129,6 @@ userRoutes.controller('RoutesController', ['$scope', '$http', '$compile', functi
                         route+='<button id="myRoutesTripIt" ng-click="tripIt(' + myRoutesArr[i].trip_id + ')"> צא <br> לטיול </button>';
                     }
                 }
-
-                /*
-                var tmpDate = new Date(myRoutesArr[i].start_date);
-                if((currentDate.getDate() == tmpDate.getDate()) && (currentDate.getMonth() == tmpDate.getMonth()) 
-                    && (currentDate.getFullYear() == tmpDate.getFullYear())){
-                    if(localStorage.getItem("chosenRoute") != "null"){
-                        if(myRoutesArr[i].trip_id == JSON.parse(localStorage.getItem("chosenRoute")).trip_id) {
-                            route+='<a href="https://routeit-app.herokuapp.com/dailyroute.html" id="myRoutesTripIt"> בזמן <br> טיול </a>';
-                        } else {
-                            route+='<button id="myRoutesTripIt" ng-click="tripIt(' + myRoutesArr[i].trip_id + ')"> צא <br> לטיול </button>';
-                        }
-                    } else {
-                        route+='<button id="myRoutesTripIt" ng-click="tripIt(' + myRoutesArr[i].trip_id + ')"> צא <br> לטיול </button>';
-                    }
-                }*/
                 route += '<div class = "tripDetails"><p id="biggerWidth" class = "tripDetail"> אזור: <br> <b class="detail">' + myRoutesArr[i].area +'</b></p>';
                 if(myRoutesArr[i].direction == "north") 
                     route+= '<p class = "tripDetail"> כיוון כללי: <br> <b class="detail"> מצפון<br> לדרום </b> </p>';
@@ -155,39 +140,25 @@ userRoutes.controller('RoutesController', ['$scope', '$http', '$compile', functi
                     route += '<p class = "tripDetail">מס'+"'"+' ימים: <br><b class="biggerFont">' + myRoutesArr[i].days_num +'</b></p>';
                 }
                 route += '<p class = "tripDetail biggerWidth"> מס'+"'"+' ק"מ ליום: <br><b class="biggerFont">' + myRoutesArr[i].day_km + '</b></p><p class = "tripDetail biggerWidth"> מס'+"'"+' ק"מ כולל: <br><b class="biggerFont">' + myRoutesArr[i].trip_km + '</b></p>'
-                +'<p class = "tripDetail" id="withoutBorder"> רמת קושי: <br><b class="">' + myRoutesArr[i].trip_difficulty + '</b></p></div><br></section>';
-
-                /*var route = '<section class = "route" ng-click="chosenRoute(' + myRoutesArr[i].trip_id + ')" id="route' + myRoutesArr[i].trip_id +'"><img class="routePic" src="images/tmpPic.jpg">'
-                +'<h3>' + myRoutesArr[i].trip_start_pt + ' - ' + myRoutesArr[i].trip_end_pt + '</h3>';
-                if(myRoutesArr[i].direction == "north") route+= '<p> צפון -> דרום </p>';
-                else route+= '<p> דרום -> צפון </p>';
-                if(myRoutesArr[i].start_date){
-                    var sDate = new Date(myRoutesArr[i].start_date);
-                    var sDateString = sDate.getDate() + '/' + (sDate.getMonth()+1) + '/' + sDate.getFullYear(); 
-                    var eDate = new Date(myRoutesArr[i].end_date);
-                    var eDateString = eDate.getDate() + '/' + (eDate.getMonth()+1) + '/' + eDate.getFullYear(); 
-                    console.log(myRoutesArr[i].start_date + " " + myRoutesArr[i].end_date); 
-                    if(sDateString == eDateString){
-                        console.log("start and end dates are equal!");
-                        route += '<p>' + sDateString + '</p>';
-                    } else {
-                        route += '<p>' + eDateString + " - " + sDateString+'</p>';   
+                //+'<p class = "tripDetail" id="withoutBorder"> רמת קושי: <br><b class="">' + myRoutesArr[i].trip_difficulty + '</b></p>'
+                route+='</div>';
+               /* 
+                var tmpDate = new Date(myRoutesArr[i].start_date);
+                if(localStorage.getItem("chosenRoute") != "null"){
+                    if(myRoutesArr[i].trip_id == JSON.parse(localStorage.getItem("chosenRoute")).trip_id) {
+                        route+='<a href="https://routeit-app.herokuapp.com/dailyroute.html" id="myRoutesTripIt"> בזמן <br> טיול </a>';  
+                    } else if((currentDate.getDate() == tmpDate.getDate()) && (currentDate.getMonth() == tmpDate.getMonth()) 
+                    && (currentDate.getFullYear() == tmpDate.getFullYear())){
+                        route+='<button id="myRoutesTripIt" ng-click="tripIt(' + myRoutesArr[i].trip_id + ')"> צא <br> לטיול </button>';
                     }
-                }
-                route += '<p> אזור ' + myRoutesArr[i].area; 
-                if(myRoutesArr[i].days_num == 1) {
-                    route += '<br> טיול יומי';
-                }
-                else {
-                    route += '<br> מספר ימים: ' + myRoutesArr[i].days_num;
-                }
-                route += '<br> מספר ק"מ ליום: ' + myRoutesArr[i].day_km + '<br> מספר ק"מ כולל: ' + myRoutesArr[i].trip_km + '</p>' +
-                '<input type="date" ng-model = "date'+i+'" class = "date"> <button class = "dateBtn" ng-click="updateDate(' + myRoutesArr[i].trip_id + ',date' + i + ',' + myRoutesArr[i].days_num + ')"> עדכן תאריך </button><br>'+
-                '<button class = "editBtn"> ערוך מסלול </button> <button class = "deleteBtn" ng-click="deleteRoute(' + myRoutesArr[i].trip_id + ')"> מחק מסלול </button> <button class = "shareBtn"> שתף מסלול </button><br>' +
-                '<button class="detailedBtn" ng-click="showDetailedPlan()"> לתכנית הטיול </button><br>';
-                var cDate = new Date(myRoutesArr[i].creation_date);
-                var cDateString = cDate.getDate() + '/' + (cDate.getMonth()+1) + '/' + cDate.getFullYear(); 
-                route+='<p> נוצר ב- '+ cDateString +'</p></section>';*/
+                } else {
+                    if((currentDate.getDate() == tmpDate.getDate()) && (currentDate.getMonth() == tmpDate.getMonth()) 
+                    && (currentDate.getFullYear() == tmpDate.getFullYear())){
+                        route+='<button id="myRoutesTripIt" ng-click="tripIt(' + myRoutesArr[i].trip_id + ')"> צא <br> לטיול </button>';
+                    }
+                }*/
+
+                route+='<br></section>';
                 allMyRoutes+=route;
             }
             myRoutes = allMyRoutes;
