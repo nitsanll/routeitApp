@@ -21,7 +21,7 @@ userProfile.controller('ProfileController', ['$rootScope', '$scope', '$http', fu
        	$scope.tripsKm = 0;
         //var tmpTripsKm;
        	for(var i=0; i<prevRoutesArr.length; i++){
-       		$scope.tripsKm+=parseInt(prevRoutesArr[i].trip_km);
+       		$scope.tripsKm+=parseFloat(prevRoutesArr[i].trip_km);
           //tmpTripsKm+=prevRoutesArr[i].trip_km;
        	}
         //$scope.tripsKm = tmpTripsKm;
