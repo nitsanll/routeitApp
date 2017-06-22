@@ -183,7 +183,9 @@
 	}
 
 	#openDailyDetails {
-
+		position: absolute;
+    	bottom: 1%;
+    	left: 2%;
 	}
 
 	#closeDailyDetails {
