@@ -146,7 +146,7 @@ userRoutes.controller('RoutesController', ['$scope', '$http', '$compile', functi
                 var tmpDate = new Date(myRoutesArr[i].start_date);
                 if(localStorage.getItem("chosenRoute") != "null"){
                     if(myRoutesArr[i].trip_id == JSON.parse(localStorage.getItem("chosenRoute")).trip_id) {
-                        +'<div class="detailedTripIt"><a href="https://routeit-app.herokuapp.com/dailyroute.html" id="chosenTripIt" class="tripIt borderLeft"><span class="planImg"></span>&nbsp; בזמן לטיול </a><button  id="chosenDetailed" class="tripIt" ng-click="showDetailedPlan()"> לתכנית הטיול </button></div>';  
+                        route+='<div class="detailedTripIt"><a href="https://routeit-app.herokuapp.com/dailyroute.html" id="chosenTripIt" class="tripIt borderLeft"><span class="planImg"></span>&nbsp; בזמן לטיול </a><button  id="chosenDetailed" class="tripIt" ng-click="showDetailedPlan()"> לתכנית הטיול </button></div>';  
                     } else if((currentDate.getDate() == tmpDate.getDate()) && (currentDate.getMonth() == tmpDate.getMonth()) 
                     && (currentDate.getFullYear() == tmpDate.getFullYear())){
                         route+='<button id="myRoutesTripIt" ng-click="tripIt(' + myRoutesArr[i].trip_id + ')"> צא <br> לטיול </button>';
