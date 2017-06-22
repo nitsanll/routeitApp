@@ -57,7 +57,7 @@ dailyRoute.controller('dailyController', ['$scope', '$http', '$compile', functio
                     }
                     var descriptionArr = [];
                     var alertsArr = [];
-                    htmlContent+='<button id="openDailyDetails" ng-click="toggleDailyDetails('+ true +')"> open </button><button id="closeDailyDetails" ng-click="toggleDailyDetails('+ false +')"> close </button><div id="dailyTripDetails">';       
+                    htmlContent+='<img src="images/open.png" id="openDailyDetails" ng-click="toggleDailyDetails('+ true +')"><img src="images/close.png" id="closeDailyDetails" ng-click="toggleDailyDetails('+ false +')"><div id="dailyTripDetails">';       
                     if(daysNum > 1) {
                        htmlContent += '<p id="dailyDayNum" class="dailyTripDetail"><b> יום ' + dayNum + '<br> מתוך ' + daysNum + '<br> ימי טיול</b></p>'; //<button class="dailyDetailedBtn" ng-click="showDetailedPlan()"> לתכנית הטיול </button></p>'; 
                     }
