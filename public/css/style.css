@@ -543,7 +543,8 @@
 
 	#dotsWrap {
 		position: fixed;
-		top: 20vh;
+		top: 28vh;
+		left: 2%;
 		z-index: 102;
 		background: #ffffff;
 		border-radius: 50px;
