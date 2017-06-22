@@ -182,6 +182,14 @@
 		position: relative;
 	}
 
+	#openDailyDetails {
+
+	}
+
+	#closeDailyDetails {
+
+	}
+
 	#dailyTripDetails {
 		position: fixed;
 		height: 17%;

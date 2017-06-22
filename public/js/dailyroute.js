@@ -45,8 +45,7 @@ dailyRoute.controller('dailyController', ['$scope', '$http', '$compile', functio
                     var daysNum = chosenRoute.days_num;
                     htmlContent = '<div id = "map"></div><div id="detailedHeadlineDiv"></div><h1 id="detailedHeadline">'+ start + ' - ' + end +'</h1>'
                     +'<h1 id="detailedDate">' + currentDayStr + ', ' + currentDateStr + '</h1>'
-                    +'<div id="dotsWrap"><img class="dailyDots" src="../images/DAILY_DOTS.png" ng-click="openIcons()"></div><div class="dailyIconsWrap"><button class="dailyDetailedBtn" ng-click="showDetailedPlan()"> לתכנית <br> הטיול </button><button class="endTrip" ng-click="endTrip()"> הפסק טיול </button><button id="addAlert" ng-click="showAlert()"> הוסף התראה </button></div>'
-                    +'';
+                    +'<div id="dotsWrap"><img class="dailyDots" src="../images/DAILY_DOTS.png" ng-click="openIcons()"></div><div class="dailyIconsWrap"><button class="dailyDetailedBtn" ng-click="showDetailedPlan()"> לתכנית <br> הטיול </button><button class="endTrip" ng-click="endTrip()"> הפסק טיול </button><button id="addAlert" ng-click="showAlert()"> הוסף התראה </button></div>';
                     //if the traveler didn't choose accommodation
                     if(chosenRoute.daily_sections[i].chosen_accomm == null) {
                         var accommName = "לא נבחר מקום לינה ליום זה";
@@ -58,7 +57,7 @@ dailyRoute.controller('dailyController', ['$scope', '$http', '$compile', functio
                     }
                     var descriptionArr = [];
                     var alertsArr = [];
-                    htmlContent+='<div id="dailyTripDetails">';       
+                    htmlContent+='<button id="openDailyDetails" ng-click="toggleDailyDetails()"></button><div id="dailyTripDetails"><button id="closeDailyDetails" ng-click="toggleDailyDetails()"></button>';       
                     if(daysNum > 1) {
                        htmlContent += '<p id="dailyDayNum" class="dailyTripDetail"><b> יום ' + dayNum + '<br> מתוך ' + daysNum + '<br> ימי טיול</b></p>'; //<button class="dailyDetailedBtn" ng-click="showDetailedPlan()"> לתכנית הטיול </button></p>'; 
                     }
@@ -210,6 +209,11 @@ dailyRoute.controller('dailyController', ['$scope', '$http', '$compile', functio
 
     $scope.openIcons = function(){
         var iconsWrap = angular.element(document.querySelector('.dailyIconsWrap'));
+        iconsWrap.slideToggle("slow");
+    }
+
+    $scope.toggleDailyDetails = function(){
+        var dailyDetailsWrap = angular.element(document.querySelector('#dailyTripDetails'));
         iconsWrap.slideToggle("slow");
     }
 }]);
