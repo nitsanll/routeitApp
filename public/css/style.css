@@ -189,7 +189,9 @@
 	}
 
 	#closeDailyDetails {
-
+		position: absolute;
+    	bottom: 17%;
+    	left: 2%;
 	}
 
 	#dailyTripDetails {
