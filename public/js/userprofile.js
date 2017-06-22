@@ -19,7 +19,7 @@ userProfile.controller('ProfileController', ['$rootScope', '$scope', '$http', fu
        	//get user's trips statistics
        	$scope.trips = prevRoutesArr.length;
        	$scope.tripsKm = 0;
-        //var tmpTripsKm;
+        var tmpTripsKm;
        	for(var i=0; i<prevRoutesArr.length; i++){
        		//$scope.tripsKm+=prevRoutesArr[i].trip_km;
           tmpTripsKm+=prevRoutesArr[i].trip_km;
