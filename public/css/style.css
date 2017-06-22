@@ -190,8 +190,9 @@
 
 	#closeDailyDetails {
 		position: fixed;
-    	bottom: 17%;
-    	left: 0%;
+	    bottom: 15%;
+	    left: 2%;
+	    z-index: 110;
 	}
 
 	#dailyTripDetails {
