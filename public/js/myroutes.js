@@ -71,7 +71,7 @@ userRoutes.controller('RoutesController', ['$scope', '$http', '$compile', functi
                 route+='<p class="creationDate"> נוצר ב- '+ cDateString +'</p>';
                 //+'<button class="detailedBtn" ng-click="showDetailedPlan()">לתכנית <br> הטיול</button>';
                 if(myRoutesArr[i].disabled_flag == true){
-                    route+='<img id="myRoutesDisabledIcon" title = "המסלול מתאים לבעלי מוגבלויות" src="../images/DISABLED.png">';
+                    route+='<img id="myRoutesDisabledIcon" src="../images/DISABLED.png">';
                 }
                 route+='<img class="dots" src="../images/DOTS.png" ng-click="openIcons('+myRoutesArr[i].trip_id +')"><div class="iconsWrap hidden" id="icons'+ myRoutesArr[i].trip_id +'"><button class = "editBtn"></button> <button class = "deleteBtn" ng-click="deleteRoute(' + myRoutesArr[i].trip_id + ')"></button><button class = "shareBtn"></button></div>'
                 + '<section class="dailyPtsDate"><h4 class="tripArea"> אזור ' + myRoutesArr[i].area + '</h4><h3 class = "tripPts">' + myRoutesArr[i].trip_start_pt + ' - ' + myRoutesArr[i].trip_end_pt + '</h3>';
