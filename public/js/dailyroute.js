@@ -214,6 +214,6 @@ dailyRoute.controller('dailyController', ['$scope', '$http', '$compile', functio
 
     $scope.toggleDailyDetails = function(){
         var dailyDetailsWrap = angular.element(document.querySelector('#dailyTripDetails'));
-        iconsWrap.slideToggle("slow");
+        dailyDetailsWrap.slideToggle("slow");
     }
 }]);
