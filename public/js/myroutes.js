@@ -73,7 +73,7 @@ userRoutes.controller('RoutesController', ['$scope', '$http', '$compile', functi
                 if(myRoutesArr[i].disabled_flag == true){
                     route+='<img id="myRoutesDisabledIcon" src="../images/DISABLED.png">';
                 }
-                route+='<img class="dots" src="../images/DOTS.png" ng-click="openIcons('+myRoutesArr[i].trip_id +')"><div class="iconsWrap" id="icons'+ myRoutesArr[i].trip_id +'"><button class = "editBtn"></button> <button class = "deleteBtn" ng-click="deleteRoute(' + myRoutesArr[i].trip_id + ')"></button><button class = "shareBtn"></button></div>'
+                route+='<img class="dots" src="../images/DOTS.png" ng-click="openIcons('+myRoutesArr[i].trip_id +')"><div class="iconsWrap hidden" id="icons'+ myRoutesArr[i].trip_id +'"><button class = "editBtn"></button> <button class = "deleteBtn" ng-click="deleteRoute(' + myRoutesArr[i].trip_id + ')"></button><button class = "shareBtn"></button></div>'
                 + '<section class="dailyPtsDate"><h4 class="tripArea"> אזור ' + myRoutesArr[i].area + '</h4><h3 class = "tripPts">' + myRoutesArr[i].trip_start_pt + ' - ' + myRoutesArr[i].trip_end_pt + '</h3>';
                 console.log(myRoutesArr[i]);
                 if(myRoutesArr[i].start_date){
@@ -317,28 +317,19 @@ userRoutes.controller('RoutesController', ['$scope', '$http', '$compile', functi
         console.log("iconsId");
         var iconsWrap = angular.element(document.querySelector('#icons'+tripId));
         //if the overview is is closed
-        /*if($scope.isIconsOpen == false){
-            /*iconsWrap.removeClass('hidden');
+        if($scope.isIconsOpen == false){
+            iconsWrap.removeClass('hidden');
             iconsWrap.addClass('visible');
-            iconsWrap.addClass('fadeIn');*/
-            /*iconsWrap.toggle('slide', {
-                direction: 'right'
-            }, 'slow');
+            iconsWrap.addClass('fadeIn');
             $scope.isIconsOpen = true;
-        } */
+        } 
         //if the overview is open
-        //else {
-           /* iconsWrap.removeClass('visible');
+        else {
+            iconsWrap.removeClass('visible');
             iconsWrap.removeClass('fadeIn');
-            iconsWrap.addClass('hidden');*/
-            /*iconsWrap.toggle('slide', {
-                direction: 'left'
-            }, 'slow');
+            iconsWrap.addClass('hidden');
             $scope.isIconsOpen = false;
-        } */
-        iconsWrap.toggle('slide', {
-            direction: 'left'
-        }, 3000);
+        } 
     }
 
     $scope.goToDaily = function(){
