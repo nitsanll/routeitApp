@@ -580,6 +580,10 @@
 		color: #3A4151;
 	}
 
+	.diffWidth {
+		width: 27%;
+	}
+
 	#withoutBorder {
 		border-left: none;
 	}
@@ -608,9 +612,12 @@
 	}
 
 	.diffDetail {
-		font-size: 0.8em;
-		line-height: 10%;
+		font-size: 0.9em;
+		line-height: 100%;
 		font-family: 'openSansExBold';
+		width: 84px;
+		display: inline-block;
+		margin-top: 4%;
 	}
 
 	.editBtn {
