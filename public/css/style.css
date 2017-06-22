@@ -245,7 +245,8 @@
 	}
 
 	#dailyDuration {
-		width: 23%;
+		width: 18%;
+		border-left: none;
 	}
 
 	#dailyAlert{
