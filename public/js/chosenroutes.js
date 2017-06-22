@@ -64,7 +64,7 @@ chosenRoutes.controller('chosenRoutesController', ['$scope', '$http', '$compile'
             if(dailyRoutesArr[i].disabled_flag == true){
                 route+='<img id="chosenDisabledIcon" src="../images/DISABLED.png">';
             }
-            route+='<section class="dailyPtsDate"><h3 class = "tripPts">' + dailyRoutesArr[i].trip_start_pt + ' - ' + dailyRoutesArr[i].trip_end_pt + '</h3>';
+            route+='<section class="dailyPtsDate"><h4 class="tripArea"> אזור ' + dailyRoutesArr[i].area + '</h4><h3 class = "tripPts">' + dailyRoutesArr[i].trip_start_pt + ' - ' + dailyRoutesArr[i].trip_end_pt + '</h3>';
             console.log(dailyRoutesArr[i]);
             if(dailyRoutesArr[i].start_date){
                 var sDate = new Date(dailyRoutesArr[i].start_date);
@@ -79,7 +79,7 @@ chosenRoutes.controller('chosenRoutesController', ['$scope', '$http', '$compile'
                     route += '<p class="tripDates" id="tripDates'+i+'">' + eDateString + " - " + sDateString + '</section>';  
                 }
             }
-            route += '<div class = "tripDetails"><p class = "tripDetail"> אזור: <br> <b class="detail">' + dailyRoutesArr[i].area +'</b></p>';
+            route += '<div class = "tripDetails">';
             if(dailyRoutesArr[i].direction == "north") 
                 route+= '<p class = "tripDetail"> כיוון כללי: <br> <b class="detail"> מצפון<br> לדרום </b> </p>';
             else route+= '<p class = "tripDetail">  כיוון כללי: <br> <b class="detail"> מדרום<br> לצפון </b> </p>'; 
@@ -89,7 +89,8 @@ chosenRoutes.controller('chosenRoutesController', ['$scope', '$http', '$compile'
             else {
                 route += '<p class = "tripDetail">מס'+"'"+' ימים: <br><b class="biggerFont">' + dailyRoutesArr[i].days_num +'</b></p>';
             }
-            route += '<p class = "tripDetail biggerWidth"> מס'+"'"+' ק"מ ליום: <br><b class="biggerFont">' + dailyRoutesArr[i].day_km + '</b></p><p id="withoutBorder" class = "tripDetail biggerWidth"> מס'+"'"+' ק"מ כולל: <br><b class="biggerFont">' + dailyRoutesArr[i].trip_km + '</b></p></div>'
+            route += '<p class = "tripDetail biggerWidth"> מס'+"'"+' ק"מ ליום: <br><b class="biggerFont">' + dailyRoutesArr[i].day_km + '</b></p><p class = "tripDetail biggerWidth"> מס'+"'"+' ק"מ כולל: <br><b class="biggerFont">' + dailyRoutesArr[i].trip_km + '</b></p>'
+            +'<p class = "tripDetail diffWidth" id="withoutBorder"> רמת קושי: <br><b class="diffDetail">' + dailyRoutesArr[i].trip_difficulty + '</b></p></div>'
             +'<button class = "dailyEditBtn"></button> <button class = "dailyDeleteBtn" ng-click="deleteRoute(' + dailyRoutesArr[i].trip_id + ')"></button>'
             +'<div class="detailedTripIt"><button id="chosenTripIt" class="tripIt borderLeft" ng-click="tripIt(' + dailyRoutesArr[i].trip_id + ')"><span class="planImg"></span>&nbsp; צא לטיול </button><button  id="chosenDetailed" class="tripIt" ng-click="showDetailedPlan()"> לתכנית הטיול </button></div>'
             +'<br></section>';
