@@ -129,7 +129,7 @@ userRoutes.controller('RoutesController', ['$scope', '$http', '$compile', functi
                         route+='<button id="myRoutesTripIt" ng-click="tripIt(' + myRoutesArr[i].trip_id + ')"> צא <br> לטיול </button>';
                     }
                 }*/
-                route += '<div class = "tripDetails"><p id="biggerWidth" class = "tripDetail"> אזור: <br> <b class="detail">' + myRoutesArr[i].area +'</b></p>';
+                route += '<div class = "tripDetails">';
                 if(myRoutesArr[i].direction == "north") 
                     route+= '<p class = "tripDetail"> כיוון כללי: <br> <b class="detail"> מצפון<br> לדרום </b> </p>';
                 else route+= '<p class = "tripDetail">  כיוון כללי: <br> <b class="detail"> מדרום<br> לצפון </b> </p>'; 
@@ -140,9 +140,7 @@ userRoutes.controller('RoutesController', ['$scope', '$http', '$compile', functi
                     route += '<p class = "tripDetail">מס'+"'"+' ימים: <br><b class="biggerFont">' + myRoutesArr[i].days_num +'</b></p>';
                 }
                 route += '<p class = "tripDetail biggerWidth"> מס'+"'"+' ק"מ ליום: <br><b class="biggerFont">' + myRoutesArr[i].day_km + '</b></p><p class = "tripDetail biggerWidth"> מס'+"'"+' ק"מ כולל: <br><b class="biggerFont">' + myRoutesArr[i].trip_km + '</b></p>'
-                //+'<p class = "tripDetail" id="withoutBorder"> רמת קושי: <br><b class="">' + myRoutesArr[i].trip_difficulty + '</b></p>'
-                route+='</div>';
-                
+                + '<p class = "tripDetail" id="withoutBorder"> רמת קושי: <br><b class="">' + myRoutesArr[i].trip_difficulty + '</b></p></div>';     
                 var tmpDate = new Date(myRoutesArr[i].start_date);
                 if(localStorage.getItem("chosenRoute") != "null"){
                     if(myRoutesArr[i].trip_id == JSON.parse(localStorage.getItem("chosenRoute")).trip_id) {
