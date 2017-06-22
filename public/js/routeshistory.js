@@ -63,7 +63,7 @@ routesHistory.controller('RoutesHistoryController', ['$rootScope', '$scope', '$h
                 else {
                     route += '<p class = "tripDetail">מס'+"'"+' ימים: <br><b class="biggerFont">' + prevRoutesArr[i].days_num +'</b></p>';
                 }
-                route += '<p class = "tripDetail biggerWidth"> מס'+"'"+' ק"מ ליום: <br><b class="biggerFont">' + prevRoutesArr[i].day_km + '</b></p><p class = "tripDetail biggerWidth"> מס'+"'"+' ק"מ כולל: <br><b class="biggerFont">' + prevRoutesArr[i].trip_km + '</b></p>';
+                route += '<p class = "tripDetail biggerWidth"> מס'+"'"+' ק"מ ליום: <br><b class="biggerFont">' + prevRoutesArr[i].day_km + '</b></p><p class = "tripDetail biggerWidth"> מס'+"'"+' ק"מ כולל: <br><b class="biggerFont">' + prevRoutesArr[i].trip_km + '</b></p>'
                 +'<p class = "tripDetail diffWidth" id="withoutBorder"> רמת קושי: <br><b class="diffDetail">' + prevRoutesArr[i].trip_difficulty + '</b></p></div>'
                 +'<button class = "historyDeleteBtn" ng-click="deletePrevRoute(' + prevRoutesArr[i].trip_id + ')"></button><br></section>';
                 allPrevRoutes+=route;
