@@ -215,12 +215,17 @@
 
 	.dailyDetailedBtn, .endTrip{
 		display: block;
-		border: none;
-		background: #F15942;
-		padding: 4%;
-		margin-top: 10%;
-		font-family: 'openSansBold';
-		font-size: 1em;
+	    border: none;
+	    background: #F15942;
+	    padding: 10%;
+	    margin-top: 10%;
+	    font-family: 'openSansBold';
+	    font-size: 0.65em;
+	    border-radius: 50px;
+	    width: 40px;
+	    height: 40px;
+	    text-align: center; 
+	    color: #ffffff;
 	}
 
 	.dailyDetailedBtn:active, .dailyDetailedBtn:focus {
@@ -551,10 +556,6 @@
 		padding: 2%;
 	}
 
-	.dailyDots {
-		
-	}
-
 	.iconsWrap {
 		position: absolute;
 	    top: 45%;
@@ -564,6 +565,12 @@
 	    height: 30px;
 	    z-index: 102;
 	    border-radius: 20px;
+	}
+
+	.dailyIconsWrap {
+		position: fixed;
+	    top: 35vh;
+	    left: 2%;
 	}
 
 	.dailyShareBtn {
