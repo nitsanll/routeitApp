@@ -443,7 +443,7 @@
 		position: absolute;
 		z-index: 100;
 		right: 4%;
-		top: 40%;
+		top: 37%;
 		color: #E0604B;
 		width: 100%;
 	}
@@ -462,7 +462,7 @@
 
 	.tripArea {
 		font-size: 0.9em;
-		margin: 0px;
+		margin: 1% 0% 0% 0%;
 		padding: 0px;
 		font-family: 'openSansBold';
 	}
