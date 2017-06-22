@@ -212,7 +212,7 @@ dailyRoute.controller('dailyController', ['$scope', '$http', '$compile', functio
     $scope.openIcons = function(){
         var iconsWrap = angular.element(document.querySelector('.dailyIconsWrap'));
         //if the overview is is closed
-        if($scope.isIconsOpen == false){
+        /*if($scope.isIconsOpen == false){
             iconsWrap.removeClass('hidden');
             iconsWrap.addClass('visible');
             iconsWrap.addClass('fadeIn');
@@ -224,6 +224,7 @@ dailyRoute.controller('dailyController', ['$scope', '$http', '$compile', functio
             iconsWrap.removeClass('fadeIn');
             iconsWrap.addClass('hidden');
             $scope.isIconsOpen = false;
-        } 
+        } */
+        iconsWrap.slideToggle("slow");
     }
 }]);
