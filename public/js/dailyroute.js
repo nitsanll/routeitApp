@@ -213,12 +213,14 @@ dailyRoute.controller('dailyController', ['$scope', '$http', '$compile', functio
     }
 
     $scope.toggleDailyDetails = function(isOpen){
-        if(isOpen == false){
-            var closeButton = angular.element(document.querySelector('#closeDailyDetails'));
-            closeButton.fadeOut();  
+        var closeButton = angular.element(document.querySelector('#closeDailyDetails'));
+        var openButton = angular.element(document.querySelector('#openDailyDetails'));
+        if(isOpen == false){   
+            closeButton.fadeOut();
+            openButton.fadeIn();  
         } else {
-            var closeButton = angular.element(document.querySelector('#closeDailyDetails'));
-            closeButton.fadeIn();  
+            closeButton.fadeIn();
+            openButton.fadeOut();  
         }
         var dailyDetailsWrap = angular.element(document.querySelector('#dailyTripDetails'));
         dailyDetailsWrap.slideToggle("slow");
