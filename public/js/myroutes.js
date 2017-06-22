@@ -146,15 +146,19 @@ userRoutes.controller('RoutesController', ['$scope', '$http', '$compile', functi
                 var tmpDate = new Date(myRoutesArr[i].start_date);
                 if(localStorage.getItem("chosenRoute") != "null"){
                     if(myRoutesArr[i].trip_id == JSON.parse(localStorage.getItem("chosenRoute")).trip_id) {
-                        route+='<div class="detailedTripIt"><button id="chosenTripIt" class="tripIt borderLeft"><span class="planImg"></span>&nbsp; בזמן טיול </button><button  id="chosenDetailed" class="tripIt" ng-click="showDetailedPlan()"> לתכנית הטיול </button></div>';  
+                        route+='<div class="detailedTripIt"><button id="chosenTripIt" class="tripIt borderLeft" ng-click="goToDaily()"><span class="planImg"></span>&nbsp; בזמן טיול </button><button  id="chosenDetailed" class="tripIt" ng-click="showDetailedPlan()"> לתכנית הטיול </button></div>';  
                     } else if((currentDate.getDate() == tmpDate.getDate()) && (currentDate.getMonth() == tmpDate.getMonth()) 
                     && (currentDate.getFullYear() == tmpDate.getFullYear())){
-                        route+='<button id="myRoutesTripIt" ng-click="tripIt(' + myRoutesArr[i].trip_id + ')"> צא <br> לטיול </button>';
+                        route+='<div class="detailedTripIt"><button id="chosenTripIt" class="tripIt borderLeft" ng-click="tripIt(' + myRoutesArr[i].trip_id + ')"><span class="planImg"></span>&nbsp; צא לטיול </button><button  id="chosenDetailed" class="tripIt" ng-click="showDetailedPlan()"> לתכנית הטיול </button></div>';
+                    } else {
+                        route+='<div class="detailedTripIt"><button  id="chosenDetailed" class="tripIt" ng-click="showDetailedPlan()"> לתכנית הטיול </button></div>';
                     }
                 } else {
                     if((currentDate.getDate() == tmpDate.getDate()) && (currentDate.getMonth() == tmpDate.getMonth()) 
                     && (currentDate.getFullYear() == tmpDate.getFullYear())){
-                        route+='<button id="myRoutesTripIt" ng-click="tripIt(' + myRoutesArr[i].trip_id + ')"> צא <br> לטיול </button>';
+                        route+='<div class="detailedTripIt"><button id="chosenTripIt" class="tripIt borderLeft" ng-click="tripIt(' + myRoutesArr[i].trip_id + ')"><span class="planImg"></span>&nbsp; צא לטיול </button><button  id="chosenDetailed" class="tripIt" ng-click="showDetailedPlan()"> לתכנית הטיול </button></div>';
+                    } else {
+                        route+='<div class="detailedTripIt"><button  id="chosenDetailed" class="tripIt" ng-click="showDetailedPlan()"> לתכנית הטיול </button></div>';
                     }
                 }
 
@@ -326,5 +330,9 @@ userRoutes.controller('RoutesController', ['$scope', '$http', '$compile', functi
             iconsWrap.addClass('hidden');
             $scope.isIconsOpen = false;
         } 
+    }
+
+    $scope.goToDaily = function(){
+        window.location.assign("https://routeit-app.herokuapp.com/dailyroute.html");
     }
 }]);
