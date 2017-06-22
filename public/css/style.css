@@ -189,9 +189,9 @@
 	}
 
 	#closeDailyDetails {
-		position: absolute;
+		position: fixed;
     	bottom: 17%;
-    	left: 2%;
+    	left: 0%;
 	}
 
 	#dailyTripDetails {
