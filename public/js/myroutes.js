@@ -74,7 +74,7 @@ userRoutes.controller('RoutesController', ['$scope', '$http', '$compile', functi
                     route+='<img id="myRoutesDisabledIcon" src="../images/DISABLED.png">';
                 }
                 route+='<img class="dots" src="../images/DOTS.png" ng-click="openIcons('+myRoutesArr[i].trip_id +')"><div class="iconsWrap hidden" id="icons'+ myRoutesArr[i].trip_id +'"><button class = "editBtn"></button> <button class = "deleteBtn" ng-click="deleteRoute(' + myRoutesArr[i].trip_id + ')"></button><button class = "shareBtn"></button></div>'
-                + '<section class="ptsDate"><h3 class = "tripPts">' + myRoutesArr[i].trip_start_pt + ' - ' + myRoutesArr[i].trip_end_pt + '</h3>';
+                + '<section class="dailyPtsDate"><h3 class = "tripPts">' + myRoutesArr[i].trip_start_pt + ' - ' + myRoutesArr[i].trip_end_pt + '</h3>';
                 console.log(myRoutesArr[i]);
                 if(myRoutesArr[i].start_date){
                     var sDate = new Date(myRoutesArr[i].start_date);
@@ -146,7 +146,7 @@ userRoutes.controller('RoutesController', ['$scope', '$http', '$compile', functi
                 var tmpDate = new Date(myRoutesArr[i].start_date);
                 if(localStorage.getItem("chosenRoute") != "null"){
                     if(myRoutesArr[i].trip_id == JSON.parse(localStorage.getItem("chosenRoute")).trip_id) {
-                        route+='<div class="detailedTripIt"><a href="https://routeit-app.herokuapp.com/dailyroute.html" id="chosenTripIt" class="tripIt borderLeft"><span class="planImg"></span>&nbsp; בזמן לטיול </a><button  id="chosenDetailed" class="tripIt" ng-click="showDetailedPlan()"> לתכנית הטיול </button></div>';  
+                        route+='<div class="detailedTripIt"><a href="https://routeit-app.herokuapp.com/dailyroute.html" id="chosenTripIt" class="tripIt borderLeft"><span class="planImg"></span>&nbsp; בזמן טיול </a><button  id="chosenDetailed" class="tripIt" ng-click="showDetailedPlan()"> לתכנית הטיול </button></div>';  
                     } else if((currentDate.getDate() == tmpDate.getDate()) && (currentDate.getMonth() == tmpDate.getMonth()) 
                     && (currentDate.getFullYear() == tmpDate.getFullYear())){
                         route+='<button id="myRoutesTripIt" ng-click="tripIt(' + myRoutesArr[i].trip_id + ')"> צא <br> לטיול </button>';
