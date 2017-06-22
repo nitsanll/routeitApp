@@ -322,11 +322,13 @@ userRoutes.controller('RoutesController', ['$scope', '$http', '$compile', functi
         if($scope.isIconsOpen == false){
             iconsWrap.removeClass('hidden');
             iconsWrap.addClass('visible');
+            iconsWrap.addClass('fadeIn');
             $scope.isIconsOpen = true;
         } 
         //if the overview is open
         else {
             iconsWrap.removeClass('visible');
+            iconsWrap.removeClass('fadeIn');
             iconsWrap.addClass('hidden');
             $scope.isIconsOpen = false;
         } 
