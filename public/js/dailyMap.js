@@ -83,7 +83,7 @@ function initMap() {
             // Set CSS for the control border.
             var controlUI = document.createElement('div');
             controlUI.style.backgroundColor = '#fff';
-            //controlUI.style.border = '2px solid #fff';
+            controlUI.style.padding = '2%';
             controlUI.style.borderRadius = '50px';
             //controlUI.style.boxShadow = '0 2px 6px rgba(0,0,0,.3)';
             controlUI.style.cursor = 'pointer';
