@@ -24,8 +24,7 @@ userProfile.controller('ProfileController', ['$rootScope', '$scope', '$http', fu
        		//$scope.tripsKm+=prevRoutesArr[i].trip_km;
           tmpTripsKm+=prevRoutesArr[i].trip_km;
        	}
-        tmpTripsKm.toFixed(1);
-        $scope.tripsKm = tmpTripsKm;
+        $scope.tripsKm = tmpTripsKm.toFixed(1);;
     }
     
     var unbindHandler = $rootScope.$on('init', function($scope){
