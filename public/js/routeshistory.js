@@ -38,7 +38,7 @@ routesHistory.controller('RoutesHistoryController', ['$rootScope', '$scope', '$h
                 var cDate = new Date(prevRoutesArr[i].creation_date);
                 var cDateString = cDate.getDate() + '/' + (cDate.getMonth()+1) + '/' + cDate.getFullYear(); 
                 route+='<p class="creationDate"> נוצר ב- '+ cDateString +'</p>'
-                +'<section class="ptsDate"><h3 class = "tripPts">' + prevRoutesArr[i].trip_start_pt + ' - ' + prevRoutesArr[i].trip_end_pt + '</h3>';
+                +'<section class="ptsDate"><h4 class="tripArea"> אזור ' + prevRoutesArr[i].area + '</h4><h3 class = "tripPts">' + prevRoutesArr[i].trip_start_pt + ' - ' + prevRoutesArr[i].trip_end_pt + '</h3>';
                 console.log(prevRoutesArr[i]);
                 if(prevRoutesArr[i].start_date){
                     var sDate = new Date(prevRoutesArr[i].start_date);
@@ -53,7 +53,7 @@ routesHistory.controller('RoutesHistoryController', ['$rootScope', '$scope', '$h
                         route += '<p class="tripDates" id="tripDates'+i+'">' + eDateString + " - " + sDateString + '</section>';  
                     }
                 }
-                route += '<div class = "tripDetails"><p class = "tripDetail" id="biggerWidth"> אזור: <br> <b id="smallerFont" class="detail">' + prevRoutesArr[i].area +'</b></p>';
+                route += '<div class = "tripDetails">';
                 if(prevRoutesArr[i].direction == "north") 
                     route+= '<p class = "tripDetail"> כיוון כללי: <br> <b class="detail"> מצפון<br> לדרום </b> </p>';
                 else route+= '<p class = "tripDetail">  כיוון כללי: <br> <b class="detail"> מדרום<br> לצפון </b> </p>'; 
@@ -63,7 +63,8 @@ routesHistory.controller('RoutesHistoryController', ['$rootScope', '$scope', '$h
                 else {
                     route += '<p class = "tripDetail">מס'+"'"+' ימים: <br><b class="biggerFont">' + prevRoutesArr[i].days_num +'</b></p>';
                 }
-                route += '<p class = "tripDetail biggerWidth"> מס'+"'"+' ק"מ ליום: <br><b class="biggerFont">' + prevRoutesArr[i].day_km + '</b></p><p class = "tripDetail biggerWidth"> מס'+"'"+' ק"מ כולל: <br><b class="biggerFont">' + prevRoutesArr[i].trip_km + '</b></p></div>'
+                route += '<p class = "tripDetail biggerWidth"> מס'+"'"+' ק"מ ליום: <br><b class="biggerFont">' + prevRoutesArr[i].day_km + '</b></p><p class = "tripDetail biggerWidth"> מס'+"'"+' ק"מ כולל: <br><b class="biggerFont">' + prevRoutesArr[i].trip_km + '</b></p>';
+                +'<p class = "tripDetail diffWidth" id="withoutBorder"> רמת קושי: <br><b class="diffDetail">' + myRoutesArr[i].trip_difficulty + '</b></p></div>';
                 +'<button class = "historyDeleteBtn" ng-click="deletePrevRoute(' + prevRoutesArr[i].trip_id + ')"></button><br></section>';
                 allPrevRoutes+=route;
                 /*var route = '<section class = "route"><h3 ng-click="chosenRoute(' + prevRoutesArr[i].trip_id + ')">' + prevRoutesArr[i].trip_start_pt + ' - ' + prevRoutesArr[i].trip_end_pt +
