@@ -565,6 +565,7 @@
 	    height: 30px;
 	    z-index: 102;
 	    border-radius: 20px;
+	    display: none;
 	}
 
 	.dailyIconsWrap {
