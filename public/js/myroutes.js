@@ -68,8 +68,8 @@ userRoutes.controller('RoutesController', ['$scope', '$http', '$compile', functi
                 var route = '<section class = "route" ng-click="chosenRoute(' + myRoutesArr[i].trip_id + ')" id="route' + myRoutesArr[i].trip_id +'"><img class="routePic" src="images/PIC_TRIP_'+i%6+'.jpg">';
                 var cDate = new Date(myRoutesArr[i].creation_date);
                 var cDateString = cDate.getDate() + '/' + (cDate.getMonth()+1) + '/' + cDate.getFullYear(); 
-                route+='<p class="creationDate"> נוצר ב- '+ cDateString +'</p>'
-                +'<button class="detailedBtn" ng-click="showDetailedPlan()">לתכנית <br> הטיול</button>';
+                route+='<p class="creationDate"> נוצר ב- '+ cDateString +'</p>';
+                //+'<button class="detailedBtn" ng-click="showDetailedPlan()">לתכנית <br> הטיול</button>';
                 if(myRoutesArr[i].disabled_flag == true){
                     route+='<img id="myRoutesDisabledIcon" src="../images/DISABLED.png">';
                 }
@@ -115,7 +115,7 @@ userRoutes.controller('RoutesController', ['$scope', '$http', '$compile', functi
                     +'<section class="updateDate" id="updateDate'+i+'"><input type="date" ng-model = "date'+i+'" class = "date"> <button class = "dateBtn" ng-click="updateDate(' + myRoutesArr[i].trip_id + ',date' + i + ',' + myRoutesArr[i].days_num + ')"> &#10004; </button></section></section>';
                 }
                 //check if the route date is the current date
-                var tmpDate = new Date(myRoutesArr[i].start_date);
+                /*var tmpDate = new Date(myRoutesArr[i].start_date);
                 if(localStorage.getItem("chosenRoute") != "null"){
                     if(myRoutesArr[i].trip_id == JSON.parse(localStorage.getItem("chosenRoute")).trip_id) {
                         route+='<a href="https://routeit-app.herokuapp.com/dailyroute.html" id="myRoutesTripIt"> בזמן <br> טיול </a>';  
@@ -128,7 +128,7 @@ userRoutes.controller('RoutesController', ['$scope', '$http', '$compile', functi
                     && (currentDate.getFullYear() == tmpDate.getFullYear())){
                         route+='<button id="myRoutesTripIt" ng-click="tripIt(' + myRoutesArr[i].trip_id + ')"> צא <br> לטיול </button>';
                     }
-                }
+                }*/
                 route += '<div class = "tripDetails"><p id="biggerWidth" class = "tripDetail"> אזור: <br> <b class="detail">' + myRoutesArr[i].area +'</b></p>';
                 if(myRoutesArr[i].direction == "north") 
                     route+= '<p class = "tripDetail"> כיוון כללי: <br> <b class="detail"> מצפון<br> לדרום </b> </p>';
@@ -151,14 +151,14 @@ userRoutes.controller('RoutesController', ['$scope', '$http', '$compile', functi
                     && (currentDate.getFullYear() == tmpDate.getFullYear())){
                         route+='<div class="detailedTripIt"><button id="chosenTripIt" class="tripIt borderLeft" ng-click="tripIt(' + myRoutesArr[i].trip_id + ')"><span class="planImg"></span>&nbsp; צא לטיול </button><button  id="chosenDetailed" class="tripIt" ng-click="showDetailedPlan()"> לתכנית הטיול </button></div>';
                     } else {
-                        route+='<div class="detailedTripIt"><button  id="chosenDetailed" class="tripIt" ng-click="showDetailedPlan()"> לתכנית הטיול </button></div>';
+                        route+='<div class="detailedTripIt"><button  id="chosenDetailed" class="onlyDetialed" ng-click="showDetailedPlan()"> לתכנית הטיול </button></div>';
                     }
                 } else {
                     if((currentDate.getDate() == tmpDate.getDate()) && (currentDate.getMonth() == tmpDate.getMonth()) 
                     && (currentDate.getFullYear() == tmpDate.getFullYear())){
                         route+='<div class="detailedTripIt"><button id="chosenTripIt" class="tripIt borderLeft" ng-click="tripIt(' + myRoutesArr[i].trip_id + ')"><span class="planImg"></span>&nbsp; צא לטיול </button><button  id="chosenDetailed" class="tripIt" ng-click="showDetailedPlan()"> לתכנית הטיול </button></div>';
                     } else {
-                        route+='<div class="detailedTripIt"><button  id="chosenDetailed" class="tripIt" ng-click="showDetailedPlan()"> לתכנית הטיול </button></div>';
+                        route+='<div class="detailedTripIt"><button  id="chosenDetailed" class="onlyDetialed" ng-click="showDetailedPlan()"> לתכנית הטיול </button></div>';
                     }
                 }
 

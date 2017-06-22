@@ -490,7 +490,7 @@
 
 	.dots {
 		position: absolute;
-		top: 50%;
+		top: 45%;
 		left: 0%;
 		z-index: 102;
 	}
@@ -668,6 +668,16 @@
 		font-size: 1.3em;
 		font-family: 'openSansExBold';
 		color: #ffffff;
+	}
+
+	.onlyDetialed {
+		width: 100%;
+		padding: 1.5%;
+		border: none;
+		background: #F15942;
+		font-size: 1.3em;
+		font-family: 'openSansExBold';
+		color: #ffffff;		
 	}
 
 	#chosenDetailed:active, #chosenDetailed:focus, #chosenTripIt:active, #chosenTripIt:focus{
