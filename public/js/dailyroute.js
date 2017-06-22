@@ -45,7 +45,7 @@ dailyRoute.controller('dailyController', ['$scope', '$http', '$compile', functio
                     var daysNum = chosenRoute.days_num;
                     htmlContent = '<div id = "map"></div><div id="detailedHeadlineDiv"></div><h1 id="detailedHeadline">'+ start + ' - ' + end +'</h1>'
                     +'<h1 id="detailedDate">' + currentDayStr + ', ' + currentDateStr + '</h1>'
-                    +'<div id="dotsWrap"><img class="dailyDots" src="../images/DAILY_DOTS.png" ng-click="openIcons()"></div><div class="dailyIconsWrap hidden"><button class="dailyDetailedBtn" ng-click="showDetailedPlan()"> לתכנית <br> הטיול </button><button class="endTrip" ng-click="endTrip()"> הפסק טיול </button><button id="addAlert" ng-click="showAlert()"> הוסף התראה </button></div>'
+                    +'<div id="dotsWrap"><img class="dailyDots" src="../images/DAILY_DOTS.png" ng-click="openIcons()"></div><div class="dailyIconsWrap"><button class="dailyDetailedBtn" ng-click="showDetailedPlan()"> לתכנית <br> הטיול </button><button class="endTrip" ng-click="endTrip()"> הפסק טיול </button><button id="addAlert" ng-click="showAlert()"> הוסף התראה </button></div>'
                     +'';
                     //if the traveler didn't choose accommodation
                     if(chosenRoute.daily_sections[i].chosen_accomm == null) {
