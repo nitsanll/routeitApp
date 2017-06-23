@@ -1,3 +1,4 @@
+//$(document).ready(function() {
 function initMap() {
     var chosenRoute = JSON.parse(localStorage.getItem("chosenRoute"));
     var myRoutes = localStorage.getItem("myRoutes");
@@ -226,3 +227,4 @@ function initMap() {
         }, 5000);
     }
 }
+//}
