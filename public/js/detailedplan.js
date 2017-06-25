@@ -119,8 +119,7 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile', '$wind
                 console.log($('#chosenAccomm1'));
                 //var accommElem =  $document[0].getElementById('chosenAccomm1');
                 var accommElem = $('#chosenAccomm1');
-                $scope.accomm1 = $sce.trustAsHtml('bla');
-                console.log('b');
+                //$scope.accomm1 = $sce.trustAsHtml('bla');
                 /*var wrappedResult = angular.element(accommElem);
                 console.log(accommElem);
                 console.log(wrappedResult);*/
