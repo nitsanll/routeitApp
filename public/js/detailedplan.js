@@ -1,6 +1,6 @@
 var detailedPlan = angular.module('detailedPlan', []);
 
-detailedPlan.controller('planController', ['$scope', '$http', '$compile', '$window' ,function($scope, $http, $compile, $window){
+detailedPlan.controller('planController', ['$scope', '$http', '$compile' ,function($scope, $http, $compile, $window){
     $scope.name  = localStorage.getItem("name");
     $scope.img = localStorage.getItem("pic");
     var userMail = localStorage.getItem("email");
