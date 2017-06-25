@@ -125,7 +125,7 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile', '$wind
                 console.log(wrappedResult);*/
                 var linkingFunction = $compile(chosenAccommContent);
                 var elem = linkingFunction($scope);
-                //accommElem.html(elem);
+                accommElem.html(elem);
                 //wrappedResult.html(elem);
             }
             var descArr = [], typeArr = [];
