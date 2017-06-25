@@ -1,6 +1,6 @@
 var detailedPlan = angular.module('detailedPlan', []);
 
-detailedPlan.controller('planController', ['$scope', '$http', '$compile', '$window' ,function($scope, $http, $compile, $window){
+detailedPlan.controller('planController', ['$scope', '$http', '$compile', '$window', '$document' ,function($scope, $http, $compile, $window, $document){
     $scope.name  = localStorage.getItem("name");
     $scope.img = localStorage.getItem("pic");
     var userMail = localStorage.getItem("email");
@@ -115,7 +115,8 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile', '$wind
                 var accommStr = routeOrigin.daily_sections[i].chosen_accomm.accomm_name + '<br>' + phone;
                 //chosenAccomm = accommStr;
                 var chosenAccommContent = '<span id="deleteAccomm" ng-click="deleteAccomm('+ routeOrigin.daily_sections[i].day_num +')> X </span>' + accommStr;
-                var accommElem = angular.element(document.querySelector('#chosenAccomm'+routeOrigin.daily_sections[i].day_num));
+                //var accommElem = angular.element(document.querySelector('#chosenAccomm'+routeOrigin.daily_sections[i].day_num));
+                var accomElem =  $document[0].getElementById('chosenAccomm'+routeOrigin.daily_sections[i].day_num);
                 console.log(accommElem);
                 var linkingFunction = $compile(chosenAccommContent);
                 var elem = linkingFunction($scope);
