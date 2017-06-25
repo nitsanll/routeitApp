@@ -119,13 +119,14 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile', '$wind
                 console.log($('#chosenAccomm1'));
                 //var accommElem =  $document[0].getElementById('chosenAccomm1');
                 var accommElem = $('#chosenAccomm1');
-                var wrappedResult = angular.element(accommElem);
+                accomElem.hide();
+                /*var wrappedResult = angular.element(accommElem);
                 console.log(accommElem);
-                console.log(wrappedResult);
+                console.log(wrappedResult);*/
                 var linkingFunction = $compile(chosenAccommContent);
                 var elem = linkingFunction($scope);
-                accommElem.html(elem);
-                wrappedResult.html(elem);
+                //accommElem.html(elem);
+                //wrappedResult.html(elem);
             }
             var descArr = [], typeArr = [];
             for(var j=0; j<routeOrigin.daily_sections[i].description.length; j++){
