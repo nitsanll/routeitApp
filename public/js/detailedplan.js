@@ -120,7 +120,7 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile', '$wind
                 console.log(accommElem);
                 var linkingFunction = $compile(chosenAccommContent);
                 var elem = linkingFunction($scope);
-                accommElem.html(elem);
+                accommElem.innerHTML(elem);
             }
             var descArr = [], typeArr = [];
             for(var j=0; j<routeOrigin.daily_sections[i].description.length; j++){
