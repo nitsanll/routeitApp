@@ -1,6 +1,6 @@
 var detailedPlan = angular.module('detailedPlan', []);
 
-detailedPlan.controller('planController', ['$scope', '$http', '$compile' ,function($scope, $http, $compile, $window){
+detailedPlan.controller('planController', ['$scope', '$http', '$compile', '$window' ,function($scope, $http, $compile, $window){
     $scope.name  = localStorage.getItem("name");
     $scope.img = localStorage.getItem("pic");
     var userMail = localStorage.getItem("email");
@@ -182,12 +182,12 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile' ,functi
     //function that returns to the page the traveler came from
     $scope.goBack = function(){
         if(flagPlan == "current"){
-            $window.location.assign("https://routeit-app.herokuapp.com/myroutes.html");
+            window.location.assign("https://routeit-app.herokuapp.com/myroutes.html");
         //if the route is from 'chosen routes'
         } else if(flagPlan == "currentDaily") {
-            $window.location.assign("https://routeit-app.herokuapp.com/chosenroutes.html");
+            window.location.assign("https://routeit-app.herokuapp.com/chosenroutes.html");
         //if the route is from 'daily route'
-        } else $window.location.assign("https://routeit-app.herokuapp.com/dailyroute.html");
+        } else window.location.assign("https://routeit-app.herokuapp.com/dailyroute.html");
     }
 
     var markers = [];
@@ -207,8 +207,8 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile' ,functi
                 var Lat = results[0].geometry.location.lat();
                 var Lng = results[0].geometry.location.lng();
                 console.log(results[0].geometry.location.lat() +  " " + results[0].geometry.location.lng());
-                $window.map.setCenter(new google.maps.LatLng(Lat, Lng));
-                $window.map.setZoom(14);
+                window.map.setCenter(new google.maps.LatLng(Lat, Lng));
+                window.map.setZoom(14);
             } else {
                 alert("Something got wrong " + status);
             }
@@ -223,11 +223,11 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile' ,functi
             // Search for hotels in the selected city, within the viewport of the map.
             function search() {
               var search = {
-                location: $window.map.getCenter(),
+                location: window.map.getCenter(),
                 radius: '1000',
                 types: ['lodging']
               };
-              console.log(window.map.getCenter().lat + " " + $window.map.getCenter().lng);
+              console.log(window.map.getCenter().lat + " " + window.map.getCenter().lng);
               places.nearbySearch(search, function(results, status) {
                 clearMarkers();
                 if (status === google.maps.places.PlacesServiceStatus.OK) {
@@ -243,7 +243,7 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile' ,functi
                       icon: '../images/BED.png',
                     });
                     // If the user clicks a hotel marker, show the details of that hotel
-                    // in an info $window.
+                    // in an info window.
                     markers[i].placeResult = results[i];
                     google.maps.event.addListener(markers[i], 'click', showInfoWindow);
                     setTimeout(dropMarker(i), i * 100);
@@ -259,7 +259,7 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile' ,functi
             }
             $scope.infowindow = new google.maps.InfoWindow();
 
-            // Get the place details for a hotel. Show the information in an info $window,
+            // Get the place details for a hotel. Show the information in an info window,
             // anchored on the marker for the hotel that the user selected.
             function showInfoWindow() {
               var marker = this;
@@ -410,7 +410,7 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile' ,functi
 
     var isThereAccomm = [];
     //drawing detailed plan route map
-    //window.initMap = function(){
+    $window.initMap = function(){
         document.getElementById('map').className = 'miniMap';
         
         window.flagPlan =  localStorage.getItem("planFlag");
@@ -439,7 +439,7 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile' ,functi
             tmpCoordsArr = tripCoordsArr;
         }
         var centerCoord = tripCoordsArr[parseInt(tripCoordsArr.length/2)];
-        $window.map = new google.maps.Map(document.getElementById('map'), {
+        window.map = new google.maps.Map(document.getElementById('map'), {
             zoom: 12,
             center: centerCoord,
             mapTypeId: google.maps.MapTypeId.ROAD
@@ -483,6 +483,6 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile' ,functi
             }
         }
         $scope.showChosenAccomm();  
-    //}
+    }
     $scope.showDailySections();
 }]);
