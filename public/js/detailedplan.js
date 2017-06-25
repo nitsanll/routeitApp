@@ -117,7 +117,7 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile', '$wind
                 var chosenAccommContent = '<span id="deleteAccomm" ng-click="deleteAccomm('+ routeOrigin.daily_sections[i].day_num +')> X </span>' + accommStr;
                 //var accommElem = angular.element(document.querySelector('#chosenAccomm'+routeOrigin.daily_sections[i].day_num));
                 //var accommElem =  $document[0].getElementById('chosenAccomm1');
-                var accommElem = $('#chosenAccomm1').get();
+                var accommElem = $('#chosenAccomm1').html();
                 console.log(accommElem);
                 //$scope.accomm1 = $sce.trustAsHtml('bla');
                 /*var wrappedResult = angular.element(accommElem);
