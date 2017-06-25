@@ -250,7 +250,7 @@
 	}
 
 	#dailyDayNum {
-		width: 24%;
+		width: 22%;
 		font-size: 1.2em;
 		font-family: 'openSansExBold';
 	}
@@ -264,7 +264,7 @@
 	}
 
 	#dailyDuration {
-		width: 24%;
+		width: 26%;
 		border-left: none;
 	}
 
