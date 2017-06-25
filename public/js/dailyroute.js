@@ -42,6 +42,7 @@ dailyRoute.controller('dailyController', ['$scope', '$http', '$compile', functio
                     var duration = chosenRoute.daily_sections[i].duration;
                     var diff = chosenRoute.daily_sections[i].difficulty;
                     var dayNum = chosenRoute.daily_sections[i].day_num;
+                    var dayKm = chosenRoute.daily_sections[i].total_km;
                     var daysNum = chosenRoute.days_num;
                     htmlContent = '<div id = "map"></div><div id="detailedHeadlineDiv"></div><h1 id="detailedHeadline">'+ start + ' - ' + end +'</h1>'
                     +'<h1 id="detailedDate">' + currentDayStr + ', ' + currentDateStr + '</h1>'
@@ -73,8 +74,8 @@ dailyRoute.controller('dailyController', ['$scope', '$http', '$compile', functio
                             htmlContent += chosenRoute.daily_sections[i].description[j] + ', ';
                         }
                     }
-                    htmlContent+='<p id="dailyDiff" class="dailyTripDetail"> <b> רמת קושי המסלול: </b><br>' + diff + '</p>'
-                    +'<p class="dailyTripDetail" id="dailyDuration"><b> משך המסלול: </b><br>' + duration + ' שעות </p><div class="clear"></div></div>';//<button class="endTrip" ng-click="endTrip()"> הפסק טיול </button></p>'
+                    htmlContent+='<p id="dailyDiff" class="dailyTripDetail"> <b> רמת קושי: </b><br>' + diff + '</p>'
+                    +'<p class="dailyTripDetail" id="dailyDuration"><b> משך: </b><br>' + duration + ' שעות <br><br><b> מס'+"'"+ ' ק"מ: <br>' + dayKm +'</p><div class="clear"></div></div>';//<button class="endTrip" ng-click="endTrip()"> הפסק טיול </button></p>'
                     //+'<p class="dailyTripDetail" id="dailyAlert" ng-click="showAlert()"><img src="images/ADD_ALERT.png"><br><span id="appendAlert"> הוסף התראה </span></p><div class="clear"></div></div>';
                     console.log(htmlContent);
                     var linkingFunction = $compile(htmlContent);
