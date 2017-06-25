@@ -118,7 +118,7 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile', '$wind
                 //var accommElem = angular.element(document.querySelector('#chosenAccomm'+routeOrigin.daily_sections[i].day_num));
                 //var accommElem =  $document[0].getElementById('chosenAccomm1');
                 var accommElem = $('#chosenAccomm1').html();
-                console.log(accommElem);
+                console.log( $('#chosenAccomm1').html());
                 //$scope.accomm1 = $sce.trustAsHtml('bla');
                 /*var wrappedResult = angular.element(accommElem);
                 console.log(accommElem);
