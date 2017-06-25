@@ -116,16 +116,16 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile', '$wind
                 //chosenAccomm = accommStr;
                 var chosenAccommContent = '<span id="deleteAccomm" ng-click="deleteAccomm('+ routeOrigin.daily_sections[i].day_num +')> X </span>' + accommStr;
                 //var accommElem = angular.element(document.querySelector('#chosenAccomm'+routeOrigin.daily_sections[i].day_num));
-                console.log($('#chosenAccomm1'));
                 //var accommElem =  $document[0].getElementById('chosenAccomm1');
                 var accommElem = $('#chosenAccomm1').get();
+                console.log(accommElem);
                 //$scope.accomm1 = $sce.trustAsHtml('bla');
                 /*var wrappedResult = angular.element(accommElem);
                 console.log(accommElem);
                 console.log(wrappedResult);*/
                 var linkingFunction = $compile(chosenAccommContent);
                 var elem = linkingFunction($scope);
-                accommElem.html(elem);
+                //accommElem.html(elem);
                 //wrappedResult.html(elem);
             }
             var descArr = [], typeArr = [];
