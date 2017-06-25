@@ -64,7 +64,7 @@
                             <p class="dayDetail1"><span class="detailContent">{{d.km}}<br> ק"מ </span></p>
                             <p class="dayDetail1"> {{d.duration}}<br> שעות </p>
                             <p class="dayDetail1"> {{d.diff}} </p>
-                            <p class="dayDetail1"> <span id = "chosenAccomm{{d.dayNum}}">
+                            <p class="dayDetail1"> <span id = "chosenAccomm{{d.dayNum}}" ng-bind-html="accomm1">
                             <button id="accommBtn" ng-click="showAccomm(d.endPt, d.dayNum)"> עדכן מקום לינה </button></span></p> 
                         </div>
                       
