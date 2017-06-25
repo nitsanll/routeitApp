@@ -413,8 +413,8 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile' ,functi
     //window.initMap = function(){
         document.getElementById('map').className = 'miniMap';
         
-        $window.flagPlan =  localStorage.getItem("planFlag");
-        $window.routeOrigin;
+        window.flagPlan =  localStorage.getItem("planFlag");
+        window.routeOrigin;
         //if the route is from 'my routes'
         if(flagPlan == "current"){
             routeOrigin = JSON.parse(localStorage.getItem("currentRoute"));
