@@ -125,7 +125,7 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile', '$wind
                 var linkingFunction = $compile(chosenAccommContent);
                 var elem = linkingFunction($scope);
                 //accommElem.html(elem);
-                wrappedResult.append('hi');
+                wrappedResult.css('color', 'red');
             }
             var descArr = [], typeArr = [];
             for(var j=0; j<routeOrigin.daily_sections[i].description.length; j++){
