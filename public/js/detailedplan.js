@@ -493,7 +493,3 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile', '$wind
     }
     $scope.showDailySections();
 }]);
-
-$(document).ready(function(){
-    $("#chosenAccomm1").html("blaaaa");
-});
