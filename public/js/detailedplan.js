@@ -494,4 +494,6 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile', '$wind
     $scope.showDailySections();
 }]);
 
-$("#chosenAccomm1").html("bla");
+$(document).ready(function(){
+    $("#chosenAccomm1").html("blaaaa");
+});
