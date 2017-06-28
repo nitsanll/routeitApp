@@ -491,7 +491,7 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile', '$wind
                 }
             }
         }
-        $scope.showChosenAccomm(); 
-        $scope.showDailySections(); 
+        $scope.showChosenAccomm();  
     }
+    $scope.showDailySections();
 }]);
