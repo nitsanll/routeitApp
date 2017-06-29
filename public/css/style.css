@@ -970,7 +970,7 @@
 
 	.dayDetails {
 		background: #D9F1FB;
-		height: 100px;
+		//height: 100px;
 	}
 
 	.dayDetail {
@@ -998,6 +998,7 @@
 
 	#sleepDetail{
 		width: 24%;
+		font-size: 0.9em;
 	}
 
 	.detailedContent{
