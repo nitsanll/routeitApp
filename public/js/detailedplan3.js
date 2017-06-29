@@ -502,6 +502,7 @@ window.showChosenAccomm = function(){
     //if the route is from 'daily route'
     } else routeOrigin = JSON.parse(localStorage.getItem("chosenRoute"));
     for(var i=0; i<routeOrigin.daily_sections.length; i++){
+        console.log("for day number: " + routeOrigin.daily_sections[i].day_num + " accomm is: " + routeOrigin.daily_sections[i].chosen_accomm);
         if(routeOrigin.daily_sections[i].chosen_accomm != null){
             var infowindow = new google.maps.InfoWindow();
             var service = new google.maps.places.PlacesService(map);
