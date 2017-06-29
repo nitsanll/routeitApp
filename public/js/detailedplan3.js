@@ -491,7 +491,7 @@ var accommMarkers = [];
 window.showChosenAccomm = function(){
     //show the sleep place marker on map if there is one
     console.log("started chosenaccomm!");
-    window.clearAccommMarkers();
+    //window.clearAccommMarkers();
     window.routeOrigin;
     //if the route is from 'my routes'
     if(flagPlan == "current"){
@@ -529,6 +529,7 @@ window.showChosenAccomm = function(){
             });
         }
     }
+    window.clearAccommMarkers();
     //$scope.showDailySections();
 }
 
