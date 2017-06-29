@@ -974,7 +974,7 @@
 	}
 
 	.dayDetail {
-		width: 20%;
+		width: 19%;
 		font-size: 0.8em;
 		padding: 1%;
 		text-align: center;
@@ -985,7 +985,7 @@
 	}
 
 	.dayDetail1 {
-		width: 20%;
+		width: 19%;
 		font-size: 0.85em;
 		//padding: 1%;
 		text-align: center;
@@ -994,6 +994,10 @@
 		//margin-top: 2%;
 		color: #3A4151;
 		font-family: 'openSansBold';
+	}
+
+	#sleepDetail{
+		width: 24%;
 	}
 
 	.detailedContent{
