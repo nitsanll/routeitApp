@@ -372,12 +372,12 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile', '$wind
             routeOrigin = JSON.parse(localStorage.getItem("currentDailyRoute"));
         //if the route is from 'daily route'
         } else routeOrigin = JSON.parse(localStorage.getItem("chosenRoute"));
-        console.log(dayNum);
+        //console.log(dayNum);
         for(var i = 0; i< routeOrigin.daily_sections.length; i++){
             if(routeOrigin.daily_sections[i].day_num == dayNum){
-                console.log("inside");
+                //console.log("inside");
                 //var chosenAccomm ="";
-                console.log(routeOrigin.daily_sections[i].chosen_accomm);
+                //console.log(routeOrigin.daily_sections[i].chosen_accomm);
                 
                 //if there isn't a chosen accomm for the day 
                 if(routeOrigin.daily_sections[i].chosen_accomm == null){
