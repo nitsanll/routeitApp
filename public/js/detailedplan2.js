@@ -54,7 +54,6 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile', '$wind
 
     $scope.showChosenAccomm = function(){
         //show the sleep place marker on map if there is one
-        console.log("started chosenaccomm!");
         $scope.clearAccommMarkers();
         for(var i=0; i<routeOrigin.daily_sections.length; i++){
             if(routeOrigin.daily_sections[i].chosen_accomm != null){
@@ -87,7 +86,7 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile', '$wind
 
     //function that shows the details about each daily section  
     $scope.showDailySections = function(){
-        console.log("inside dailySections!");
+        console.log("inside");
         var dailySections = []; //details of all daily sections
         if(flagPlan == "current"){
             routeOrigin = JSON.parse(localStorage.getItem("currentRoute"));
@@ -102,33 +101,33 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile', '$wind
             console.log(routeOrigin.daily_sections[i].chosen_accomm);
             
             //if there isn't a chosen accomm for the day 
-            if(routeOrigin.daily_sections[i].chosen_accomm == null){}
-            //if there is a chosen accomm for the day 
-            else {
-                console.log("there is accom for day");
-                /*var deleteElem = angular.element(document.querySelector('#deleteAccomm'+routeOrigin.daily_sections[i].day_num));
-                console.log(deleteElem);
-                deleteElem.html("&#10006;");*/
-                var phone = "";
-                if(routeOrigin.daily_sections[i].chosen_accomm.phone != null){
-                    phone = ", "+routeOrigin.daily_sections[i].chosen_accomm.phone;
-                }
-                var accommStr = routeOrigin.daily_sections[i].chosen_accomm.accomm_name + '<br>' + phone;
-                //chosenAccomm = accommStr;
-                var chosenAccommContent = '<span id="deleteAccomm" ng-click="deleteAccomm('+ routeOrigin.daily_sections[i].day_num +')> X </span>' + accommStr;
-                //var accommElem = angular.element(document.querySelector('#chosenAccomm'+routeOrigin.daily_sections[i].day_num));
-                //var accommElem =  $document[0].getElementById('chosenAccomm1');
-                var accommElem = $('#chosenAccomm1').html();
-                console.log( $('#chosenAccomm1').html());
-                //$scope.accomm1 = $sce.trustAsHtml('bla');
-                /*var wrappedResult = angular.element(accommElem);
-                console.log(accommElem);
-                console.log(wrappedResult);*/
-                var linkingFunction = $compile(chosenAccommContent);
-                var elem = linkingFunction($scope);
-                //accommElem.html(elem);
-                //wrappedResult.html(elem);
-            }
+            // if(routeOrigin.daily_sections[i].chosen_accomm == null){}
+            // //if there is a chosen accomm for the day 
+            // else {
+            //     console.log("there is accom for day");
+            //     /*var deleteElem = angular.element(document.querySelector('#deleteAccomm'+routeOrigin.daily_sections[i].day_num));
+            //     console.log(deleteElem);
+            //     deleteElem.html("&#10006;");*/
+            //     var phone = "";
+            //     if(routeOrigin.daily_sections[i].chosen_accomm.phone != null){
+            //         phone = ", "+routeOrigin.daily_sections[i].chosen_accomm.phone;
+            //     }
+            //     var accommStr = routeOrigin.daily_sections[i].chosen_accomm.accomm_name + '<br>' + phone;
+            //     //chosenAccomm = accommStr;
+            //     var chosenAccommContent = '<span id="deleteAccomm" ng-click="deleteAccomm('+ routeOrigin.daily_sections[i].day_num +')> X </span>' + accommStr;
+            //     //var accommElem = angular.element(document.querySelector('#chosenAccomm'+routeOrigin.daily_sections[i].day_num));
+            //     //var accommElem =  $document[0].getElementById('chosenAccomm1');
+            //     var accommElem = $('#chosenAccomm1').html();
+            //     console.log( $('#chosenAccomm1').html());
+            //     //$scope.accomm1 = $sce.trustAsHtml('bla');
+            //     /*var wrappedResult = angular.element(accommElem);
+            //     console.log(accommElem);
+            //     console.log(wrappedResult);*/
+            //     var linkingFunction = $compile(chosenAccommContent);
+            //     var elem = linkingFunction($scope);
+            //     //accommElem.html(elem);
+            //     //wrappedResult.html(elem);
+            // }
             var descArr = [], typeArr = [];
             for(var j=0; j<routeOrigin.daily_sections[i].description.length; j++){
                 if(j==(routeOrigin.daily_sections[i].description.length)-1) {
@@ -413,13 +412,54 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile', '$wind
             }
             $scope.showChosenAccomm();
             $scope.showDailySections();
-        });   
+        });
     }
+
+    $scope.isAccommExists = function(){
+        if(flagPlan == "current"){
+            routeOrigin = JSON.parse(localStorage.getItem("currentRoute"));
+        //if the route is from 'chosen routes'
+        } else if(flagPlan == "currentDaily") {
+            routeOrigin = JSON.parse(localStorage.getItem("currentDailyRoute"));
+        //if the route is from 'daily route'
+        } else routeOrigin = JSON.parse(localStorage.getItem("chosenRoute"));
+        console.log(dayNum);
+        for(var i = 0; i< routeOrigin.daily_sections.length; i++){
+            if(routeOrigin.daily_sections[i].day_num == dayNum){
+                console.log("inside");
+                //var chosenAccomm ="";
+                console.log(routeOrigin.daily_sections[i].chosen_accomm);
+                
+                //if there isn't a chosen accomm for the day 
+                if(routeOrigin.daily_sections[i].chosen_accomm == null){
+                    //var element = document.getElementById('chosenAccomm'+dayNum);
+                    var accommExists = angular.element(document.querySelector('#accommExists'+dayNum));
+                    accommExists.css('display', 'none');
+                    var accommElem = angular.element(document.querySelector('#chosenAccomm'+dayNum));
+                    var accommBtn = '<button id="accommBtn" ng-click="showAccomm(d.endPt, d.dayNum)"> עדכן מקום לינה </button>';
+                }
+                //if there is a chosen accomm for the day 
+                else {
+                    console.log("there is accom for day");
+                    var phone = "";
+                    if(routeOrigin.daily_sections[i].chosen_accomm.phone != null){
+                        phone = ", "+routeOrigin.daily_sections[i].chosen_accomm.phone;
+                    }
+                    var accommStr = routeOrigin.daily_sections[i].chosen_accomm.accomm_name + '<br>' + phone;
+                    //chosenAccomm = accommStr;
+                    var accommExists = angular.element(document.querySelector('#accommExists'+dayNum));
+                    var withoutAccomm = angular.element(document.querySelector('#withoutAccomm'+dayNum));
+                    withoutAccomm.css('display', 'none');
+                    accommExists.append(accommStr);
+                    var chosenAccommContent = '<span id="deleteAccomm" ng-click="deleteAccomm('+ routeOrigin.daily_sections[i].day_num +')> X </span>' + accommStr;
+                }
+            }
+        }      
+    }   
 
     var isThereAccomm = [];
     //drawing detailed plan route map
     $window.initMap = function(){
-        console.log("started initmap!");
         document.getElementById('map').className = 'miniMap';
         
         window.flagPlan =  localStorage.getItem("planFlag");

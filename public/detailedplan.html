@@ -64,8 +64,17 @@
                             <p class="dayDetail1"><span class="detailContent">{{d.km}}<br> ק"מ </span></p>
                             <p class="dayDetail1"> {{d.duration}}<br> שעות </p>
                             <p class="dayDetail1"> {{d.diff}} </p>
-                            <p class="dayDetail1"> <span id = "chosenAccomm{{d.dayNum}}">
-                            <button id="accommBtn" ng-click="showAccomm(d.endPt, d.dayNum)"> עדכן מקום לינה </button></span></p> 
+                            <p class="dayDetail1"> 
+                                <!-- <span id = "chosenAccomm{{d.dayNum}}">
+                                    <button id="accommBtn" ng-click="showAccomm(d.endPt, d.dayNum)"> עדכן מקום לינה </button>
+                                </span> -->
+                                <span id = "chosenAccomm{{d.dayNum}}" ng-bind-html="isAccommExists(d.dayNum)" translate-compile>
+                                </span>
+                                <span id="withoutAccomm{{d.dayNum}}"> <button id="accommBtn" ng-click="showAccomm(d.endPt, d.dayNum)"> עדכן מקום לינה </button> </span>
+                                <span id="accommExists{{d.dayNum}}">
+                                    <span id="deleteAccomm" ng-click="deleteAccomm(d.dayNum)"> X </span>
+                                </span>
+                            </p> 
                         </div>
                       
                         <!-- <p class="dayDetail">
