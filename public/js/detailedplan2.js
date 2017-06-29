@@ -58,7 +58,7 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile', '$wind
         for(var i=0; i<routeOrigin.daily_sections.length; i++){
             if(routeOrigin.daily_sections[i].chosen_accomm != null){
                 var infowindow = new google.maps.InfoWindow();
-                var service = new google.maps.places.PlacesService(map);
+                var service = new google.maps.places.PlacesService(window.map);
 
                 service.getDetails({
                     placeId: routeOrigin.daily_sections[i].chosen_accomm.accomm_id
