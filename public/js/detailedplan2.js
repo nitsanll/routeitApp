@@ -415,7 +415,7 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile', '$wind
         });
     }
 
-    $scope.isAccommExists = function(){
+    $scope.isAccommExists = function(dayNum){
         if(flagPlan == "current"){
             routeOrigin = JSON.parse(localStorage.getItem("currentRoute"));
         //if the route is from 'chosen routes'
