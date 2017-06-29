@@ -533,7 +533,7 @@ window.showChosenAccomm = function(){
 }
 
 window.clearAccommMarkers = function(){
-    console.log(accommMarkers.length);
+    console.log(accommMarkers);
     if(accommMarkers.length != 0){
         for (var i = 0; i < accommMarkers.length; i++) {
             if (accommMarkers[i]) {
