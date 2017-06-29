@@ -1,6 +1,6 @@
-var detailedPlan = angular.module('detailedPlan', ['ngSanitize']);
+var detailedPlan = angular.module('detailedPlan', []);
 
-detailedPlan.controller('planController', ['$scope', '$http', '$compile', '$window', '$document', '$sce' ,function($scope, $http, $compile, $window, $document, $sce){
+detailedPlan.controller('planController', ['$scope', '$http', '$compile', '$window', '$document' ,function($scope, $http, $compile, $window, $document){
     $scope.name  = localStorage.getItem("name");
     $scope.img = localStorage.getItem("pic");
     var userMail = localStorage.getItem("email");
