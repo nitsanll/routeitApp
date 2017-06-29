@@ -196,7 +196,7 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile', '$wind
                     markers[i] = new google.maps.Marker({
                       position: results[i].geometry.location,
                       animation: google.maps.Animation.DROP,
-                      icon: '../images/LOCATION_PIN.png',
+                      icon: '../images/BED.png',
                     });
                     // If the user clicks a hotel marker, show the details of that hotel
                     // in an info window.
@@ -512,7 +512,7 @@ window.showChosenAccomm = function(){
                 if (status === google.maps.places.PlacesServiceStatus.OK) {
                     accommMarkers[i] = new google.maps.Marker({
                         map: map,
-                        icon: '../images/LOCATION_PIN.png',
+                        icon: '../images/BED.png',
                         position: place.geometry.location
                     });
                     google.maps.event.addListener(accommMarkers[i], 'click', function() {
