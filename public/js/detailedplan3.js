@@ -491,7 +491,7 @@ var accommMarkers = [];
 window.showChosenAccomm = function(){
     //show the sleep place marker on map if there is one
     console.log("started chosenaccomm!");
-    //window.clearAccommMarkers();
+    window.clearAccommMarkers();
     window.routeOrigin;
     //if the route is from 'my routes'
     if(flagPlan == "current"){
@@ -529,15 +529,15 @@ window.showChosenAccomm = function(){
             });
         }
     }
-    window.clearAccommMarkers();
     //$scope.showDailySections();
 }
 
 window.clearAccommMarkers = function(){
-    console.log(accommMarkers);
+    console.log(accommMarkers.length);
     if(accommMarkers.length != 0){
-        for (var i = 0; i < accommMarkers.length; i++) {
-            if (accommMarkers[i]) {
+        for(var i = 0; i < accommMarkers.length; i++) {
+            console.log(accomMarkers[i]);
+            if(accommMarkers[i]) {
                 accommMarkers[i].setMap(null);
             }
         }
