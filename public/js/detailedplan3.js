@@ -501,3 +501,35 @@ window.clearAccommMarkers = function(){
     }
 }
 
+window.showChosenAccomm = function(){
+    //show the sleep place marker on map if there is one
+    window.clearAccommMarkers();
+    for(var i=0; i<routeOrigin.daily_sections.length; i++){
+        if(routeOrigin.daily_sections[i].chosen_accomm != null){
+            var infowindow = new google.maps.InfoWindow();
+            var service = new google.maps.places.PlacesService(window.map);
+
+            service.getDetails({
+                placeId: routeOrigin.daily_sections[i].chosen_accomm.accomm_id
+            }, function(place, status) {
+                if (status === google.maps.places.PlacesServiceStatus.OK) {
+                    accommMarkers[i] = new google.maps.Marker({
+                        map: map,
+                        icon: '../images/BED.png',
+                        position: place.geometry.location
+                    });
+                    google.maps.event.addListener(accommMarkers[i], 'click', function() {
+                        var phone = "";
+                        if(place.formatted_phone_number) {
+                            phone = place.formatted_phone_number +'<br>';
+                        }
+                        infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
+                        place.vicinity + '<br>' + phone +'מקום לינה נבחר! </div>');
+                        infowindow.open(map, this);
+                    });
+                }
+            });
+        }
+    }
+}
+
