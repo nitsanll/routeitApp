@@ -401,7 +401,6 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile', '$wind
                     var withoutAccomm = angular.element(document.querySelector('#withoutAccomm'+dayNum));
                     withoutAccomm.css('display', 'none');
                     accommStrElement.html(accommStr);
-                    var chosenAccommContent = '<span id="deleteAccomm" ng-click="deleteAccomm('+ routeOrigin.daily_sections[i].day_num +')> X </span>' + accommStr;
                 }
             }
         } 
@@ -502,46 +501,3 @@ window.clearAccommMarkers = function(){
     }
 }
 
-window.showChosenAccomm = function(){
-    //show the sleep place marker on map if there is one
-    console.log("started chosenaccomm!");
-    window.clearAccommMarkers();
-    window.routeOrigin;
-    //if the route is from 'my routes'
-    if(flagPlan == "current"){
-        routeOrigin = JSON.parse(localStorage.getItem("currentRoute"));
-    //if the route is from 'chosen routes'
-    } else if(flagPlan == "currentDaily") {
-        routeOrigin = JSON.parse(localStorage.getItem("currentDailyRoute"));
-    //if the route is from 'daily route'
-    } else routeOrigin = JSON.parse(localStorage.getItem("chosenRoute"));
-    for(var i=0; i<routeOrigin.daily_sections.length; i++){
-        console.log("for day number: " + routeOrigin.daily_sections[i].day_num + " accomm is: " + routeOrigin.daily_sections[i].chosen_accomm);
-        if(routeOrigin.daily_sections[i].chosen_accomm != null){
-            var infowindow = new google.maps.InfoWindow();
-            var service = new google.maps.places.PlacesService(map);
-
-            service.getDetails({
-                placeId: routeOrigin.daily_sections[i].chosen_accomm.accomm_id
-            }, function(place, status) {
-                if (status === google.maps.places.PlacesServiceStatus.OK) {
-                    accommMarkers[i] = new google.maps.Marker({
-                        map: map,
-                        icon: '../images/BED.png',
-                        position: place.geometry.location
-                    });
-                    google.maps.event.addListener(accommMarkers[i], 'click', function() {
-                        var phone = "";
-                        if(place.formatted_phone_number) {
-                            phone = place.formatted_phone_number +'<br>';
-                        }
-                        infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
-                        place.vicinity + '<br>' + phone +'מקום לינה נבחר! </div>');
-                        infowindow.open(map, this);
-                    });
-                }
-            });
-        }
-    }
-    //$scope.showDailySections();
-}
