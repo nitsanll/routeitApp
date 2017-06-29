@@ -448,9 +448,10 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile', '$wind
                     var accommStr = routeOrigin.daily_sections[i].chosen_accomm.accomm_name + '<br>' + phone;
                     //chosenAccomm = accommStr;
                     var accommExists = angular.element(document.querySelector('#accommExists'+dayNum));
+                    var accommStrElement = angular.element(document.querySelector('#accommStr'+dayNum));
                     var withoutAccomm = angular.element(document.querySelector('#withoutAccomm'+dayNum));
                     withoutAccomm.css('display', 'none');
-                    accommExists.append(accommStr);
+                    accommStrElement.html(accommStr);
                     var chosenAccommContent = '<span id="deleteAccomm" ng-click="deleteAccomm('+ routeOrigin.daily_sections[i].day_num +')> X </span>' + accommStr;
                 }
             }
