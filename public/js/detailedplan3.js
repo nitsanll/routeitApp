@@ -536,7 +536,7 @@ window.clearAccommMarkers = function(){
     console.log(accommMarkers.length);
     if(accommMarkers.length != 0){
         for(var i = 0; i < accommMarkers.length; i++) {
-            console.log(accomMarkers[i]);
+            console.log(accommMarkers[i]);
             if(accommMarkers[i]) {
                 accommMarkers[i].setMap(null);
             }
