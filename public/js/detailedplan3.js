@@ -498,8 +498,7 @@ window.showChosenAccomm = function(){
     } else routeOrigin = JSON.parse(localStorage.getItem("chosenRoute"));
     //show the sleep place marker on map if there is one
     console.log("entering showchosen");
-    window.clearAccommMarkers(accommMarkers);
-    accommMarkers = [];
+    window.clearAccommMarkers();
     for(var i=0; i<routeOrigin.daily_sections.length; i++){
         if(routeOrigin.daily_sections[i].chosen_accomm != null){
             console.log(routeOrigin.daily_sections[i].chosen_accomm);
@@ -531,15 +530,15 @@ window.showChosenAccomm = function(){
     }
 }
 
-window.clearAccommMarkers = function(accommMarkers1){
-    console.log(accommMarkers1.length);
-    if(accommMarkers1.length != 0){
-        for(var i = 0; i < accommMarkers1.length; i++) {
-            console.log(accommMarkers1[i]);
-            if(accommMarkers1[i]) {
-                accommMarkers1[i].setMap(null);
+window.clearAccommMarkers = function(){
+    console.log(accommMarkers.length);
+    if(accommMarkers.length != 0){
+        for(var i = 0; i < accommMarkers.length; i++) {
+            console.log(accommMarkers[i]);
+            if(accommMarkers[i]) {
+                accommMarkers[i].setMap(null);
             }
         }
-        //accomMarkers = [];
+        accomMarkers = [];
     }
 }
