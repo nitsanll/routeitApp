@@ -23,6 +23,7 @@ suggestedRoute.controller('SuggestedController', ['$rootScope', '$scope', '$http
         tmpCoordsArr = tripCoordsArr;
     }
     var suggestedCoords = JSON.stringify(tripCoordsArr);
+    console.log("suggestedjs");
     localStorage.setItem("suggestedCoords", suggestedCoords);
 
     var newTripType = [];

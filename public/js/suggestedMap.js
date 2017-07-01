@@ -1,6 +1,7 @@
 //drawing suggested route map
 function initMap() {
     document.getElementById('map').className = 'miniMap';
+    console.log("suggestedmap");
     var coords = JSON.parse(localStorage.getItem("suggestedCoords"));
     var centerCoord = coords[parseInt(coords.length/2)];
     var map = new google.maps.Map(document.getElementById('map'), {
