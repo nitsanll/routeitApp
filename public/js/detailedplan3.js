@@ -487,19 +487,6 @@ window.initMap = function(){
 
 window.accommMarkers = [];
 
-window.clearAccommMarkers = function(){
-    console.log(accommMarkers.length);
-    if(accommMarkers.length != 0){
-        for(var i = 0; i < accommMarkers.length; i++) {
-            console.log(accommMarkers[i]);
-            if(accommMarkers[i]) {
-                accommMarkers[i].setMap(null);
-            }
-        }
-        accomMarkers = [];
-    }
-}
-
 window.showChosenAccomm = function(){
     //show the sleep place marker on map if there is one
     console.log("entering showchosen");
@@ -533,3 +520,15 @@ window.showChosenAccomm = function(){
     }
 }
 
+window.clearAccommMarkers = function(){
+    console.log(accommMarkers.length);
+    if(accommMarkers.length != 0){
+        for(var i = 0; i < accommMarkers.length; i++) {
+            console.log(accommMarkers[i]);
+            if(accommMarkers[i]) {
+                accommMarkers[i].setMap(null);
+            }
+        }
+        accomMarkers = [];
+    }
+}
