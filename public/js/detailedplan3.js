@@ -224,7 +224,7 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile', '$wind
                     placeId = place.place_id;
                     placeName = place.name;
                     placePhone = place.formatted_phone_number;
-                    if (status !== google.maps.places.PlacesServiceStatus.OK) {
+                    if(status !== google.maps.places.PlacesServiceStatus.OK) {
                       return;
                     }
                     var content = '<div id="windowContent"><strong>' + place.name + '</strong><br>' + place.vicinity + '<br>'; 
@@ -392,7 +392,7 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile', '$wind
                     console.log("there is accom for day");
                     var phone = "";
                     if(routeOrigin.daily_sections[i].chosen_accomm.phone != null){
-                        phone = ", "+routeOrigin.daily_sections[i].chosen_accomm.phone;
+                        phone = routeOrigin.daily_sections[i].chosen_accomm.phone;
                     }
                     var accommStr = routeOrigin.daily_sections[i].chosen_accomm.accomm_name + '<br>' + phone;
                     //chosenAccomm = accommStr;
@@ -405,7 +405,6 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile', '$wind
             }
         } 
     }
-
     $scope.showDailySections();
 }]);
 
