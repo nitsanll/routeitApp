@@ -4,9 +4,9 @@ suggestedRoute.controller('SuggestedController', ['$rootScope', '$scope', '$http
     var sugRoute = localStorage.getItem("suggestedRoute"); //getting the suggested route
     $scope.name =  localStorage.getItem("name");
     $scope.img = localStorage.getItem("pic");
-    var sugJson = JSON.parse(sugRoute);
+    //var sugJson = JSON.parse(sugRoute);
     console.log(sugJson.disabled_flag);
-    //merge daily sections coord arrays
+    /*//merge daily sections coord arrays
     var tripCoordsArr = []; // all daily sections coords
     var tmpCoordsArr = []; // holds coords temporarily 
     var dailyCoordsArray = []; // holds one daily section's coords
@@ -24,7 +24,7 @@ suggestedRoute.controller('SuggestedController', ['$rootScope', '$scope', '$http
     }
     var suggestedCoords = JSON.stringify(tripCoordsArr);
     console.log("suggestedjs");
-    localStorage.setItem("suggestedCoords", suggestedCoords);
+    localStorage.setItem("suggestedCoords", suggestedCoords);*/
 
     var newTripType = [];
     for(var i=0; i<sugJson.trip_type.length; i++){
