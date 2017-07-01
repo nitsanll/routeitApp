@@ -488,6 +488,14 @@ window.initMap = function(){
 window.accommMarkers = [];
 
 window.showChosenAccomm = function(){
+    if(flagPlan == "current"){
+        routeOrigin = JSON.parse(localStorage.getItem("currentRoute"));
+    //if the route is from 'chosen routes'
+    } else if(flagPlan == "currentDaily") {
+        console.log("inside");
+        routeOrigin = JSON.parse(localStorage.getItem("currentDailyRoute"));
+    //if the route is from 'daily route'
+    } else routeOrigin = JSON.parse(localStorage.getItem("chosenRoute"));
     //show the sleep place marker on map if there is one
     console.log("entering showchosen");
     window.clearAccommMarkers();
