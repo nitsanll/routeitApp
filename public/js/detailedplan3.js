@@ -501,18 +501,20 @@ window.showChosenAccomm = function(){
     window.clearAccommMarkers();
     for(var i=0; i<routeOrigin.daily_sections.length; i++){
         if(routeOrigin.daily_sections[i].chosen_accomm != null){
+            console.log(routeOrigin.daily_sections[i].chosen_accomm);
             var infowindow = new google.maps.InfoWindow();
             var service = new google.maps.places.PlacesService(window.map);
 
             service.getDetails({
                 placeId: routeOrigin.daily_sections[i].chosen_accomm.accomm_id
             }, function(place, status) {
-                if (status === google.maps.places.PlacesServiceStatus.OK) {
+                if(status === google.maps.places.PlacesServiceStatus.OK) {
                     accommMarkers[i] = new google.maps.Marker({
                         map: map,
                         icon: '../images/BED.png',
                         position: place.geometry.location
                     });
+                    console.log(accommMarkers[i]);
                     google.maps.event.addListener(accommMarkers[i], 'click', function() {
                         var phone = "";
                         if(place.formatted_phone_number) {
