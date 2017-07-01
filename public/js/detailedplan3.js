@@ -485,7 +485,7 @@ window.initMap = function(){
     window.showChosenAccomm();  
 }
 
-var accommMarkers = [];
+window.accommMarkers = [];
 
 window.clearAccommMarkers = function(){
     console.log(accommMarkers.length);
