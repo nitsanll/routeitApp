@@ -2,7 +2,7 @@
 function initMap() {
     document.getElementById('map').className = 'miniMap';
     console.log("suggestedmap");
-    var sugJson = JSON.parse(localStorage.getItem("suggestedRoute"));
+    var sugJson = JSON.parse(localStorage.getItem("suggestedRoute");)
     //merge daily sections coord arrays
     var tripCoordsArr = []; // all daily sections coords
     var tmpCoordsArr = []; // holds coords temporarily 

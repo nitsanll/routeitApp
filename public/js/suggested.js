@@ -6,25 +6,6 @@ suggestedRoute.controller('SuggestedController', ['$rootScope', '$scope', '$http
     $scope.img = localStorage.getItem("pic");
     var sugJson = JSON.parse(sugRoute);
     console.log(sugJson.disabled_flag);
-    /*//merge daily sections coord arrays
-    var tripCoordsArr = []; // all daily sections coords
-    var tmpCoordsArr = []; // holds coords temporarily 
-    var dailyCoordsArray = []; // holds one daily section's coords
-    for(var i=0; i<sugJson.daily_sections.length; i++){
-        for(var j=0; j<sugJson.daily_sections[i].coord_array.length; j++){
-            var dailyCoord = {
-                lat: Number(sugJson.daily_sections[i].coord_array[j].lat),
-                lng: Number(sugJson.daily_sections[i].coord_array[j].lng)
-            }
-            dailyCoordsArray.push(dailyCoord);
-        }
-        tripCoordsArr = tmpCoordsArr.concat(dailyCoordsArray);
-        dailyCoordsArray = [];
-        tmpCoordsArr = tripCoordsArr;
-    }
-    var suggestedCoords = JSON.stringify(tripCoordsArr);
-    console.log("suggestedjs");
-    localStorage.setItem("suggestedCoords", suggestedCoords);*/
 
     var newTripType = [];
     for(var i=0; i<sugJson.trip_type.length; i++){
