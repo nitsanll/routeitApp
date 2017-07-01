@@ -502,6 +502,7 @@ window.clearAccommMarkers = function(){
 
 window.showChosenAccomm = function(){
     //show the sleep place marker on map if there is one
+    console.log("entering showchosen");
     window.clearAccommMarkers();
     for(var i=0; i<routeOrigin.daily_sections.length; i++){
         if(routeOrigin.daily_sections[i].chosen_accomm != null){
