@@ -64,7 +64,7 @@ userRoutes.controller('RoutesController', ['$scope', '$http', '$compile', functi
         else{
             //building my routes html
             var currentDate = new Date();
-            for(var i = 0; i<myRoutesArr.length; i++){
+            for(var i = (myRoutesArr.length)-1; i>=0; i--){
                 var route = '<section class = "route" ng-click="chosenRoute(' + myRoutesArr[i].trip_id + ')" id="route' + myRoutesArr[i].trip_id +'"><img class="routePic" src="images/PIC_TRIP_'+i%6+'.jpg">';
                 var cDate = new Date(myRoutesArr[i].creation_date);
                 var cDateString = cDate.getDate() + '/' + (cDate.getMonth()+1) + '/' + cDate.getFullYear(); 
