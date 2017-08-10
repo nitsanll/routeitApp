@@ -37,7 +37,7 @@ dailyRoute.controller('dailyController', ['$scope', '$http', '$compile', functio
                 var tmpDate = new Date(chosenRoute.daily_sections[i].date);
                 if((currentDate.getDate() == tmpDate.getDate()) && (currentDate.getMonth() == tmpDate.getMonth()) 
                     && (currentDate.getFullYear() == tmpDate.getFullYear())){ 
-                    var start = chosenRoute.daily_sections[i].start_pt;
+                    /*var start = chosenRoute.daily_sections[i].start_pt;
                     var end = chosenRoute.daily_sections[i].end_pt;
                     var duration = chosenRoute.daily_sections[i].duration;
                     var diff = chosenRoute.daily_sections[i].difficulty;
@@ -82,10 +82,10 @@ dailyRoute.controller('dailyController', ['$scope', '$http', '$compile', functio
                     var elem = linkingFunction($scope);
                     dailyContent.html(elem);
                     isFinished = false;
-                    break;
-                } else {
+*/                    break;
+                } /*else {
                     isFinished = true; //////added new else
-                }
+                }*/
             }
             //the trip ended
             if(isFinished == true){
