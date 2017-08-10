@@ -65,9 +65,6 @@
                             <p class="dayDetail1"> {{d.duration}}<br> שעות </p>
                             <p class="dayDetail1"> {{d.diff}} </p>
                             <p class="dayDetail1" id="sleepDetail"> 
-                                <!-- <span id = "chosenAccomm{{d.dayNum}}">
-                                    <button id="accommBtn" ng-click="showAccomm(d.endPt, d.dayNum)"> עדכן מקום לינה </button>
-                                </span> -->
                                 <span id = "chosenAccomm{{d.dayNum}}" ng-bind-html="isAccommExists(d.dayNum)" translate-compile>
                                 </span>
                                 <span id="withoutAccomm{{d.dayNum}}"> <button id="accommBtn" ng-click="showAccomm(d.endPt, d.dayNum)"> בחר מקום לינה </button> </span>
@@ -77,14 +74,6 @@
                                 </span>
                             </p> 
                         </div>
-                      
-                        <!-- <p class="dayDetail">
-                            <img src="images/SLEEPING_PLACE.png"><br>
-                            <span id = "chosenAccomm{{d.dayNum}}">
-                                <button id="accommBtn" ng-click="showAccomm(d.endPt, d.dayNum)"> עדכן מקום לינה </button> {{d.chosenAccomm}}<sup id="deleteAccomm{{d.dayNum}}" ng-click="deleteAccomm(d.dayNum)"></sup> 
-                            </span>
-                        </p>-->
-
                        <div class="clear"></div> 
                     </div>
                 </section>
@@ -101,6 +90,5 @@
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClX7NRDum6_i6RO1SXeH9_REWSulwtA5c&language=iw&libraries=places&callback=initMap">
         </script>
         <script src="js/menu.js"></script>
-        <!-- <script src="js/tmp.js"></script> -->
     </body>
  </html>
