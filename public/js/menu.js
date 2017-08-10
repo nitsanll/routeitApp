@@ -1,8 +1,4 @@
-//$(".menu").hide();
+//opening and closing side menu
 $(".hamburger").click(function() {
 	$(".menu").slideToggle("slow");
 });
-
-/*$(".cross").click(function() {
-	$(".menu").slideToggle("slow");
-});*/
