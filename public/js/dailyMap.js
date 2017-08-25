@@ -1,10 +1,8 @@
-//$(document).ready(function() {
+//initialize daily route's map
 function initMap() {
     var chosenRoute = JSON.parse(localStorage.getItem("chosenRoute"));
     var myRoutes = localStorage.getItem("myRoutes");
-    //if there isn't a current trip for the current day
-    //if(myRoutes == null || myRoutes == "[]" || chosenRoute == "null"){
-    console.log("chosen in js: "+ chosenRoute);
+    //if the user is on a chosen trip
     if(chosenRoute != null){
         var currentDate = new Date(); //today's date
         var foundDay = false; //flag to check if the trip days have the current date
@@ -15,14 +13,12 @@ function initMap() {
                 foundDay = true;
             }  
         }
-        console.log(foundDay);
-        if(foundDay == false) localStorage.setItem("chosenRoute", null);
+        if(foundDay == false) localStorage.setItem("chosenRoute", null); //the chosen trip has ended, set chosenroute to null
     }
     var chosenRoute = JSON.parse(localStorage.getItem("chosenRoute"));
+    //if there isn't a chosen trip for the current day - show a map with the traveler's current position
     if(chosenRoute == null){
-         console.log(navigator.geolocation);
          navigator.geolocation.getCurrentPosition(function(position){
-            console.log("hi");
             window.lat = position.coords.latitude;
             window.lng = position.coords.longitude;
             map = new google.maps.Map(document.getElementById('map'), {
@@ -32,7 +28,6 @@ function initMap() {
             });
             var mark = new google.maps.Marker({position:{lat:lat, lng:lng}, map:map});
             document.getElementById('map').className = 'backgroundMap';
-            console.log(document.getElementById('map'));
         }, function(error){ 
             console.warn(error);
             map = new google.maps.Map(document.getElementById('map'), {
@@ -79,17 +74,14 @@ function initMap() {
         var map; //holds the google map
         var mark; //pin on map that shows user's position
 
-        //creating 'my location' button to add to the map
+        //creating 'user location' button to add to the map
         function CenterControl(controlDiv, map) {
             // Set CSS for the control border.
             var controlUI = document.createElement('div');
             controlUI.style.backgroundColor = '#fff';
             controlUI.style.padding = '2%';
             controlUI.style.borderRadius = '50px';
-            //controlUI.style.boxShadow = '0 2px 6px rgba(0,0,0,.3)';
             controlUI.style.cursor = 'pointer';
-            //controlUI.style.marginTop = '500px';
-            //controlUI.style.marginRight = '320px';
             controlUI.style.position = 'fixed';
             controlUI.style.left = '2%';
             controlUI.style.top = '20vh';
@@ -98,13 +90,6 @@ function initMap() {
 
             // Set CSS for the control interior.
             var controlText = document.createElement('div');
-            //controlText.style.color = 'rgb(25,25,25)';
-            //controlText.style.fontFamily = 'Roboto,Arial,sans-serif';
-            //controlText.style.fontSize = '16px';
-            //controlText.style.lineHeight = '38px';
-            //controlText.style.padding = '20px';
-            //controlText.style.paddingRight = '20px';
-            //controlText.backgroundImage = 'url("../images/NAVIGATOR.png")';
             controlText.border = 'none';
             controlText.display = 'block';
             controlText.width = '100px';
@@ -112,7 +97,7 @@ function initMap() {
             controlText.innerHTML = '<img src="../images/LOCATION.png">'; 
             controlUI.appendChild(controlText);
 
-            // Setup the click event listeners - set the map to the user's current location
+            // Setup the click event listeners - set the map to the user's current trip area
             controlUI.addEventListener('click', function() {
                 navigator.geolocation.getCurrentPosition(function(position){
                     window.lat = position.coords.latitude;
@@ -132,7 +117,7 @@ function initMap() {
                 mapTypeId:google.maps.MapTypeId.ROAD
             });
 
-            //draws the route by its coordinates
+            //draw the route on map by its coordinates
             var lineCoordinatesPath = new google.maps.Polyline({
                 path: dailyCoordsArray,
                 geodesic: true,
@@ -142,11 +127,11 @@ function initMap() {
             });
             lineCoordinatesPath.setMap(map);
             
+            //add daily alerts markers to map
             var dayAlerts = chosenRoute.daily_sections[currentDayPos].alert;
             var alertMarkers = [];
             if(dayAlerts.length != 0){
                 for(var i =0; i<dayAlerts.length; i++){
-                    console.log(dayAlerts[i]);
                     var coord = {
                         lat: Number(dayAlerts[i].coord.lat),
                         lng: Number(dayAlerts[i].coord.lng)
@@ -168,9 +153,8 @@ function initMap() {
             }
             document.getElementById('map').className = 'backgroundMap'; //change map display settings
 
-            //adding a pin with the chosen accomm for the day
+            //add a pin to map with the chosen accomm for the day
             if(chosenRoute.daily_sections[currentDayPos].chosen_accomm != null){
-                console.log(chosenRoute.daily_sections[currentDayPos].chosen_accomm);
                 var infowindow = new google.maps.InfoWindow();
                 var service = new google.maps.places.PlacesService(map);
 
@@ -196,14 +180,14 @@ function initMap() {
                 });
             }
 
-            //add the 'my locaiton' button
+            //add the 'user current locaiton' button to map
             var centerControlDiv = document.createElement('div');
             var centerControl = new CenterControl(centerControlDiv, map);
             centerControlDiv.index = 1;
             map.controls[google.maps.ControlPosition.TOP_CENTER].push(centerControlDiv);
             mark = new google.maps.Marker({position:{lat:lat, lng:lng}, map:map});
         });
-        //function that redraws the user's current position
+        //function that redraws the user's current position on map
         var redraw = function(payload) {
             lat = payload.message.lat;
             lng = payload.message.lng;
@@ -221,10 +205,8 @@ function initMap() {
             navigator.geolocation.getCurrentPosition(function(position) {
                 window.lat = position.coords.latitude;
                 window.lng = position.coords.longitude;
-                console.log(window.lat + " " + window.lng);
                 pubnub.publish({channel:pnChannel, message:{lat:window.lat, lng:window.lng}});
             });  
         }, 5000);
     }
 }
-//}

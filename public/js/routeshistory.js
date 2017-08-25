@@ -7,7 +7,6 @@ routesHistory.run(function($rootScope ,$http) {
     //getting traveler's routes history
     $http.get("https://routeit-ws.herokuapp.com/getPrevRoutes/" + userMail).success(function(prevRoutes){
         prevRoutesArr = prevRoutes.previous_routes;
-        console.log(prevRoutesArr);
         $rootScope.$broadcast('init');
     });   
 });
@@ -18,7 +17,6 @@ routesHistory.controller('RoutesHistoryController', ['$rootScope', '$scope', '$h
         //get user profile details
         $scope.name  = localStorage.getItem("name");
         $scope.img = localStorage.getItem("pic");
-        //localStorage.setItem("currentRoute", null);
         $scope.showRoutesHistory();
     }
 
@@ -27,7 +25,7 @@ routesHistory.controller('RoutesHistoryController', ['$rootScope', '$scope', '$h
         unbindHandler();
     });
 
-    //function that shows traveler's 'previous routes'
+    //function that shows traveler's 'routes history'
     $scope.showRoutesHistory = function(){
         var allPrevRoutes = [];
         if(prevRoutesArr.length == 0) {
@@ -39,15 +37,12 @@ routesHistory.controller('RoutesHistoryController', ['$rootScope', '$scope', '$h
                 var cDateString = cDate.getDate() + '/' + (cDate.getMonth()+1) + '/' + cDate.getFullYear(); 
                 route+='<p class="creationDate"> נוצר ב- '+ cDateString +'</p>'
                 +'<section class="ptsDate"><h4 class="tripArea"> אזור ' + prevRoutesArr[i].area + '</h4><h3 class = "tripPts">' + prevRoutesArr[i].trip_start_pt + ' - ' + prevRoutesArr[i].trip_end_pt + '</h3>';
-                console.log(prevRoutesArr[i]);
                 if(prevRoutesArr[i].start_date){
                     var sDate = new Date(prevRoutesArr[i].start_date);
                     var sDateString = sDate.getDate() + '/' + (sDate.getMonth()+1) + '/' + sDate.getFullYear(); 
                     var eDate = new Date(prevRoutesArr[i].end_date);
-                    var eDateString = eDate.getDate() + '/' + (eDate.getMonth()+1) + '/' + eDate.getFullYear(); 
-                    console.log(prevRoutesArr[i].start_date + " " + prevRoutesArr[i].end_date); 
+                    var eDateString = eDate.getDate() + '/' + (eDate.getMonth()+1) + '/' + eDate.getFullYear();   
                     if(sDateString == eDateString){
-                        console.log("start and end dates are equal!");
                         route += '<p id="tripDates'+i+'" class="tripDates">' + sDateString + '</section>';
                     } else {
                         route += '<p class="tripDates" id="tripDates'+i+'">' + eDateString + " - " + sDateString + '</section>';  
@@ -67,32 +62,6 @@ routesHistory.controller('RoutesHistoryController', ['$rootScope', '$scope', '$h
                 +'<p class = "tripDetail diffWidth" id="withoutBorder"> רמת קושי: <br><b class="diffDetail">' + prevRoutesArr[i].trip_difficulty + '</b></p></div>'
                 +'<button class = "historyDeleteBtn" ng-click="deletePrevRoute(' + prevRoutesArr[i].trip_id + ')"></button><br></section>';
                 allPrevRoutes+=route;
-                /*var route = '<section class = "route"><h3 ng-click="chosenRoute(' + prevRoutesArr[i].trip_id + ')">' + prevRoutesArr[i].trip_start_pt + ' - ' + prevRoutesArr[i].trip_end_pt +
-                '</h3>';
-                if(prevRoutesArr[i].direction == "north") route+= '<p> צפון -> דרום </p>';
-                else route+= '<p> דרום -> צפון </p>';
-                var sDate = new Date(prevRoutesArr[i].start_date);
-                var sDateString = sDate.getDate() + '/' + (sDate.getMonth()+1) + '/' + sDate.getFullYear(); 
-                var eDate = new Date(prevRoutesArr[i].end_date);
-                var eDateString = eDate.getDate() + '/' + (eDate.getMonth()+1) + '/' + eDate.getFullYear();  
-                if(sDateString == eDateString){
-                    route += '<p>' + sDateString + '</p>';
-                } else {
-                    route += '<p>' + eDateString + " - " + sDateString +'</p>';   
-                }  
-                route += '<p> אזור ' + prevRoutesArr[i].area; 
-                if(prevRoutesArr[i].days_num == 1) {
-                    route += '<br> טיול יומי';
-                }
-                else {
-                    route += '<br> מספר ימים: ' + prevRoutesArr[i].days_num;
-                }
-                route += '<br> מספר ק"מ ליום: ' + prevRoutesArr[i].day_km + '<br> מספר ק"מ כולל: ' + prevRoutesArr[i].trip_km + '</p>' +
-                '<button class = "deleteBtn" ng-click="deletePrevRoute(' + prevRoutesArr[i].trip_id + ')"> מחק מסלול </button>';
-                var cDate = new Date(prevRoutesArr[i].creation_date);
-                var cDateString = cDate.getDate() + '/' + (cDate.getMonth()+1) + '/' + cDate.getFullYear(); 
-                route+='<p> נוצר ב- '+ cDateString +'</p></section>';
-                allPrevRoutes+=route;*/
             }
             $scope.prevRoutes = allPrevRoutes;
             var routesContent = angular.element(document.querySelector('#content'));
@@ -102,20 +71,16 @@ routesHistory.controller('RoutesHistoryController', ['$rootScope', '$scope', '$h
         }
     }
 
-
-    //function that deletes a chosen route from traveler's routes
+    //function that deletes a certain route from traveler's 'routes history'
     $scope.deletePrevRoute = function(tripId){
-        console.log("delete");
         $http.get("https://routeit-ws.herokuapp.com/deletePrevRoute/" + userMail + "/" + tripId).success(function(routes){
             //delete the route from myRoutesArr
             for(var i = 0; i<prevRoutesArr.length; i++){
                 if(prevRoutesArr[i].trip_id == tripId){
-                    console.log("found the route tripId to delete: " + tripId + ", in array position: " + i);
                     prevRoutesArr.splice(i,1);
                     break;
                 }
             }
-            console.log("deleted");
             $scope.showRoutesHistory();          
         });
     }

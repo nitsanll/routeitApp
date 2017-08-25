@@ -1,8 +1,7 @@
-//drawing suggested route map
+//drawing suggested route on google map
 function initMap() {
     document.getElementById('map').className = 'miniMap';
-    console.log("suggestedmap");
-    var sugJson = JSON.parse(localStorage.getItem("suggestedRoute"));
+    var sugJson = JSON.parse(localStorage.getItem("suggestedRoute")); //getting the suggested route
     //merge daily sections coord arrays
     var tripCoordsArr = []; // all daily sections coords
     var tmpCoordsArr = []; // holds coords temporarily 
@@ -20,15 +19,18 @@ function initMap() {
         tmpCoordsArr = tripCoordsArr;
     }
     var suggestedCoords = JSON.stringify(tripCoordsArr);
-    console.log("suggestedjs");
     localStorage.setItem("suggestedCoords", suggestedCoords);
     var coords = JSON.parse(localStorage.getItem("suggestedCoords"));
     var centerCoord = coords[parseInt(coords.length/2)];
+    
+    //creating the map
     var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 12,
-        center: centerCoord, //{lat: 33.240884, lng: 35.575751},
+        center: centerCoord, 
         mapTypeId: google.maps.MapTypeId.ROAD
     });
+    
+    //drawing the suggested route line on the map
     var lineCoordinatesPath = new google.maps.Polyline({
         path: coords,
         geodesic: true,

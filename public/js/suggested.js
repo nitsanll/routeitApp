@@ -5,8 +5,6 @@ suggestedRoute.controller('SuggestedController', ['$rootScope', '$scope', '$http
     $scope.name =  localStorage.getItem("name");
     $scope.img = localStorage.getItem("pic");
     var sugJson = JSON.parse(sugRoute);
-    console.log(sugJson.disabled_flag);
-
     var newTripType = [];
     for(var i=0; i<sugJson.trip_type.length; i++){
         if(i == (sugJson.trip_type.length)-1){
@@ -26,6 +24,7 @@ suggestedRoute.controller('SuggestedController', ['$rootScope', '$scope', '$http
     $scope.tripDiff = sugJson.trip_difficulty;
     $scope.tripType = newTripType;
 
+    //checking the disabled flag and adding disabled icon
     if(sugJson.disabled_flag == true){
         var disabledElement = angular.element(document.querySelector('#sugDisabled'));
         disabledElement.html('<img id="disabledIcon" src="../images/DISABLED.png">');
@@ -37,7 +36,6 @@ suggestedRoute.controller('SuggestedController', ['$rootScope', '$scope', '$http
         var dailySec = '<section class="suggesteDailySec"><h4 id="sugDayNum"> יום ' +  sugJson.daily_sections[i].day_num +
         ':</h4><div id="descTypeDiv"> <span class="dayDescType" id="dayDesc"> <b> מאפייני המסלול: </b> <br>';
         for(var j = 0; j<sugJson.daily_sections[i].description.length; j++){
-            console.log(sugJson.daily_sections[i].description[j]);
             if(j == (sugJson.daily_sections[i].description.length)-1) {
                  dailySec += sugJson.daily_sections[i].description[j] +'</span>';
             }
@@ -47,7 +45,6 @@ suggestedRoute.controller('SuggestedController', ['$rootScope', '$scope', '$http
         }
         dailySec+='<span class="dayDescType"> <b> אופי המסלול: </b><br>';
         for(var j = 0; j<sugJson.daily_sections[i].type.length; j++){
-            console.log(sugJson.daily_sections[i].type[j]);
             if(j == (sugJson.daily_sections[i].type.length)-1) {
                  dailySec += sugJson.daily_sections[i].type[j] +'</span><div class="clear"></div></div>';
             }
@@ -64,13 +61,13 @@ suggestedRoute.controller('SuggestedController', ['$rootScope', '$scope', '$http
         routeDailySecs+=dailySec;
     }
     $scope.dailySecs = routeDailySecs;
-    //console.log($scope.dailySecs);
-        
+
     //adding daily sections overview to html
     var dailySecsContent = angular.element(document.querySelector('#dailySecs'));
     dailySecsContent.html($scope.dailySecs);
 
     $scope.isOpen = false; //flag to check if the daily sections overview is open
+    
     //function to show and hide daily sections overview
     $scope.showHide = function(){
         var showBtn = angular.element(document.querySelector('#showDays'));
@@ -93,7 +90,6 @@ suggestedRoute.controller('SuggestedController', ['$rootScope', '$scope', '$http
     //function to add the route to the traveler
     $scope.addRoute = function(){
         var tripId = parseInt(localStorage.getItem("idCounter"));
-        console.log(tripId);
         var email = localStorage.getItem("email");
         var newIdCounter = tripId + 1;
         localStorage.setItem("idCounter", newIdCounter);
@@ -122,6 +118,7 @@ suggestedRoute.controller('SuggestedController', ['$rootScope', '$scope', '$http
         });
     };
 
+    //function to go back to the route form and open a popup
     $scope.goBack = function(){
         var popupElement = angular.element(document.querySelector('#myPopup'));
         popupElement.addClass("show");
@@ -129,6 +126,7 @@ suggestedRoute.controller('SuggestedController', ['$rootScope', '$scope', '$http
         maskElement.addClass("pageMask");
     }
 
+    //function to stay in the suggested page
     $scope.stay = function(){
         var popupElement = angular.element(document.querySelector('#myPopup'));
         popupElement.removeClass("show");
@@ -136,6 +134,7 @@ suggestedRoute.controller('SuggestedController', ['$rootScope', '$scope', '$http
         maskElement.removeClass("pageMask");
     }
 
+    //function to go back to the route form
     $scope.back = function(){
         localStorage.setItem("suggestedBack", true);
         window.location.assign("https://routeit-app.herokuapp.com/routeform.html");

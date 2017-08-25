@@ -13,17 +13,15 @@ userProfile.run(function($rootScope ,$http) {
 
 userProfile.controller('ProfileController', ['$rootScope', '$scope', '$http', function($rootScope, $scope, $http){
     function init(){
-       	//get user profile details
-       	$scope.name  = localStorage.getItem("name");
-       	$scope.img = localStorage.getItem("pic");
-       	//get user's trips statistics
-       	$scope.trips = prevRoutesArr.length;
-       	$scope.tripsKm = 0;
-        //var tmpTripsKm;
-       	for(var i=0; i<prevRoutesArr.length; i++){
-       		$scope.tripsKm+=parseFloat(prevRoutesArr[i].trip_km);
-          //tmpTripsKm+=prevRoutesArr[i].trip_km;
-       	}
+        //get user profile details
+        $scope.name  = localStorage.getItem("name");
+        $scope.img = localStorage.getItem("pic");
+        //get user's trips statistics
+        $scope.trips = prevRoutesArr.length;
+        $scope.tripsKm = 0;
+        for(var i=0; i<prevRoutesArr.length; i++){
+          $scope.tripsKm+=parseFloat(prevRoutesArr[i].trip_km);
+        }
         $scope.tripsKm = $scope.tripsKm.toFixed(1);
     }
     

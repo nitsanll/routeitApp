@@ -15,20 +15,18 @@ login.controller('UserController', ['$scope','$http', function($scope, $http){
         email = profile.getEmail();
         localStorage.setItem("email", email); //saving the user's email 
 
+        //checking if the user exists
         var url = "https://routeit-ws.herokuapp.com/createTraveler/" + email +"/" + name + "/" + image;
         $http.get(url).success(function(data){
+            // if the user already registered
             if(data == "userExists") {
                  $http.get("https://routeit-ws.herokuapp.com/getIdCounter/" + email).success(function(idc){
                     localStorage.setItem("idCounter", idc.id_counter);
-                    console.log(idc.id_counter);
                     $http.get("https://routeit-ws.herokuapp.com/getMyRoutes/" + email).success(function(routes){
-                        console.log(routes.my_routes.length);
                         localStorage.setItem("myRoutes", JSON.stringify(routes.my_routes));
                         var isThereChosen = false;
                         for(var j=0; j<routes.my_routes.length; j++){
-                            console.log("inside");
                             if(routes.my_routes[j].isChosen == true){
-                                console.log(routes.my_routes[j].isChosen);
                                 localStorage.setItem("chosenRoute", JSON.stringify(routes.my_routes[j]));
                                 isThereChosen = true;
                                 break;
@@ -41,6 +39,7 @@ login.controller('UserController', ['$scope','$http', function($scope, $http){
                     });
                 });
             }
+            // if the user is new - setting items
             else {
                 localStorage.setItem("idCounter", 0);
                 localStorage.setItem("currentRoute", null);
@@ -52,7 +51,5 @@ login.controller('UserController', ['$scope','$http', function($scope, $http){
             } 
         });
     }
-
     window.onSignIn = onSignIn;
 }]);
-

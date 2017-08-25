@@ -4,22 +4,18 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile', '$wind
     $scope.name  = localStorage.getItem("name");
     $scope.img = localStorage.getItem("pic");
     var userMail = localStorage.getItem("email");
-    var flagPlan =  localStorage.getItem("planFlag");
-    var routeOrigin;
+    var flagPlan =  localStorage.getItem("planFlag");//indicates from which page the traveler got to detailed plan page
+    var routeOrigin;//holds the relevant route to show its detailed plan to traveler, according to 'flagPlan'
   
-    console.log(flagPlan);
     //if the route is from 'my routes'
     if(flagPlan == "current"){
         routeOrigin = JSON.parse(localStorage.getItem("currentRoute"));
     //if the route is from 'chosen routes'
     } else if(flagPlan == "currentDaily") {
-        console.log("inside");
         routeOrigin = JSON.parse(localStorage.getItem("currentDailyRoute"));
     //if the route is from 'daily route'
     } else routeOrigin = JSON.parse(localStorage.getItem("chosenRoute"));
     
-    console.log(JSON.parse(localStorage.getItem("myRoutes")));
-    console.log(routeOrigin);
     //if there are no dates chosen for the trip
     if(routeOrigin.start_date == null){
         $scope.sDate = "";
@@ -40,6 +36,7 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile', '$wind
     $scope.end = routeOrigin.trip_end_pt;
     var accommMarkers = [];
 
+    //clear accomm markers from map
     $scope.clearAccommMarkers = function(){
         console.log(accommMarkers.length);
         if(accommMarkers.length != 0){
@@ -52,14 +49,14 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile', '$wind
         }
     }
 
+    //show chosen accomm pin on map if there is one
     $scope.showChosenAccomm = function(){
-        //show the sleep place marker on map if there is one
         $scope.clearAccommMarkers();
         for(var i=0; i<routeOrigin.daily_sections.length; i++){
             if(routeOrigin.daily_sections[i].chosen_accomm != null){
                 var infowindow = new google.maps.InfoWindow();
                 var service = new google.maps.places.PlacesService(map);
-
+                //get the chosen accomm details by the accomm's google map id 
                 service.getDetails({
                     placeId: routeOrigin.daily_sections[i].chosen_accomm.accomm_id
                 }, function(place, status) {
@@ -84,9 +81,8 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile', '$wind
         }
     }
 
-    //function that shows the details about each daily section  
+    //function that shows the details about each trip's daily section  
     $scope.showDailySections = function(){
-        console.log("inside");
         var dailySections = []; //details of all daily sections
         if(flagPlan == "current"){
             routeOrigin = JSON.parse(localStorage.getItem("currentRoute"));
@@ -97,37 +93,24 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile', '$wind
         } else routeOrigin = JSON.parse(localStorage.getItem("chosenRoute"));
         //getting all details for each daily section
         for(var i = 0; i< routeOrigin.daily_sections.length; i++){
-            var chosenAccomm ="";
-            console.log(routeOrigin.daily_sections[i].chosen_accomm);
-            
+            var chosenAccomm ="";      
             //if there isn't a chosen accomm for the day 
             if(routeOrigin.daily_sections[i].chosen_accomm == null){}
             //if there is a chosen accomm for the day 
             else {
                 console.log("there is accom for day");
-                /*var deleteElem = angular.element(document.querySelector('#deleteAccomm'+routeOrigin.daily_sections[i].day_num));
-                console.log(deleteElem);
-                deleteElem.html("&#10006;");*/
                 var phone = "";
                 if(routeOrigin.daily_sections[i].chosen_accomm.phone != null){
                     phone = ", "+routeOrigin.daily_sections[i].chosen_accomm.phone;
                 }
                 var accommStr = routeOrigin.daily_sections[i].chosen_accomm.accomm_name + '<br>' + phone;
-                //chosenAccomm = accommStr;
                 var chosenAccommContent = '<span id="deleteAccomm" ng-click="deleteAccomm('+ routeOrigin.daily_sections[i].day_num +')> X </span>' + accommStr;
-                //var accommElem = angular.element(document.querySelector('#chosenAccomm'+routeOrigin.daily_sections[i].day_num));
-                //var accommElem =  $document[0].getElementById('chosenAccomm1');
                 var accommElem = $('#chosenAccomm1').html();
                 console.log( $('#chosenAccomm1').html());
-                //$scope.accomm1 = $sce.trustAsHtml('bla');
-                /*var wrappedResult = angular.element(accommElem);
-                console.log(accommElem);
-                console.log(wrappedResult);*/
                 var linkingFunction = $compile(chosenAccommContent);
                 var elem = linkingFunction($scope);
-                //accommElem.html(elem);
-                //wrappedResult.html(elem);
             }
+            //get daily description and type
             var descArr = [], typeArr = [];
             for(var j=0; j<routeOrigin.daily_sections[i].description.length; j++){
                 if(j==(routeOrigin.daily_sections[i].description.length)-1) {
@@ -145,6 +128,7 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile', '$wind
             }
             //if there are no dates
             if(routeOrigin.start_date == null) {
+                //details for a specific daily section
                 var dailySection = {
                     dayNum: routeOrigin.daily_sections[i].day_num,
                     dayDate: "",
@@ -165,7 +149,7 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile', '$wind
                 var dateDay = tmpDate.getDay();
                 var daysArr = ["יום א'", "יום ב'", "יום ג'", "יום ד'", "יום ה'", "יום ו'", "יום ש'"];
                     
-                //details for a certain daily section
+                //details for a specific daily section
                 var dailySection = {
                     dayNum: routeOrigin.daily_sections[i].day_num,
                     dayDate: ": " + dateStr + ",",
@@ -183,7 +167,6 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile', '$wind
             dailySections.push(dailySection);
         }
         $scope.dailySections = dailySections;
-        //$scope.showChosenAccomm();
     }
 
     //function that returns to the page the traveler came from
@@ -205,7 +188,6 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile', '$wind
     $scope.showAccomm = function(endPt, dayNum){
         accommDayNum = dayNum;
         var address = endPt +', ישראל';
-        console.log(address);
         var geocoder = new google.maps.Geocoder();
         geocoder.geocode({
           'address': address
@@ -222,35 +204,30 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile', '$wind
             showPlaces();
         });
 
-        //showing sleeping places markers on the map
+        //showing suggested sleeping places markers on the map
         function showPlaces(){
             var places = new google.maps.places.PlacesService(window.map);
-            //var MARKER_PATH = 'https://developers.google.com/maps/documentation/javascript/images/marker_green';
 
-            // Search for hotels in the selected city, within the viewport of the map.
+            // Search for hotels and lodges in the selected city, within the viewport of the map.
             function search() {
               var search = {
                 location: window.map.getCenter(),
                 radius: '1000',
                 types: ['lodging']
               };
-              console.log(window.map.getCenter().lat + " " + window.map.getCenter().lng);
               places.nearbySearch(search, function(results, status) {
                 clearMarkers();
                 if (status === google.maps.places.PlacesServiceStatus.OK) {
-                  // Create a marker for each hotel found, and
-                  // assign a letter of the alphabetic to each marker icon.
+                  // Create a marker for each hotel found
                   for (var i = 0; i < results.length; i++) {
                     var markerLetter = String.fromCharCode('A'.charCodeAt(0) + (i % 26));
-                    //var markerIcon = MARKER_PATH + markerLetter + '.png';
-                    // Use marker animation to drop the icons incrementally on the map.
+                    // Use marker animation to drop the icons incrementally on the map
                     markers[i] = new google.maps.Marker({
                       position: results[i].geometry.location,
                       animation: google.maps.Animation.DROP,
                       icon: '../images/BED.png',
                     });
-                    // If the user clicks a hotel marker, show the details of that hotel
-                    // in an info window.
+                    // If the traveler clicks a hotel marker, show the details of that hotel in an info window
                     markers[i].placeResult = results[i];
                     google.maps.event.addListener(markers[i], 'click', showInfoWindow);
                     setTimeout(dropMarker(i), i * 100);
@@ -258,7 +235,6 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile', '$wind
                 }
               });
             }
-
             function dropMarker(i) {
                 return function() {
                     markers[i].setMap(window.map);
@@ -267,7 +243,7 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile', '$wind
             $scope.infowindow = new google.maps.InfoWindow();
 
             // Get the place details for a hotel. Show the information in an info window,
-            // anchored on the marker for the hotel that the user selected.
+            // anchored on the marker for the hotel that the user selected
             function showInfoWindow() {
               var marker = this;
               places.getDetails({placeId: marker.placeResult.place_id},
@@ -294,7 +270,6 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile', '$wind
                         content+=ratingHtml + '<br>';
                     }
                     content+='<button id="accommBtn" ng-click="saveAccomm()"> בחר מקום זה! </button></div>';
-                    console.log(content);
                     var linkingFunction = $compile(content);
                     var elem = linkingFunction($scope);
                     $scope.infowindow.setContent(elem[0]);
@@ -305,8 +280,8 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile', '$wind
         }
     }
 
+    //function that cleans markers array
     function clearMarkers() {
-        console.log(markers.length);
         if(markers.length != 0){
             for (var i = 0; i < markers.length; i++) {
                 if (markers[i]) {
@@ -319,15 +294,12 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile', '$wind
 
     //function that saves the chosen accomm for a specific day
     $scope.saveAccomm = function(){
-        console.log("Day: " + accommDayNum);
-        console.log(placeName + " " + placeId + " " + placePhone);
         var accommObj = {
             accomm_name: placeName,
             phone: placePhone,
             accomm_id: placeId
         };
         var accommStr = accommObj.accomm_name + "," + accommObj.phone + "," + accommObj.accomm_id;
-        console.log(accommStr);
 
         $http.get("https://routeit-ws.herokuapp.com/saveAccomm/" + userMail + "/" + routeOrigin.trip_id + "/" + accommStr + "/" + accommDayNum).success(function(route){
             //updating the chosen accomm of local current route
@@ -351,7 +323,6 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile', '$wind
             var dailyRoutesArr = JSON.parse(localStorage.getItem("dailyRoutes"));
             for(var i = 0; i<myRoutesArr.length; i++){
                 if(myRoutesArr[i].trip_id == routeOrigin.trip_id){
-                    console.log("found the updated route!");
                     myRoutesArr[i] = routeOrigin;
                     localStorage.setItem("myRoutes", JSON.stringify(myRoutesArr));
                     break;
@@ -359,7 +330,6 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile', '$wind
             }
             for(var i = 0; i<dailyRoutesArr.length; i++){
                 if(dailyRoutesArr[i].trip_id == routeOrigin.trip_id){
-                    console.log("found the updated route!");
                     dailyRoutesArr[i] = routeOrigin;
                     localStorage.setItem("dailyRoutes", JSON.stringify(dailyRoutesArr));
                     break;
@@ -371,14 +341,12 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile', '$wind
         });
     }
 
-    //function that deletes accomm for a specific day
+    //function that deletes an accomm for a specific day
     $scope.deleteAccomm = function(dayNum){
-        console.log(dayNum);
         $http.get("https://routeit-ws.herokuapp.com/deleteAccomm/" + userMail + "/" + routeOrigin.trip_id + "/" + dayNum).success(function(route){
             //updating the chosen accomm of local current route
             for(var i = 0; i<routeOrigin.daily_sections.length; i++){
                 if(routeOrigin.daily_sections[i].day_num == dayNum){
-                    console.log("found the updated route!");
                     routeOrigin.daily_sections[i].chosen_accomm = null;
                     break;
                 }
@@ -394,9 +362,9 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile', '$wind
             //updating the route in my routes, and in daily routes if exists
             var myRoutesArr = JSON.parse(localStorage.getItem("myRoutes"));
             var dailyRoutesArr = JSON.parse(localStorage.getItem("dailyRoutes"));
+            //updating the route in my routes, and in daily routes if exists
             for(var i = 0; i<myRoutesArr.length; i++){
                 if(myRoutesArr[i].trip_id == routeOrigin.trip_id){
-                    console.log("found the updated route!");
                     myRoutesArr[i] = routeOrigin;
                     localStorage.setItem("myRoutes", JSON.stringify(myRoutesArr));
                     break;
@@ -404,7 +372,6 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile', '$wind
             }
             for(var i = 0; i<dailyRoutesArr.length; i++){
                 if(dailyRoutesArr[i].trip_id == routeOrigin.trip_id){
-                    console.log("found the updated route!");
                     dailyRoutesArr[i] = routeOrigin;
                     localStorage.setItem("dailyRoutes", JSON.stringify(dailyRoutesArr));
                     break;
@@ -418,8 +385,7 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile', '$wind
     var isThereAccomm = [];
     //drawing detailed plan route map
     $window.initMap = function(){
-        document.getElementById('map').className = 'miniMap';
-        
+        document.getElementById('map').className = 'miniMap';    
         window.flagPlan =  localStorage.getItem("planFlag");
         window.routeOrigin;
         //if the route is from 'my routes'
@@ -430,9 +396,10 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile', '$wind
             routeOrigin = JSON.parse(localStorage.getItem("currentDailyRoute"));
         //if the route is from 'daily route'
         } else routeOrigin = JSON.parse(localStorage.getItem("chosenRoute"));
-        var tripCoordsArr = []; // all daily sections coords
+        var tripCoordsArr = []; // holds all daily sections coords
         var tmpCoordsArr = []; // holds coords temporarily 
         var dailyCoordsArray = []; // holds one daily section's coords
+        //get the trip coords
         for(var i=0; i<routeOrigin.daily_sections.length; i++){
             for(var j=0; j<routeOrigin.daily_sections[i].coord_array.length; j++){
                 var dailyCoord = {
@@ -463,12 +430,11 @@ detailedPlan.controller('planController', ['$scope', '$http', '$compile', '$wind
         var alertMarkers = [];
         var dayAlerts;
         var k = 0;
-        console.log(routeOrigin.daily_sections.length);
+        //get trip alerts markers and put it on map
         for(var j=0; j<routeOrigin.daily_sections.length; j++){
             dayAlerts = routeOrigin.daily_sections[j].alert;
             if(dayAlerts.length != 0){
                 for(var i=0; i<dayAlerts.length; i++, k++){
-                    console.log(dayAlerts[i]);
                     var coord = {
                         lat: Number(dayAlerts[i].coord.lat),
                         lng: Number(dayAlerts[i].coord.lng)
